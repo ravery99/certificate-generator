@@ -1,23 +1,24 @@
 function sendToWebhook(e) {
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var sheet = SpreadsheetApp.openById("12b6KSossEByKKSbPr74Lp0QOgS2IfnHAhyLrlyvzVg8").getActiveSheet();
   var lastRow = sheet.getLastRow();
-  
-  var data = {
-    "email": sheet.getRange(lastRow, 1).getValue(),
-    "date": sheet.getRange(lastRow, 2).getValue(),
-    "name": sheet.getRange(lastRow, 3).getValue(),
-    "division": sheet.getRange(lastRow, 4).getValue(),
-    "facility": sheet.getRange(lastRow, 5).getValue(),
-    "phone": sheet.getRange(lastRow, 6).getValue()
+  var data = sheet.getRange(lastRow, 1, 1, sheet.getLastColumn()).getValues()[0];
+
+  var payload = {
+    email: data[1],  // Sesuaikan kolom
+    tanggal_training: data[2],
+    nama_peserta: data[3],
+    divisi: data[4],
+    fasilitas_kesehatan: data[5],
+    no_hp: data[6] ? data[6] : ""  // Jika kosong, kirim string kosong
   };
 
   var options = {
-    "method": "post",
-    "contentType": "application/json",
-    "payload": JSON.stringify(data)
+    method: "post",
+    contentType: "application/json",
+    payload: JSON.stringify(payload)
   };
 
-  var domain = "https://your-domain.com";
-  var endpoint = "/public/webhook.php";
+  var domain = "https://5eaa-103-47-133-131.ngrok-free.app";
+  var endpoint = "/certificate-generator/public/webhook.php";
   UrlFetchApp.fetch(domain + endpoint, options);
 }
