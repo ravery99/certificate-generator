@@ -2,7 +2,7 @@
 function generateCertificate($name, $date, $division, $facility) {
     $image = imagecreatefrompng('../src/template.png');
     $black = imagecolorallocate($image, 0, 0, 0);
-    $font = '../src/helpers/arial.ttf'; // Pastikan file font ada
+    $font = '../src/helpers/Liter-Regular.ttf'; // Pastikan file font ada
     
     imagettftext($image, 40, 0, 500, 350, $black, $font, $name);
     imagettftext($image, 25, 0, 500, 450, $black, $font, "Tanggal: " . $date);

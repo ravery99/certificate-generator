@@ -10,12 +10,12 @@ function sendCertificate($email, $file) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'your-email@gmail.com';  
-        $mail->Password = 'your-email-password';  
-        $mail->SMTPSecure = 'tls';
+        $mail->Username = 'isa.itukeren0104@gmail.com';  
+        $mail->Password = 'kewrenitugua0104';  
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
-        $mail->setFrom('your-email@gmail.com', 'Training Team');
+        $mail->setFrom('isa.itukeren0104@gmail.com', 'Training Team');
         $mail->addAddress($email);
         $mail->addAttachment($file);
 
@@ -23,9 +23,13 @@ function sendCertificate($email, $file) {
         $mail->Subject = 'Sertifikat Training';
         $mail->Body = "Halo, <br><br> Berikut sertifikat untuk training Anda. <br><br> Terima kasih.";
 
+        // Menambahkan debugging
+        $mail->SMTPDebug = 2; // Menampilkan pesan debug (0 untuk tidak ada output, 2 untuk debugging)
+
         $mail->send();
         return true;
     } catch (Exception $e) {
+        file_put_contents("debug.log", 'Mailer Error: ' . $mail->ErrorInfo . PHP_EOL, FILE_APPEND);
         return false;
     }
 }
