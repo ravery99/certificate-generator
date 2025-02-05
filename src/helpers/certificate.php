@@ -1,14 +1,34 @@
 <?php
 function generateCertificate($name, $date, $division, $facility) {
+    $dateObject = new DateTime($date);
+
+    // Formatter untuk tanggal dalam bahasa Indonesia
+    $formatter = new IntlDateFormatter(
+        'id_ID', 
+        IntlDateFormatter::FULL, 
+        IntlDateFormatter::NONE, 
+        'Asia/Jakarta', 
+        IntlDateFormatter::GREGORIAN,
+        'd MMMM yyyy'
+    );
+
+    $training_date = $formatter->format($dateObject);
+
+
     $image = imagecreatefrompng('../src/template.png');
-    $black = imagecolorallocate($image, 0, 0, 0);
-    $font = '../src/helpers/Liter-Regular.ttf'; // Pastikan file font ada
+    $navy = imagecolorallocate($image, 3, 60, 84);
+    $green = imagecolorallocate($image, 0, 191, 99);
+    $font_amsterdam = '../src/helpers/AmsterdamFour.ttf';
+    $font_libre = '../src/helpers/LibreBaskerville-Bold.ttf';
+    $font_barlow = '../src/helpers/Barlow-Light.ttf';
     
-    imagettftext($image, 40, 0, 500, 350, $black, $font, $name);
-    imagettftext($image, 25, 0, 500, 450, $black, $font, "Tanggal: " . $date);
-    imagettftext($image, 25, 0, 500, 500, $black, $font, "Divisi: " . $division);
-    imagettftext($image, 25, 0, 500, 550, $black, $font, "Fasilitas: " . $facility);
-    
+    imagettftext($image, 76, 0, (5.4 * 77), (6.97 * 93), $navy, $font_amsterdam, $name); // Nama Peserta
+    imagettftext($image, 36, 0, (5.55 * 77), (11.7 * 70), $green, $font_libre, "Divisi " . $division); // Divisi
+    imagettftext($image, 36, 0, (5.65 * 77), (13.85 * 70), $green, $font_libre, $facility); // Faskes
+    imagettftext($image, 30, 0, (3.25 * 77), (15 * 70), $navy, $font_barlow, 
+        "Dalam partisipasinya mengikuti kegiatan “Training Sistem Informasi Manajemen Rumah Sakit” 
+        yang dilaksanakan oleh TRUSTMEDIS secara daring pada tanggal " . $training_date);
+
     $filename = '../storage/certificates/' . str_replace(' ', '_', $name) . '.png';
     imagepng($image, $filename);
     imagedestroy($image);

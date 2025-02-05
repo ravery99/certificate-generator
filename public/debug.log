@@ -220,3 +220,699 @@ Array
 )
 
 Mailer Error: SMTP Error: Could not authenticate.
+
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "desy 6",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => desy 6
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+Mailer Error: SMTP Error: Could not authenticate.
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"Bella1","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":"082109989290"}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => Bella1
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 082109989290
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "desy 7",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => desy 7
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"desy8","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => desy8
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"desy8","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => desy8
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"desy8","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => desy8
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"desy8","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => desy8
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-13T17:00:00.000Z","nama_peserta":"desy9","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-13T17:00:00.000Z
+    [nama_peserta] => desy9
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-11T17:00:00.000Z","nama_peserta":"desy10","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-11T17:00:00.000Z
+    [nama_peserta] => desy10
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-11T17:00:00.000Z","nama_peserta":"desy10","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-11T17:00:00.000Z
+    [nama_peserta] => desy10
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25T17:00:00.000Z","nama_peserta":"desy11","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => desy11
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25T17:00:00.000Z","nama_peserta":"desy11","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => desy11
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-05T17:00:00.000Z","nama_peserta":"isa1","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-05T17:00:00.000Z
+    [nama_peserta] => isa1
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25T17:00:00.000Z","nama_peserta":"DESY12","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => DESY12
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25T17:00:00.000Z","nama_peserta":"DESY12","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => DESY12
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-10T17:00:00.000Z","nama_peserta":"DESY14","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-10T17:00:00.000Z
+    [nama_peserta] => DESY14
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-22T17:00:00.000Z","nama_peserta":"Desy 15","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-22T17:00:00.000Z
+    [nama_peserta] => Desy 15
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25T17:00:00.000Z","nama_peserta":"Desy 16","divisi":"Farmasi","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 16
+    [divisi] => Farmasi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-24T17:00:00.000Z","nama_peserta":"Desy 17","divisi":"Kecantikan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-24T17:00:00.000Z
+    [nama_peserta] => Desy 17
+    [divisi] => Kecantikan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-23T17:00:00.000Z","nama_peserta":"Desy 18","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-23T17:00:00.000Z
+    [nama_peserta] => Desy 18
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 19",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 19
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 20",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 20
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-17T17:00:00.000Z","nama_peserta":"Desy 19","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-17T17:00:00.000Z
+    [nama_peserta] => Desy 19
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-24T17:00:00.000Z","nama_peserta":"Desy 20","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-24T17:00:00.000Z
+    [nama_peserta] => Desy 20
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-24T17:00:00.000Z","nama_peserta":"Desy 21","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-24T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 21",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 21
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-16T17:00:00.000Z","nama_peserta":"Desy 22","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-16T17:00:00.000Z
+    [nama_peserta] => Desy 22
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-20T17:00:00.000Z","nama_peserta":"Desy 23","divisi":"Rawat Inap","fasilitas_kesehatan":"Ristra Clinic","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-20T17:00:00.000Z
+    [nama_peserta] => Desy 23
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Ristra Clinic
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-16T17:00:00.000Z","nama_peserta":"Desy 24","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-16T17:00:00.000Z
+    [nama_peserta] => Desy 24
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-17T17:00:00.000Z","nama_peserta":"desy 25","divisi":"Rawat Inap","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-17T17:00:00.000Z
+    [nama_peserta] => desy 25
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-08T17:00:00.000Z","nama_peserta":"Desy 26","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-08T17:00:00.000Z
+    [nama_peserta] => Desy 26
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-21T17:00:00.000Z","nama_peserta":"Desy 27","divisi":"Rawat Jalan","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-21T17:00:00.000Z
+    [nama_peserta] => Desy 27
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-10T17:00:00.000Z","nama_peserta":"Desy 28","divisi":"Rawat Darurat","fasilitas_kesehatan":"Ristra Clinic","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-10T17:00:00.000Z
+    [nama_peserta] => Desy 28
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Ristra Clinic
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-08T17:00:00.000Z","nama_peserta":"Desy 29","divisi":"Rawat Inap","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-08T17:00:00.000Z
+    [nama_peserta] => Desy 29
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 30",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 30
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19T17:00:00.000Z","nama_peserta":"Desy 30","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19T17:00:00.000Z
+    [nama_peserta] => Desy 30
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-09T17:00:00.000Z","nama_peserta":"Desy 31","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-09T17:00:00.000Z
+    [nama_peserta] => Desy 31
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-06T17:00:00.000Z","nama_peserta":"isa2","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-06T17:00:00.000Z
+    [nama_peserta] => isa2
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-06T17:00:00.000Z","nama_peserta":"isa2","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-06T17:00:00.000Z
+    [nama_peserta] => isa2
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 31",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 31
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy 32",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy 32
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 32",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 32
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 33",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 33
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+

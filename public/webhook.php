@@ -29,11 +29,12 @@ if (
     // Generate sertifikat
     $file = generateCertificate($name, $date, $division, $facility);
 
-    // Kirim email dengan sertifikat terlampir
-    if (sendCertificate($email, $file)) {
-        echo json_encode(["status" => "success", "message" => "Sertifikat terkirim!"]);
+    // Jika data valid, generate sertifikat
+    if ($data) {
+        $certificateUrl = "http://localhost/certificate-generator/storage/certificates/" . str_replace(' ', '_', $name) . ".png";
+        echo json_encode(["status" => "success", "link" => $certificateUrl]);
     } else {
-        echo json_encode(["status" => "error", "message" => "Gagal mengirim email."]);
+        echo json_encode(["status" => "error", "message" => "Data tidak lengkap."]);
     }
 } else {
     echo json_encode(["status" => "error", "message" => "Data tidak lengkap.", "received" => $data]);
