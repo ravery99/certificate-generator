@@ -1,6 +1,5 @@
 <?php
 require '../src/helpers/certificate.php';
-require '../src/helpers/email.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");

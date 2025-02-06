@@ -21,11 +21,13 @@ function generateCertificate($name, $date, $division, $facility) {
     $font_amsterdam = '../src/helpers/AmsterdamFour.ttf';
     $font_libre = '../src/helpers/LibreBaskerville-Bold.ttf';
     $font_barlow = '../src/helpers/Barlow-Light.ttf';
+
+    $dpi_to_cm = 171 / 2.54;
     
-    imagettftext($image, 76, 0, (5.4 * 77), (6.97 * 93), $navy, $font_amsterdam, $name); // Nama Peserta
-    imagettftext($image, 36, 0, (5.55 * 77), (11.7 * 70), $green, $font_libre, "Divisi " . $division); // Divisi
-    imagettftext($image, 36, 0, (5.65 * 77), (13.85 * 70), $green, $font_libre, $facility); // Faskes
-    imagettftext($image, 30, 0, (3.25 * 77), (15 * 70), $navy, $font_barlow, 
+    imagettftext($image, 76, 0, (5.4 * $dpi_to_cm), (7.45 * $dpi_to_cm), $navy, $font_amsterdam, $name); // Nama Peserta
+    imagettftext($image, 36, 0, (5.55 * $dpi_to_cm), (11.7 * $dpi_to_cm), $green, $font_libre, "Divisi " . $division); // Divisi
+    imagettftext($image, 36, 0, (5.65 * $dpi_to_cm), (13.85 * $dpi_to_cm), $green, $font_libre, $facility); // Faskes
+    imagettftext($image, 30, 0, (3.25 * $dpi_to_cm), (15 * $dpi_to_cm), $navy, $font_barlow, 
         "Dalam partisipasinya mengikuti kegiatan “Training Sistem Informasi Manajemen Rumah Sakit” 
         yang dilaksanakan oleh TRUSTMEDIS secara daring pada tanggal " . $training_date);
 
