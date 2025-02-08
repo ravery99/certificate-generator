@@ -1036,3 +1036,900 @@ Array
     [no_hp] => 081210831115
 )
 
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 39",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 39
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{"email":"Email Address","tanggal_training":"Tanggal Training","nama_peserta":"Nama Peserta","divisi":"Divisi","fasilitas_kesehatan":"Fasilitas Kesehatan","no_hp":"No. Handphone"}
+Array
+(
+    [email] => Email Address
+    [tanggal_training] => Tanggal Training
+    [nama_peserta] => Nama Peserta
+    [divisi] => Divisi
+    [fasilitas_kesehatan] => Fasilitas Kesehatan
+    [no_hp] => No. Handphone
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-17T17:00:00.000Z","nama_peserta":"Desy 1","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-17T17:00:00.000Z
+    [nama_peserta] => Desy 1
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-17T17:00:00.000Z","nama_peserta":"Desy 1","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-17T17:00:00.000Z
+    [nama_peserta] => Desy 1
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 39",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 39
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 40",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 40
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 41",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 41
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 42",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "Klinik Dua Empat",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 42
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 42",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 42
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 42",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 42
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 42",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 42
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 43",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 43
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman coba coba coba 43",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman coba coba coba 43
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman coba coba coba empat kali 43",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman coba coba coba empat kali 43
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 43",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 43
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman coba coba dua kali 43",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman coba coba dua kali 43
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman coba coba dua kali 44",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman coba coba dua kali 44
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman coba coba dua kali terus sampe mentok 44",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman coba coba dua kali terus sampe mentok 44
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 45",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 45
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy coba coba coba coba postman 45",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy coba coba coba coba postman 45
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy coba coba coba coba postman 46",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy coba coba coba coba postman 46
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy coba coba coba coba postman 46",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy coba coba coba coba postman 46
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 46",
+    "divisi" : "Rawat Inap",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 46
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 47",
+    "divisi" : "Rawat Inap",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 47
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 48",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 48
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik 2",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik 2
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik 3",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik 3
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik 3",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik 3
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik 3",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik 3
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik 3",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik 3
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Mahesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Mahesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Gahesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Gahesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Gahesha Malik Aja Coba",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Gahesha Malik Aja Coba
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Gahesha Malik Nani",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Gahesha Malik Nani
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Gahesha Malik Aja",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Gahesha Malik Aja
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Ayesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Ayesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Jonathan Ayesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Jonathan Ayesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Ganesha Ayesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Ganesha Ayesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Muhammad Ayesha Malik",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Muhammad Ayesha Malik
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Wa Ode Desyta Lestari",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Wa Ode Desyta Lestari
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Laras Wanda Mifta Agung",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Laras Wanda Mifta Agung
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Laras Wanda Mifta Agung Setiabudi",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Laras Wanda Mifta Agung Setiabudi
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Bella Indah Surya Asri",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Bella Indah Surya Asri
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
