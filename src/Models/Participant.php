@@ -21,6 +21,7 @@ class Participant
     {
         return $this->data['email'];
     }
+    
 
 	public function getTrainingDate(): string 
     {
