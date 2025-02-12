@@ -7,10 +7,15 @@ use Phroute\Phroute\Dispatcher;
 
 use App\Controllers\ParticipantController;
 use App\Controllers\WebhookHandler;
-
-$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+use App\Utils\CertificateTemplate;
+use App\Utils\TextStyles;
 
 require "../vendor/autoload.php";
+
+CertificateTemplate::init();
+TextStyles::init();
+
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 
 $endpoint = "/certificate-generator/public";
 
@@ -20,13 +25,25 @@ $router = new RouteCollector();
 //     return ("ini index");
 // });
 
-$router->post('$endpoint/webhook', [WebhookHandler::class, 'handle']);
-$router->post('$endpoint/certificate/{email}/{name}/{timestamp}', [ParticipantController::class, 'showCertificate']);
+$router->any("$endpoint/webhook", [WebhookHandler::class, 'handle']);
+$router->post("$endpoint/certificate/{email}/{name}/{timestamp}", [ParticipantController::class, 'showCertificate']);
 
 $dispatcher = new Dispatcher($router->getData());
-$reponse = $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
+try {
+    $response = $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
+    echo $response;
+} catch (Phroute\Phroute\Exception\HttpRouteNotFoundException $e) {
+    echo "Rute tidak ditemukan: " . $e->getMessage();
+} catch (Phroute\Phroute\Exception\HttpMethodNotAllowedException $e) {
+    echo "Metode tidak diizinkan: " . $e->getMessage();
+} catch (Exception $e) {
+    echo "Terjadi kesalahan: " . $e->getMessage();
+}
 
-echo $reponse;
+// $dispatcher = new Dispatcher($router->getData());
+// $reponse = $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
+
+// echo $reponse;
 
 // require "Router.php";
 // $router = new Router();

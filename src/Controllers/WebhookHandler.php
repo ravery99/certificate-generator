@@ -10,13 +10,15 @@ class WebhookHandler
 {
     private $payload;
 
-    public function __construct($payload)
-    {
-        $this->payload = $payload;
-        file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
-    }
+    // public function __construct($payload)
+    // {
+    //     $this->payload = $payload;
+    //     file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
+    // }
     public function handle()
     {
+        $this->payload = file_get_contents("php://input");
+        file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
         try {
             $generatedLink = $this->processPayload();
             $responseData = [

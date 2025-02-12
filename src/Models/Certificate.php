@@ -59,7 +59,7 @@ class Certificate
         }
 
         $filename = $this->formatCertificateFilename();
-        $filepath = '../../storage/certificates/' . $filename;
+        $filepath = __DIR__ . '/../../storage/certificates/' . $filename;
 
         imagepng($image, $filepath);
         imagedestroy($image);

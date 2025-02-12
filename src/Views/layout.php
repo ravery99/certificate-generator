@@ -16,7 +16,7 @@
 
 <body class="flex justify-center items-center min-h-screen p-4 sm:p-8">
 
-    <?php  require_once '../src/Views/$viewPath.php'; ?> 
+    <?php  require_once "../src/Views/$viewPath.php"; ?> 
 
 </body>
 
