@@ -58,12 +58,31 @@ class Certificate
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);
         }
 
-        // TODO: perlu diganti jadi timestamp + nama/uniqid
-        $filename = '../public/certificates/' . str_replace(' ', '_', $this->participant->getName()) . '.png'; 
-        imagepng($image, $filename);
+        $filename = $this->formatCertificateFilename();
+        $filepath = '../../storage/certificates/' . $filename;
+
+        imagepng($image, $filepath);
         imagedestroy($image);
 
-        return $filename;
+        return $filepath;
     }
 
+    private function formatText(string $text): string
+    {
+        $cleanText = preg_replace('/[^A-Za-z0-9\-]/', '_', $text);
+        return $cleanText;
+    }
+
+    private function formatCertificateFilename(): string
+    {
+        $email = $this->participant->getEmail();
+        $name = $this->participant->getName();
+
+        $cleanEmail = $this->formatText($email);
+        $cleanName = $this->formatText($name);
+        $timestamp = time();
+
+        $filename = sprintf('%s-%s-%d.png', $cleanEmail, $cleanName, $timestamp);
+        return $filename;
+    }
 }

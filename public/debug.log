@@ -1933,3 +1933,624 @@ Array
     [no_hp] => 081210831115
 )
 
+
+
+
+
+
+
+
+
+
+{
+    "Email": "kbthnsklh6@gmail.com",
+    "Tanggal Training": "2025-02-25T17:00:00.000Z",
+    "Nama Peserta": "Desy postman 1",
+    "Divisi": "Admisi",
+    "Fasilitas Kesehatan": "RSGM UNAIR",
+    "No. Handphone": "08123456789"
+}
+
+Array
+(
+    [Email] => kbthnsklh6@gmail.com
+    [Tanggal Training] => 2025-02-25T17:00:00.000Z
+    [Nama Peserta] => Desy postman 1
+    [Divisi] => Admisi
+    [Fasilitas Kesehatan] => RSGM UNAIR
+    [No. Handphone] => 08123456789
+)
+
+{"tanggal_training":"2025-02-26","nama_peserta":"Desy 8","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":"","no_hp":""}
+{"tanggal_training":"2025-02-26","nama_peserta":"Desy 9","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+
+
+
+
+
+
+
+
+
+{
+    "Email": "kbthnsklh6@gmail.com",
+    "Tanggal Training": "2025-02-25T17:00:00.000Z",
+    "Nama Peserta": "Desy postman 1",
+    "Divisi": "Admisi",
+    "Fasilitas Kesehatan": "RSGM UNAIR",
+    "No. Handphone": "08123456789"
+}
+
+
+
+
+
+
+
+
+
+
+{
+    "Email": "kbthnsklh6@gmail.com",
+    "Tanggal Training": "2025-02-25T17:00:00.000Z",
+    "Nama Peserta": "Desy postman 2",
+    "Divisi": "Admisi",
+    "Fasilitas Kesehatan": "RSGM UNAIR",
+    "No. Handphone": "08123456789"
+}
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 2",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 2
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 2",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 2
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-18T17:00:00.000Z","nama_peserta":"Desy 13","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-18T17:00:00.000Z
+    [nama_peserta] => Desy 13
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"Desy coba sama bella barengan","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => Desy coba sama bella barengan
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12T17:00:00.000Z","nama_peserta":"Desy coba sama bella barengan","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12T17:00:00.000Z
+    [nama_peserta] => Desy coba sama bella barengan
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no_hp] => 
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 2",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 2
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 3",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 3
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"tanggal_training":"2025-02-25","nama_peserta":"Desy 14","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 4",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+
+
+
+
+
+
+
+
+
+
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 4
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 5",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 5
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 6",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 6
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"no_hp":""}
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 6",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 6
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 7",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 7
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-17T17:00:00.000Z","nama_peserta":"Desy 18","divisi":"Kecantikan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no_hp":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-17T17:00:00.000Z
+    [nama_peserta] => Desy 18
+    [divisi] => Kecantikan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no_hp] => 
+)
+
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-10T17:00:00.000Z","nama_peserta":"Bella 4","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no_hp":""}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-10T17:00:00.000Z
+    [nama_peserta] => Bella 4
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 
+)
+
+{"tanggal_training":"2025-02-18","nama_peserta":"Desy 19","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+{"tanggal_training":"2025-02-25","nama_peserta":"Desy coba barengan 3","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+{"tanggal_training":"2025-02-11","nama_peserta":"Bella 5","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+{"tanggal_training":"2025-02-26","nama_peserta":"Desy 20","divisi":"Admisi","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25T17:00:00.000Z",
+    "nama_peserta" : "Desy postman 8",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25T17:00:00.000Z
+    [nama_peserta] => Desy postman 8
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25",
+    "nama_peserta" : "Desy postman 8",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25
+    [nama_peserta] => Desy postman 8
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"tanggal_training":"2025-02-18","nama_peserta":"Desy 21","divisi":"Rawat Inap","fasilitas_kesehatan":"RSGM UNAIR","no._handphone":""}
+{"tanggal_training":"2025-02-18","nama_peserta":"Desy 22","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Kesalahan JSON: No error
+{"tanggal_training":"2025-02-19","nama_peserta":"Desy 23","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+{"tanggal_training":"2025-02-25","nama_peserta":"Desy 24","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+{"no_hp":""}
+{"tanggal_training":"2025-02-11","nama_peserta":"Desy 26","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+{"tanggal_training":"2025-02-18","nama_peserta":"Desy 27","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+{
+    "email" : "kbthnsklh6@gmail.com",
+    "tanggal_training" : "2025-02-25",
+    "nama_peserta" : "Desy postman 9",
+    "divisi" : "Admisi",
+    "fasilitas_kesehatan" : "RSGM UNAIR",
+    "no_hp" : "081210831115"
+}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25
+    [nama_peserta] => Desy postman 9
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no_hp] => 081210831115
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 28","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 28
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25","nama_peserta":"Desy 29","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25
+    [nama_peserta] => Desy 29
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"isa.itukeren0104@gmail.com","tanggal_training":"2025-02-11","nama_peserta":"Bella 8","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no._handphone":""}
+Array
+(
+    [email] => isa.itukeren0104@gmail.com
+    [tanggal_training] => 2025-02-11
+    [nama_peserta] => Bella 8
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 30","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 30
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-12","nama_peserta":"Desy 31","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-12
+    [nama_peserta] => Desy 31
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh4@gmail.com","tanggal_training":"2025-02-18","nama_peserta":"Desy 32","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh4@gmail.com
+    [tanggal_training] => 2025-02-18
+    [nama_peserta] => Desy 32
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-03-05","nama_peserta":"Desy 33","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-03-05
+    [nama_peserta] => Desy 33
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh4@gmail.com","tanggal_training":"2025-02-23","nama_peserta":"Desy 34","divisi":"Rawat Darurat","fasilitas_kesehatan":"RSGM UNAIR","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh4@gmail.com
+    [tanggal_training] => 2025-02-23
+    [nama_peserta] => Desy 34
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 35","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 35
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 36","divisi":"Admisi","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 36
+    [divisi] => Admisi
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-26","nama_peserta":"Desy 37","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-26
+    [nama_peserta] => Desy 37
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-26","nama_peserta":"Desy 38","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-26
+    [nama_peserta] => Desy 38
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-03-19","nama_peserta":"Desy 39","divisi":"Farmasi","fasilitas_kesehatan":"Ristra Clinic","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-03-19
+    [nama_peserta] => Desy 39
+    [divisi] => Farmasi
+    [fasilitas_kesehatan] => Ristra Clinic
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-26","nama_peserta":"Desy 40","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-26
+    [nama_peserta] => Desy 40
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-25","nama_peserta":"Desy 41","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-25
+    [nama_peserta] => Desy 41
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-26","nama_peserta":"Desy 42","divisi":"Rawat Jalan","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-26
+    [nama_peserta] => Desy 42
+    [divisi] => Rawat Jalan
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 43","divisi":"Rawat Darurat","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 43
+    [divisi] => Rawat Darurat
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 44","divisi":"Rawat Inap","fasilitas_kesehatan":"RSGM UNAIR","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 44
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => RSGM UNAIR
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-19","nama_peserta":"Desy 44","divisi":"Kecantikan","fasilitas_kesehatan":"Klinik Dua Empat","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-19
+    [nama_peserta] => Desy 44
+    [divisi] => Kecantikan
+    [fasilitas_kesehatan] => Klinik Dua Empat
+    [no._handphone] => 
+)
+
+{"email":"kbthnsklh6@gmail.com","tanggal_training":"2025-02-26","nama_peserta":"Desy 45","divisi":"Rawat Inap","fasilitas_kesehatan":"Klinik Cahaya Kasih","no._handphone":""}
+Array
+(
+    [email] => kbthnsklh6@gmail.com
+    [tanggal_training] => 2025-02-26
+    [nama_peserta] => Desy 45
+    [divisi] => Rawat Inap
+    [fasilitas_kesehatan] => Klinik Cahaya Kasih
+    [no._handphone] => 
+)
+

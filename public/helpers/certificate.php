@@ -5,6 +5,19 @@
 
 function generateCertificate($name, $date, $division, $facility) {
     $dateObject = new DateTime($date);
+    
+    // // Coba parsing dengan format ISO 8601
+    // $dateObject = DateTime::createFromFormat(DateTime::ATOM, $date);
+    
+    // // Jika gagal, coba parsing dengan format 'Y-m-d'
+    // if (!$dateObject) {
+    //     $dateObject = DateTime::createFromFormat('Y-m-d', $date);
+    // }
+
+    // // Jika masih gagal, lemparkan exception atau tangani kesalahan
+    // if (!$dateObject) {
+    //     throw new Exception("Format tanggal tidak valid: $date");
+    // }
 
     // Formatter untuk tanggal dalam bahasa Indonesia
     $formatter = new IntlDateFormatter(
@@ -21,9 +34,9 @@ function generateCertificate($name, $date, $division, $facility) {
     $image = imagecreatefrompng('../src/template.png');
     $navy = imagecolorallocate($image, 3, 60, 84);
     $green = imagecolorallocate($image, 0, 191, 99);
-    $font_amsterdam = '../src/helpers/AmsterdamFour.ttf';
-    $font_libre = '../src/helpers/LibreBaskerville-Bold.ttf';
-    $font_barlow = '../src/helpers/Barlow-Light.ttf';
+    $font_amsterdam = 'helpers/AmsterdamFour.ttf';
+    $font_libre = 'helpers/LibreBaskerville-Bold.ttf';
+    $font_barlow = 'helpers/Barlow-Light.ttf';
 
 
     function getTextHeight($font_size, $font_file, $text) {
