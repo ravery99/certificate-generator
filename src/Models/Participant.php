@@ -8,31 +8,25 @@ use IntlDateFormatter;
 
 class Participant
 {
-	private string $timestamp;
-    private string $email;
-    private string $training_date;
-    private string $name;
-    private string $division;
-    private string $facility;
-    private string $phone_number;
+	private array $data;
+    
 
-    public function __construct( $timestamp,  $email,  $training_date,  $name,  $division,  $facility,  $phone_number)
+    public function __construct( $data )
     {
-        $this->timestamp = $timestamp;
-        $this->email = $email;
-        $this->training_date = $training_date;
-        $this->name = $name;
-        $this->division = $division;
-        $this->facility = $facility;
-        $this->phone_number = $phone_number;
-
+        $this->data = $data;
         $this->formatTrainingDateToLocale();
     }
-	public function getTimestamp(): string {return $this->timestamp;}
 
-	public function getEmail(): string {return $this->email;}
+	public function getEmail(): string 
+    {
+        return $this->data['email'];
+    }
+    
 
-	public function getTrainingDate(): string {return $this->training_date;}
+	public function getTrainingDate(): string 
+    {
+        return $this->data['tanggal_training'];
+    }
 
     private function formatTrainingDateToLocale(): void
     {
@@ -51,12 +45,35 @@ class Participant
         $this->training_date = $formatter->format($date_object);
     }
 
-	public function getName(): string {return $this->name;}
+	public function getName(): string 
+    {
+        return $this->data['nama_peserta'];
+    }
 
-	public function getDivision(): string {return $this->division;}
+	public function getDivision(): string 
+    {
+        return $this->data['divisi'];
+    }
 
-	public function getFacility(): string {return $this->facility;}
+	public function getFacility(): string
+     {
+        return $this->data['fasilitas_kesehatan'];
+    }
 
-	public function getPhoneNumber(): string {return $this->phone_number;}
+	public function getPhoneNumber(): string
+     {
+        return $this->data['no_hp'];
+    }
+    public function getCertificate(): string 
+    {
+        return $this->data['lokasi_sertifikat'];
+    }
+    
+    public function setCertificate(): void 
+    {
+        $certificate = new Certificate($this);
+        $this->data['lokasi_sertifikat'] = $certificate->generate();
+    }
+    
 
 }
