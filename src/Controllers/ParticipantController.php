@@ -1,16 +1,18 @@
 <?php
 
+namespace App\Controllers;
 
 class ParticipantController extends Controller
 {
 
-    public function showCertificate(): void
+    public function showCertificate($email, $name, $timestamp): void
     {
         $participantModel = $this->loadModel("Participant"); 
 
         if ($participantModel) {
-            $participants = $participantModel->getCertificate(); 
-            $this->renderView("certificates", ['participants' => $participants]);
+            $certificate = $participantModel->findCertificate($email, $name, $timestamp); 
+            $certificate ? $this->renderView("certificates", ['certificate' => $certificate]) 
+                         : $this->showExpire();
         } else {
             echo "Model Participant tidak ditemukan.";
         }
@@ -19,7 +21,7 @@ class ParticipantController extends Controller
     public function showExpire(): void
     {
         $participantModel = $this->loadModel("Participant");
-        $this->renderView("expired_certificate", [""=> $participantModel]);
+        $this->renderView("expired_certificate");
     }
 }
 
