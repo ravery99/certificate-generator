@@ -26,12 +26,14 @@ class Certificate
     {
         $training_name = "Training Sistem Informasi Manajemen Rumah Sakit";
         $text_box_data = [
-            ['text' => $this->participant->getName(), 'size' => new Size(18.91, 2.2), 'coordinate' => new Coordinate(100, 200), 'font' => TextStyles::$TITLE],
-            ['text' => "Divisi " . $this->participant->getDivision(), 'size' => new Size(17.97, 0.93), 'coordinate' => new Coordinate(100, 300), 'font' => TextStyles::$SUBTITLE],
-            ['text' => $this->participant->getFacility(), 'size' => new Size(17.97, 0.93), 'coordinate' => new Coordinate(100, 360), 'font' => TextStyles::$SUBTITLE],
-            // ['text' => "Dalam partisipasinya mengikuti kegiatan " . $this->participant->getTrainingName(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(100, 420), 'font' => TextStyles::$DESCRIPTION],
-            ['text' => "Dalam partisipasinya mengikuti kegiatan $training_name", 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(100, 420), 'font' => TextStyles::$DESCRIPTION],
-            ['text' => "yang dilaksanakan oleh TRUSTMEDIS secara daring pada tanggal " . $this->participant->getTrainingDate(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(100, 480), 'font' => TextStyles::$DESCRIPTION]
+            ['text' => $this->participant->getName(), 'size' => new Size(18.91, 2.2), 'coordinate' => new Coordinate(5.4, 6.97), 'font' => TextStyles::$TITLE],
+            ['text' => "Divisi " . $this->participant->getDivision(), 'size' => new Size(17.97, 0.53), 'coordinate' => new Coordinate(5.4, 11.65), 'font' => TextStyles::$SUBTITLE],
+            ['text' => $this->participant->getFacility(), 'size' => new Size(17.97, 0.53), 'coordinate' => new Coordinate(5.4, 13.9), 'font' => TextStyles::$SUBTITLE],
+            
+            // ['text' => "Dalam partisipasinya mengikuti kegiatan " . $this->participant->getTrainingName(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 15.3), 'font' => TextStyles::$DESCRIPTION],
+            
+            ['text' => "Dalam partisipasinya mengikuti kegiatan $training_name", 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 15.3), 'font' => TextStyles::$DESCRIPTION],
+            ['text' => "yang dilaksanakan oleh TRUSTMEDIS secara daring pada tanggal " . $this->participant->getTrainingDate(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 16.1), 'font' => TextStyles::$DESCRIPTION]
         ];
 
         foreach ($text_box_data as $data) {

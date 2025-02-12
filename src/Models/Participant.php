@@ -43,7 +43,7 @@ class Participant
             'd MMMM yyyy'
         );
 
-        $this->training_date = $formatter->format($date_object);
+        $this->data['tanggal_training'] = $formatter->format($date_object);
     }
 
 	public function getName(): string 

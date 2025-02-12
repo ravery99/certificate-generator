@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Utils\UnitConverter;
 
 class Coordinate
 {
@@ -10,8 +11,8 @@ class Coordinate
 
     public function __construct($x_coordinate, $y_coordinate)
     {
-        $this->x_coordinate = $x_coordinate;
-        $this->y_coordinate = $y_coordinate;
+        $this->x_coordinate = $x_coordinate * UnitConverter::dpiToDpcm(171);
+        $this->y_coordinate = $y_coordinate * UnitConverter::dpiToDpcm(171);
     }
 
     public function getXCoordinate(): float|int {return $this->x_coordinate;}
