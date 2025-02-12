@@ -16,12 +16,12 @@ $endpoint = "/certificate-generator/public";
 
 $router = new RouteCollector();
 
-$router->get("$domain$endpoint/", function ()  {
-    return ("ini index");
-});
+// $router->get("$domain$endpoint/", function ()  {
+//     return ("ini index");
+// });
 
-$router->post('/webhook', [WebhookHandler::class, 'handle']);
-$router->post('/certificate/{email}/{name}/{timestamp}', [ParticipantController::class, 'showCertificate']);
+$router->post('$endpoint/webhook', [WebhookHandler::class, 'handle']);
+$router->post('$endpoint/certificate/{email}/{name}/{timestamp}', [ParticipantController::class, 'showCertificate']);
 
 $dispatcher = new Dispatcher($router->getData());
 $reponse = $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
