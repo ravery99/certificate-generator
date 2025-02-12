@@ -19,10 +19,10 @@ class TextBox
         $this->setXCoordinate();
         $this->setYCoordinate();
     }
-    
-    public function getText(): string 
+
+    public function getTextDisplay()
     {
-        return $this->text_display->getText();
+        return $this->text_display;
     }
     
     public function getSize(): Size 

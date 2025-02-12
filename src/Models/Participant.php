@@ -74,13 +74,13 @@ class Participant
     {
         $certificate = new Certificate($this);
         $this->data['lokasi_sertifikat'] = $certificate->generate();
-        $this->setCertificateLink(data['lokasi_sertifikat']);
+        $this->setCertificateLink($this->data['lokasi_sertifikat']);
         // $this->data['tautan_sertifikat'] = $this->getCertificateLink();
     }
     
     public function findCertificate(string $email, string $name, string $timestamp): string
     {
-        $path = realpath(__DIR__ . "/../../storage/certificates"); 
+        $path = __DIR__ . "/../../storage/certificates/"; 
         $file = "$path/" . basename($email) . "-" . basename($name) . "-" . basename($timestamp) . ".png"; 
     
         return (file_exists($file) && is_readable($file)) ? $file : "";
