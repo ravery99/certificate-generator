@@ -1,5 +1,3 @@
-<?php
-
 <div class="w-full max-w-screen-2xl bg-white shadow-2xl rounded-3xl p-6 sm:p-10 md:p-16 flex flex-col lg:flex-row items-center space-y-10 lg:space-y-0 lg:space-x-10">
     <!-- Bagian Teks -->
     <div class="flex-1 text-center lg:text-left">
@@ -21,6 +19,3 @@
              class="max-w-full max-h-[400px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[700px] rounded-xl shadow-2xl">
     </div>
 </div>
-
-
-?>
