@@ -9,7 +9,7 @@ class FontStyle {
 
     public function __construct($font_size, $font_filename, int $font_color) {
         $this->font_size = $font_size;
-        $this->font_filename = $font_filename;
+        $this->font_filename = __DIR__ . "/../../assets/fonts/$font_filename";
         $this->font_color = $font_color;
     }
 

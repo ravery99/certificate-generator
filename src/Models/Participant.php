@@ -43,7 +43,7 @@ class Participant
             'd MMMM yyyy'
         );
 
-        $this->training_date = $formatter->format($date_object);
+        $this->data['tanggal_training'] = $formatter->format($date_object);
     }
 
 	public function getName(): string 
@@ -74,18 +74,10 @@ class Participant
     {
         $certificate = new Certificate($this);
         $this->data['lokasi_sertifikat'] = $certificate->generate();
-        $this->setCertificateLink(data['lokasi_sertifikat']);
+        $this->setCertificateLink($this->data['lokasi_sertifikat']);
         // $this->data['tautan_sertifikat'] = $this->getCertificateLink();
     }
     
-    public function findCertificate(string $email, string $name, string $timestamp): string
-    {
-        $path = realpath(__DIR__ . "/../../storage/certificates"); 
-        $file = "$path/" . basename($email) . "-" . basename($name) . "-" . basename($timestamp) . ".png"; 
-    
-        return (file_exists($file) && is_readable($file)) ? $file : "";
-    }
-
     public function getCertificateLink(): string
     {
         return $this->data['tautan_sertifikat'];
@@ -93,14 +85,14 @@ class Participant
 
     public function setCertificateLink(string $path): void
     {
-        $certificateFilename = $this->parseFilename($path);
-        $this->data['tautan_sertifikat'] = "http://localhost/certificate-generator/public/" . $certificateFilename['email'] . "/" . $certificateFilename['name'] . "/" . $certificateFilename['timestamp'];
+        $certificate_filename = $this->parseFilename($path);
+        $this->data['tautan_sertifikat'] = "http://localhost/certificate-generator/public/certificate/" . $certificate_filename['email'] . "/" . $certificate_filename['name'] . "/" . $certificate_filename['timestamp'];
     }
 
     private function parseFilename(string $filename): array
     {
-        $filenameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME);
-        $parts = explode('-', $filenameWithoutExtension);
+        $filename_without_ext = pathinfo($filename, PATHINFO_FILENAME);
+        $parts = explode('-', $filename_without_ext);
         // if (count($parts) < 3) {
         //     throw new Exception('Format nama file tidak valid.');
         // }
