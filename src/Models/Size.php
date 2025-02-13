@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Utils\UnitConverter;
 
 class Size 
 {
@@ -9,8 +10,8 @@ class Size
    
     public function __construct($width, $height)
     {
-        $this->width = $width;
-        $this->height = $height;
+        $this->width = $width * UnitConverter::dpiToDpcm(171);
+        $this->height = $height * UnitConverter::dpiToDpcm(171);
     }
 
     public function getWidth(): float|int {return $this->width;}
