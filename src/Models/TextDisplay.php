@@ -34,8 +34,7 @@ class TextDisplay
 
     private function getMaxCharLength(int $container_width, int|float $dpi): int
     {
-        // $cm_to_px = UnitConverter::cmToPixel(1, $dpi);
-        // $container_width_px = $container_width_cm * $cm_to_px;
+        $container_width_px = $container_width_cm * UnitConverter::dpiToDpcm($dpi);
         $text = $this->text;
         $font_size = $this->font_style->getFontSize();
         $font_filename = $this->font_style->getFontFilename();

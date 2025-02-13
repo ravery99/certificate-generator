@@ -2,8 +2,7 @@
 
 namespace App\Models;
 use App\Utils\CertificateTemplate;
-
-
+use App\Utils\UnitConverter;
 
 class TextBox
 {
@@ -38,7 +37,9 @@ class TextBox
 
     private function setXCoordinate(): void
     {
-        $textbox_width = $this->size->getWidth();
+        $textbox_width = $this->size->getWidth()* UnitConverter::dpiToDpcm(171);
+        $initial_coordinate = $this->getCenteredXCoordinate($textbox_width);
+        // $initial_coordinate = $this->coordinate->getXCoordinate();
         $font_size = $this->text_display->getFontStyle()->getFontSize();
         $font_filename = $this->text_display->getFontStyle()->getFontFilename();
 
@@ -68,13 +69,10 @@ class TextBox
         $this->coordinate->setXCoordinate($final_x);
     }
 
-
-
-
     private function setYCoordinate(): void
     {
         $initial_coordinate = $this->coordinate->getYCoordinate();
-        $textbox_height = $this->size->getHeight();
+        $textbox_height = $this->size->getHeight() * UnitConverter::dpiToDpcm(171);
         $final_coordinate = $textbox_height + $initial_coordinate;
 
         $this->coordinate->setYCoordinate($final_coordinate);
