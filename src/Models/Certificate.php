@@ -16,7 +16,7 @@ class Certificate
     {
         $this->participant = $participant;
     }
-    
+
     public function generate(): string
     {
         $this->createTextBoxes();
@@ -54,7 +54,7 @@ class Certificate
         foreach ($this->text_boxes as $text_box) {
             $text_display = $text_box->getTextDisplay();
             $fontStyle = $text_display->getFontStyle();
-            $text = $text_display->getText();
+            $text = $text_display->getAdaptiveText($container_width, $dpi);
             $coordinate = $text_box->getCoordinate();
 
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);
