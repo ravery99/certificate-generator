@@ -7,6 +7,7 @@ use App\Utils\CertificateTemplate;
 use App\Utils\TextStyles;
 use App\Models\Participant;
 use App\Utils\UnitConverter;
+use App\Config\Config;
 
 class Certificate
 {
@@ -53,10 +54,10 @@ class Certificate
     {
         $image = CertificateTemplate::getImage();
         foreach ($this->text_boxes as $text_box) {
-            $textbox_width = $text_box->getSize()->getWidth() * UnitConverter::dpiToDpcm(171);
+            $textbox_width = $text_box->getSize()->getWidth() * UnitConverter::dpiToDpcm(Config::DPI);
             $text_display = $text_box->getTextDisplay();
             $fontStyle = $text_display->getFontStyle();
-            $text = $text_display->getAdaptiveText($textbox_width, 171);
+            $text = $text_display->getAdaptiveText($textbox_width, Config::DPI);
             $coordinate = $text_box->getCoordinate();
 
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);

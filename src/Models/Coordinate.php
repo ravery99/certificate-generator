@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Utils\UnitConverter;
+use App\Config\Config;
 
 class Coordinate
 {
@@ -11,8 +12,8 @@ class Coordinate
 
     public function __construct($x_coordinate, $y_coordinate)
     {
-        $this->x_coordinate = $x_coordinate * UnitConverter::dpiToDpcm(171);
-        $this->y_coordinate = $y_coordinate * UnitConverter::dpiToDpcm(171);
+        $this->x_coordinate = $x_coordinate * UnitConverter::dpiToDpcm(Config::DPI);
+        $this->y_coordinate = $y_coordinate * UnitConverter::dpiToDpcm(Config::DPI);
     }
 
     public function getXCoordinate(): float|int {return $this->x_coordinate;}
