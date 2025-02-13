@@ -9,6 +9,7 @@ use App\Controllers\CertificateController;
 use App\Controllers\WebhookHandler;
 use App\Utils\CertificateTemplate;
 use App\Utils\TextStyles;
+use App\Controllers\ErrorController;
 
 require "../vendor/autoload.php";
 
@@ -24,13 +25,15 @@ $router->any("$endpoint/webhook", [WebhookHandler::class, 'handle']);
 $router->get("$endpoint/certificate/{email}/{name}/{timestamp}", [CertificateController::class, 'showCertificate']);
 
 $dispatcher = new Dispatcher($router->getData());
+$errorController = new ErrorController();
+
 try {
     $response = $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
     echo $response;
 } catch (Phroute\Phroute\Exception\HttpRouteNotFoundException $e) {
-    echo "Rute tidak ditemukan: " . $e->getMessage();
+    $errorController->routeNotFound($e->getMessage());
 } catch (Phroute\Phroute\Exception\HttpMethodNotAllowedException $e) {
-    echo "Metode tidak diizinkan: " . $e->getMessage();
+    $errorController->methodNotAllowed($e->getMessage());
 } catch (Exception $e) {
-    echo "Terjadi kesalahan: " . $e->getMessage();
+    $errorController->error($e->getMessage());
 }
