@@ -20,13 +20,13 @@ class WebhookHandler
         $this->payload = file_get_contents("php://input");
         file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
         try {
-            $generatedLink = $this->processPayload();
-            $responseData = [
+            $generated_link = $this->processPayload();
+            $response_data = [
                 'status' => 'success',
                 'message' => 'Payload processed successfully.',
-                'link' => $generatedLink
+                'link' => $generated_link
             ];
-            $this->respond($responseData);
+            $this->respond($response_data);
         } catch (Exception $e) {
             error_log($e->getMessage());
             $this->respond(['status' => 'error', 'message' => $e->getMessage()]);
@@ -40,6 +40,11 @@ class WebhookHandler
             throw new Exception('Invalid JSON format: ' . $e->getMessage());
         }
         $this->checkRequiredFields($data);
+        array_walk_recursive($data, function (&$value) {
+            if (is_string($value)) {
+                $value = htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+            }
+        });
         return $data;
     }
 
@@ -48,8 +53,8 @@ class WebhookHandler
         $data = $this->validatePayload();
 
         $participant = new Participant($data);
-        $generatedLink = $participant->getCertificateLink();
-        return $generatedLink;
+        $generated_link = $participant->getCertificateLink();
+        return $generated_link;
     }
 
     public function respond($data)
@@ -60,8 +65,8 @@ class WebhookHandler
     }
     private function checkRequiredFields($data): void
     {
-        $requiredFields = ['email', 'tanggal_training', 'nama_peserta', 'divisi', 'fasilitas_kesehatan']; // Ganti dengan nama field yang diperlukan
-        foreach ($requiredFields as $field) {
+        $required_fields = ['email', 'tanggal_training', 'nama_peserta', 'divisi', 'fasilitas_kesehatan']; // Ganti dengan nama field yang diperlukan
+        foreach ($required_fields as $field) {
             if (!isset($data[$field]) || empty($data[$field])) {
                 throw new Exception("Required field '{$field}' is missing or empty.");
             }

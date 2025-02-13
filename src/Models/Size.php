@@ -10,8 +10,8 @@ class Size
    
     public function __construct($width, $height)
     {
-        $this->width = $width * UnitConverter::dpiToDpcm(171);
-        $this->height = $height * UnitConverter::dpiToDpcm(171);
+        $this->width = $width;
+        $this->height = $height;
     }
 
     public function getWidth(): float|int {return $this->width;}
