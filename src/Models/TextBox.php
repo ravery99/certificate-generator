@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Utils\CertificateTemplate;
 use App\Utils\UnitConverter;
+use App\Config\Config;
 
 class TextBox
 {
@@ -37,34 +38,25 @@ class TextBox
 
     private function setXCoordinate(): void
     {
-        $textbox_width = $this->size->getWidth() * UnitConverter::dpiToDpcm(171);
+        $textbox_width = $this->size->getWidth() * UnitConverter::dpiToDpcm(Config::DPI);
         $initial_coordinate = $this->getCenteredXCoordinate($textbox_width);
         // $initial_coordinate = $this->coordinate->getXCoordinate();
         $font_size = $this->text_display->getFontStyle()->getFontSize();
         $font_filename = $this->text_display->getFontStyle()->getFontFilename();
 
-        // Ambil teks singkatan jika terlalu panjang
-        $text = $this->text_display->getAdaptiveText($textbox_width, 171);
-
-        // 🔥 HITUNG ULANG bounding box untuk teks yang sudah disingkat
+        $text = $this->text_display->getAdaptiveText($textbox_width, Config::DPI);
         $bbox = imagettfbbox($font_size, 0, $font_filename, $text);
 
-        // Ambil lebar teks baru (pastikan nilai absolut)
         $text_width = abs($bbox[2] - $bbox[0]);
         $final_coordinate = $initial_coordinate + ($textbox_width - $text_width) / 2;
 
-        // Pusatkan teks berdasarkan lebar barunya
-        // $textbox_x_center = $this->coordinate->getXCoordinate() + ($textbox_width / 2);
-        // $final_x = $textbox_x_center - ($text_width / 2);
-
-        // Set koordinat supaya teks tetap di tengah
         $this->coordinate->setXCoordinate($final_coordinate);
     }
 
     private function setYCoordinate(): void
     {
         $initial_coordinate = $this->coordinate->getYCoordinate();
-        $textbox_height = $this->size->getHeight() * UnitConverter::dpiToDpcm(171);
+        $textbox_height = $this->size->getHeight() * UnitConverter::dpiToDpcm(Config::DPI);
         $final_coordinate = $textbox_height + $initial_coordinate;
 
         $this->coordinate->setYCoordinate($final_coordinate);
