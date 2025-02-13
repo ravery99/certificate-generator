@@ -10,15 +10,10 @@ class WebhookHandler
 {
     private $payload;
 
-    // public function __construct($payload)
-    // {
-    //     $this->payload = $payload;
-    //     file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
-    // }
     public function handle()
     {
         $this->payload = file_get_contents("php://input");
-        file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); // Logging untuk cek payload
+        // file_put_contents("debug.log", $this->payload . PHP_EOL, FILE_APPEND); 
         try {
             $generated_link = $this->processPayload();
             $response_data = [
@@ -73,30 +68,3 @@ class WebhookHandler
         }
     }
 }
-
-// private function isPayloadEmpty(): void
-// {
-//     // Memeriksa apakah properti $payload ada dan tidak null
-//     if (!isset($this->payload)) {
-//         throw new Exception('Payload is not set.');
-//     }
-    
-//     // Memeriksa apakah properti $payload kosong
-//     if (empty($this->payload)) {
-//         throw new Exception('Payload is empty.');
-//     }
-// }
-// private function isFormatValid(): void
-// {
-//     // 2. Memeriksa apakah payload dalam format JSON yang valid
-//     if (json_last_error() !== JSON_ERROR_NONE) {
-//         throw new Exception('Invalid JSON format.');
-//     }
-// }
-// private function isTokenValid(): void 
-// {
-//     $expectedToken = 'your_expected_token'; // Token yang diharapkan
-//     if (!isset($data['auth_token']) || $data['auth_token'] !== $expectedToken) {
-//         throw new Exception('Invalid or missing authentication token.');
-//     }
-// }
