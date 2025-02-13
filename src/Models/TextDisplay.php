@@ -26,6 +26,11 @@ class TextDisplay
         return $this->text;
     }
 
+    public function setText(string $text): void
+    {
+        $this->text = $text;
+    }
+
     public function getAdaptiveText(int $container_width, int|float $dpi): string
     {
         $max_length = $this->getMaxCharLength($container_width, $dpi);
@@ -34,7 +39,6 @@ class TextDisplay
 
     private function getMaxCharLength(int $container_width, int|float $dpi): int
     {
-        $container_width_px = $container_width_cm * UnitConverter::dpiToDpcm($dpi);
         $text = $this->text;
         $font_size = $this->font_style->getFontSize();
         $font_filename = $this->font_style->getFontFilename();
@@ -63,10 +67,7 @@ class TextDisplay
         if (empty($words)) {
             return ''; // Pastikan tidak error jika teks kosong
         }
-
-        // Ambil maksimal tiga kata pertama tanpa singkatan
         $shortened_text = implode(' ', array_slice($words, 0, min(3, count($words))));
-
         return $this->getNextShortenedText($words, $shortened_text, $max_length);
     }
 
@@ -82,7 +83,6 @@ class TextDisplay
 
             $shortened_text = $temp_text; // Update hasil sementara
         }
-
         return $shortened_text;
     }
 

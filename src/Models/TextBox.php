@@ -37,7 +37,7 @@ class TextBox
 
     private function setXCoordinate(): void
     {
-        $textbox_width = $this->size->getWidth()* UnitConverter::dpiToDpcm(171);
+        $textbox_width = $this->size->getWidth() * UnitConverter::dpiToDpcm(171);
         $initial_coordinate = $this->getCenteredXCoordinate($textbox_width);
         // $initial_coordinate = $this->coordinate->getXCoordinate();
         $font_size = $this->text_display->getFontStyle()->getFontSize();
@@ -51,22 +51,14 @@ class TextBox
 
         // Ambil lebar teks baru (pastikan nilai absolut)
         $text_width = abs($bbox[2] - $bbox[0]);
+        $final_coordinate = $initial_coordinate + ($textbox_width - $text_width) / 2;
 
         // Pusatkan teks berdasarkan lebar barunya
-        $textbox_x_center = $this->coordinate->getXCoordinate() + ($textbox_width / 2);
-        $final_x = $textbox_x_center - ($text_width / 2);
-
-        // 🔥 Geser sedikit ke kiri
-        $final_x -= 5; // Coba mulai dari -5, sesuaikan kalau masih kurang
-
-        // Debugging
-        error_log("Teks asli/singkat: " . $text);
-        error_log("Textbox Width: " . $textbox_width);
-        error_log("Text Width: " . $text_width);
-        error_log("Final X setelah koreksi: " . $final_x);
+        // $textbox_x_center = $this->coordinate->getXCoordinate() + ($textbox_width / 2);
+        // $final_x = $textbox_x_center - ($text_width / 2);
 
         // Set koordinat supaya teks tetap di tengah
-        $this->coordinate->setXCoordinate($final_x);
+        $this->coordinate->setXCoordinate($final_coordinate);
     }
 
     private function setYCoordinate(): void
