@@ -15,7 +15,7 @@ class Certificate
     {
         $this->participant = $participant;
     }
-    
+
     public function generate(): string
     {
         $this->createTextBoxes();
@@ -29,9 +29,9 @@ class Certificate
             ['text' => $this->participant->getName(), 'size' => new Size(18.91, 2.2), 'coordinate' => new Coordinate(5.4, 6.97), 'font' => TextStyles::$TITLE],
             ['text' => "Divisi " . $this->participant->getDivision(), 'size' => new Size(17.97, 0.53), 'coordinate' => new Coordinate(5.4, 11.65), 'font' => TextStyles::$SUBTITLE],
             ['text' => $this->participant->getFacility(), 'size' => new Size(17.97, 0.53), 'coordinate' => new Coordinate(5.4, 13.9), 'font' => TextStyles::$SUBTITLE],
-            
+
             // ['text' => "Dalam partisipasinya mengikuti kegiatan " . $this->participant->getTrainingName(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 15.3), 'font' => TextStyles::$DESCRIPTION],
-            
+
             ['text' => "Dalam partisipasinya mengikuti kegiatan $training_name", 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 15.3), 'font' => TextStyles::$DESCRIPTION],
             ['text' => "yang dilaksanakan oleh TRUSTMEDIS secara daring pada tanggal " . $this->participant->getTrainingDate(), 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 16.1), 'font' => TextStyles::$DESCRIPTION]
         ];
@@ -51,10 +51,13 @@ class Certificate
     {
         $image = CertificateTemplate::getImage();
 
+        $container_width = imagesx($image); // Lebar gambar sertifikat
+        $dpi = 171; // Resolusi standar, bisa diubah sesuai kebutuhan
+
         foreach ($this->text_boxes as $text_box) {
             $text_display = $text_box->getTextDisplay();
             $fontStyle = $text_display->getFontStyle();
-            $text = $text_display->getText();
+            $text = $text_display->getAdaptiveText($container_width, $dpi);
             $coordinate = $text_box->getCoordinate();
 
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);
@@ -68,6 +71,7 @@ class Certificate
 
         return $filepath;
     }
+
 
     private function formatText(string $text): string
     {
