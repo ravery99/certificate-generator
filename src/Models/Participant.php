@@ -5,7 +5,6 @@ namespace App\Models;
 use DateTime;
 use IntlDateFormatter;
 
-
 class Participant
 {
 	private array $data;
@@ -33,7 +32,6 @@ class Participant
     {
         $date_object = new DateTime($this->getTrainingDate());
 
-        // Formatter untuk tanggal dalam bahasa Indonesia
         $formatter = new IntlDateFormatter(
             'id_ID', 
             IntlDateFormatter::FULL, 
@@ -75,7 +73,6 @@ class Participant
         $certificate = new Certificate($this);
         $this->data['lokasi_sertifikat'] = $certificate->generate();
         $this->setCertificateLink($this->data['lokasi_sertifikat']);
-        // $this->data['tautan_sertifikat'] = $this->getCertificateLink();
     }
     
     public function getCertificateLink(): string
@@ -93,9 +90,6 @@ class Participant
     {
         $filename_without_ext = pathinfo($filename, PATHINFO_FILENAME);
         $parts = explode('-', $filename_without_ext);
-        // if (count($parts) < 3) {
-        //     throw new Exception('Format nama file tidak valid.');
-        // }
         $timestamp = array_pop($parts);
         $name = array_pop($parts);
         $email = implode('-', $parts);
