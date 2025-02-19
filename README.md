@@ -31,6 +31,8 @@ Data yang diinputkan terdiri dari:
 3. Semua posisi tersebut tertera dalam satuan CM. Namun, aplikasi ini sudah otomatis akan mengonversinya ke PX.
 4. Salin semua file yang ada di folder /src/Scripts ke Google Apps Script.
 5. Beri trigger/pemicu pada tombol 'Kirim' dengan fungsi onFormSubmit.
+6. Apabila belum memiliki domain publik, aktifkan ngrok. Salin domain pada bagian Forwarding.
+7. Tempel domain tersebut pada Google Apps Script fungsi sendToWebhook.
 
 ## Alur Kerja Sistem
 1. Pengumpulan Data
