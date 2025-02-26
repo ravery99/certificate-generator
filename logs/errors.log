@@ -29,3 +29,8 @@ DETAIL:  Failing row contains (373e49d2-3629-4a03-8ad4-74396617bd84, aa@gmail.co
 [24-02-2025 18:54:46] General Error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "participant" does not exist
 LINE 1: SELECT * FROM participant WHERE id=$1
                       ^
+[26-02-2025 09:34:19] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:34:26] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:35:09] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:41:23] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:41:28] Error 404: Route certificate-generator/public does not exist
