@@ -26,13 +26,40 @@ Data yang diinputkan terdiri dari:
 - Ngrok (untuk testing)
 
 ## Persiapan 
+### Template Sertifikat
 1. Buat template gambar sertifikat di Canva.
 2. Catat keterangan posisi setiap teks yang ingin ditampilkan. Contoh yang digunakan dalam aplikasi ini: tinggi, lebar, koordinat x, koordinat y, font size, font color, font family.
 3. Semua posisi tersebut tertera dalam satuan CM. Namun, aplikasi ini sudah otomatis akan mengonversinya ke PX.
-4. Salin semua file yang ada di folder /src/Scripts ke Google Apps Script.
-5. Beri trigger/pemicu pada tombol 'Kirim' dengan fungsi onFormSubmit.
-6. Apabila belum memiliki domain publik, aktifkan ngrok. Salin domain pada bagian Forwarding.
-7. Tempel domain tersebut pada Google Apps Script fungsi sendToWebhook.
+
+### Google Apps Scripts
+1. Salin semua file yang ada di folder /src/Scripts ke Google Apps Script.
+2. Beri trigger/pemicu pada tombol 'Kirim' dengan fungsi onFormSubmit.
+3. Apabila belum memiliki domain publik, aktifkan ngrok. Salin domain pada bagian Forwarding.
+4. Tempel domain tersebut pada Google Apps Script fungsi sendToWebhook.
+
+### Install Packages & Libraries
+1. Install Composer.
+2. Install package Phroute.
+Install
+
+### Email Pengirim
+1. Nyalakan verifikasi 2 langkah pada akun email pengirim. 
+    1. Pergi ke https://myaccount.google.com/.
+    2. Klik *Security*.
+    3. Pada bagian *Signing in to Google*, klik *2-Step Verification*.
+    4. Klik *GET STARTED*.
+    5. Ketikkan kata sandi akun, lalu gunakan ponselmu untuk mengonfirmasi proses. Klik *CONTINUE*.
+    6. Tambahkan opsi cadangan. Klik *NEXT*.
+    7. Klik *TURN ON* untuk menyalakan verifikasi 2 langkah.
+2. Buat kata sandi aplikasi (app password).
+    1. Pergi ke https://myaccount.google.com/apppasswords.
+    2. Konfirmasi kredensial. Ketikkan kata sandi akun.
+    3. Ketikkan nama aplikasi, "Certificate Generator".
+    6. Klik *Create*.
+    7. Salin app password yang tampil dan tempelkan pada variabel $this->mail->Password di kelas EmailService.
+
+### Koneksi Database
+1. 
 
 ## Alur Kerja Sistem
 1. Pengumpulan Data
