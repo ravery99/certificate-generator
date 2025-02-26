@@ -1,0 +1,36 @@
+[2025-02-24 11:25:30] General Error: Required field 'name' is missing or empty.
+[2025-02-24 11:27:28] General Error: Required field 'name' is missing or empty.
+[2025-02-24 11:29:28] General Error: Required field 'name' is missing or empty.
+Database Connection Error: could not find driver
+[2025-02-24 11:41:41] General Error: Database Connection Error: could not find driver
+[24-02-2025 17:57:58] Error 405: Allow: GET
+[24-02-2025 17:58:26] General Error: Database Connection Error: could not find driver
+[24-02-2025 18:01:23] General Error: Database Connection Error: could not find driver
+[24-02-2025 18:02:41] General Error: Database Connection Error: could not find driver
+[24-02-2025 18:03:56] General Error: Database Connection Error: could not find driver
+[24-02-2025 18:05:56] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:06:33] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:06:46] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:19:10] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:21:51] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:22:51] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:24:32] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  database "cerificate_generator_db" does not exist
+[24-02-2025 18:25:15] General Error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "participant" does not exist
+LINE 1: INSERT INTO participant (id, email, training_date, p_name, d...
+                    ^
+[24-02-2025 18:30:55] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:31:41] General Error: Database Connection Error: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "user"
+[24-02-2025 18:38:56] General Error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "phone_number" of relation "tb_participant" violates not-null constraint
+DETAIL:  Failing row contains (7b6cda7c-bd2f-4c8f-ba4d-b34c0c9b8881, aa@gmail.com, 2025-02-11, aa, aa, aa, null, null).
+[24-02-2025 18:41:25] General Error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "certificate_path" of relation "tb_participant" violates not-null constraint
+DETAIL:  Failing row contains (ca205636-e296-4b74-ac37-7c676f524041, aa@gmail.com, 2025-02-11, aa, aa, aa, , null).
+[24-02-2025 18:44:41] General Error: SQLSTATE[23502]: Not null violation: 7 ERROR:  null value in column "certificate_path" of relation "tb_participant" violates not-null constraint
+DETAIL:  Failing row contains (373e49d2-3629-4a03-8ad4-74396617bd84, aa@gmail.com, 2025-02-11, aa, aa, aa, , null).
+[24-02-2025 18:54:46] General Error: SQLSTATE[42P01]: Undefined table: 7 ERROR:  relation "participant" does not exist
+LINE 1: SELECT * FROM participant WHERE id=$1
+                      ^
+[26-02-2025 09:34:19] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:34:26] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:35:09] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:41:23] Error 404: Route certificate-generator/public does not exist
+[26-02-2025 09:41:28] Error 404: Route certificate-generator/public does not exist
