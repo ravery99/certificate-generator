@@ -3,7 +3,7 @@
         'name' => 'hp/certificate-generator',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ecdff7ff86194c7718c4e45ac23eabded2c07210',
+        'reference' => 'e9c28ebd66b4f672f0d4b01d632e81e0848d70ec',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'hp/certificate-generator' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ecdff7ff86194c7718c4e45ac23eabded2c07210',
+            'reference' => 'e9c28ebd66b4f672f0d4b01d632e81e0848d70ec',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

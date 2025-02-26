@@ -15,7 +15,7 @@
 
 <body class="flex justify-center items-center min-h-screen p-4 sm:p-8 overscroll-none">
 
-    <?php require_once "forms.php"; ?>
+    <?php require_once "submit.php"; ?>
 
 </body>
 
