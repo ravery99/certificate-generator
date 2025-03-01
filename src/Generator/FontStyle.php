@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Generator;
 
 class FontStyle {
     private float|int $font_size;

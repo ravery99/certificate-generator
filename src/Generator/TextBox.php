@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Generator;
 use App\Utils\CertificateTemplate;
 use App\Utils\UnitConverter;
 use App\Config\Config;

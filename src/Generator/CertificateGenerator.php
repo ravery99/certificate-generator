@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Generator;
 
 use App\Services\CertificateService;
 use App\Utils\CertificateTemplate;
@@ -9,20 +9,27 @@ use App\Utils\TextStyles;
 use App\Utils\UnitConverter;
 use App\Config\Config;
 
-class CertificateBaru
+class CertificateGenerator
 {
+    private CertificateService $certificate_service = new CertificateService();   
     private array $participant;
     private array $text_boxes = [];
+    private array $certificate_info = [];
 
     public function __construct(array $participant)
     {
         $this->participant = $participant;
     }
 
-    public function generate(): string
+    // public function generate(): string
+    public function generate(): array
     {
         $this->createTextBoxes();
-        return $this->createCertificateImage();
+        // return $this->createCertificateImage();
+        // $this->setCertificateFilename();
+        $this->setCertificateLink();
+        $this->createCertificateImage();
+        return $this->certificate_info;
     }
 
     private function createTextBoxes(): void
@@ -50,7 +57,8 @@ class CertificateBaru
         return new TextBox($text_display, $size, $coordinate);
     }
 
-    private function createCertificateImage(): string
+    // private function createCertificateImage(): string
+    private function createCertificateImage()
     {
         $image = CertificateTemplate::getImage();
         foreach ($this->text_boxes as $text_box) {
@@ -62,24 +70,30 @@ class CertificateBaru
 
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);
         }
-        $filepath = $this->setCertificatePath();
-        imagepng($image, $filepath);
+        // $filename = $this->setCertificateFilename();
+        
+        imagepng($image, $this->certificate_info['filename']);
         imagedestroy($image);
-
-        return $filepath;
+        // return $filename;
     }
-
-    private function setCertificatePath(): string 
+    
+    // private function setCertificateFilename(): string 
+    private function setCertificateFilename()
     {
-        $certificate_service = new CertificateService();   
         $email = $this->participant['email'];
         $name = $this->participant['p_name'];
-
-        $filename = $certificate_service->formatCertificateFilename($email, $name);
-        $filepath = __DIR__ . '/../../storage/certificates/' . $filename;
-
-        return $filepath;
+        
+        $filename = $this->certificate_service->formatCertificateFilename($email, $name);
+        // $filepath = __DIR__ . '/../../storage/certificates/' . $filename;
+        
+        $this->certificate_info['filename'] = $filename;
+        // return $filename;
     }
 
-
+    private function setCertificateLink()
+    {
+        $this->setCertificateFilename();
+        $link = $this->certificate_service->formatCertificateLink($this->certificate_info['filename']);
+        $this->certificate_info['link'] = $link;
+    }
 }

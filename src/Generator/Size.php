@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models;
+namespace App\Generator;
 use App\Utils\UnitConverter;
 
 class Size 
 {
-    private $width;
-    private $height;
+    private float|int $width;
+    private float|int $height;
    
     public function __construct($width, $height)
     {

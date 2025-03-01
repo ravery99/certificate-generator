@@ -6,7 +6,7 @@ use PDO;
 use PDOException;
 use Exception;
 
-class Database 
+class DatabaseConfig 
 {
     private $host;
     private $user;
