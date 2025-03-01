@@ -14,14 +14,7 @@
 </head>
 
 <body class="flex justify-center items-center min-h-screen p-4 sm:p-8 overscroll-none">
-
-<<<<<<< HEAD
-    <?php require_once "submit.php"; ?>
-=======
     <?php  require_once "../src/Views/$view_path.php"; ?> 
-
->>>>>>> dc951ea7223699e642b098f9986a95f1f64b8644
-
 </body>
 
 </html>
