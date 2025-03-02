@@ -7,7 +7,11 @@ use Dotenv\Dotenv;
 class Config
 {
     public const DPI = 171;
-    public const BASE_URL = 'http://localhost/certificate-generator/public';
+    public const BASE_URL = '/certificate-generator/public';
+    
+    //TODO: benerin lagi isinya
+    // public const DIVISIONS = ['HR', 'Finance', 'IT', 'Marketing']; //benerin lagi isinya
+    // public const FACILITIES = ['Jakarta', 'Bandung', 'Surabaya']; //benerin lagi isinya
 
     // Load .env saat pertama kali class digunakan
     public static function load()
