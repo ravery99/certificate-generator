@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Utils;
-use App\Models\FontStyle;
+use App\Generator\FontStyle;
 use App\Utils\CertificateTemplate;
 
 class TextStyles

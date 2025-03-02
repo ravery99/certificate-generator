@@ -12,9 +12,10 @@ Data yang diinputkan terdiri dari:
 5. Fasilitas Kesehatan
 
 ## Teknologi Yang Digunakan
-- Google Forms & Google Sheets
-- Google Apps Script
+<!-- - Google Forms & Google Sheets
+- Google Apps Script -->
 - PHP
+- PostgreSQL
 
 ## Alat Desain
 - Canva
@@ -23,7 +24,7 @@ Data yang diinputkan terdiri dari:
 - PHP 8.2 atau lebih tinggi
 - Composer
 - Server Web (seperti Apache)
-- Ngrok (untuk testing)
+<!-- - Ngrok (untuk testing) -->
 
 ## Persiapan 
 ### Template Sertifikat
@@ -31,16 +32,37 @@ Data yang diinputkan terdiri dari:
 2. Catat keterangan posisi setiap teks yang ingin ditampilkan. Contoh yang digunakan dalam aplikasi ini: tinggi, lebar, koordinat x, koordinat y, font size, font color, font family.
 3. Semua posisi tersebut tertera dalam satuan CM. Namun, aplikasi ini sudah otomatis akan mengonversinya ke PX.
 
-### Google Apps Scripts
+<!-- ### Google Apps Scripts
 1. Salin semua file yang ada di folder /src/Scripts ke Google Apps Script.
 2. Beri trigger/pemicu pada tombol 'Kirim' dengan fungsi onFormSubmit.
 3. Apabila belum memiliki domain publik, aktifkan ngrok. Salin domain pada bagian Forwarding.
-4. Tempel domain tersebut pada Google Apps Script fungsi sendToWebhook.
+4. Tempel domain tersebut pada Google Apps Script fungsi sendToWebhook. -->
 
 ### Install Packages & Libraries
 1. Install Composer.
-2. Install package Phroute.
-Install
+2. Install dibawah ini semua.
+composer require phroute/phroute
+composer require vlucas/phpdotenv
+composer require ramsey/uuid
+composer require phpmailer/phpmailer
+
+### Koneksi Database
+1. Buka pgadmin dan buat database baru
+2. Klik kanan pada database, lali klik *Query Tool*.
+3. Buka folder */src/Scripts* pada aplikasi.
+4. Jalankan semua skrip table dengan urutan :
+    1. tb_users.sql
+    2. tb_divisions.sql
+    3. tb_facilities.sql
+    4. tb_participants.sql
+    5. tb_certificates.sql
+4. Jalankan skrip *fn_update_timestamp.sql*.
+5. Jalankan semua skrip trigger, yaitu *trg_update_divisions.sql* dan *trg_update_facilities.sql*.
+
+### Persiapkan ENV
+1. Ganri nama file *.env.example* menjadi *.env* saja.
+2. Isi setiap variabel dengan nilai yang sesuai.
+3. Variabel EMAIL_PASSWORD untuk menampung nilai dari App Password.
 
 ### Email Pengirim
 1. Nyalakan verifikasi 2 langkah pada akun email pengirim. 
@@ -56,12 +78,12 @@ Install
     2. Konfirmasi kredensial. Ketikkan kata sandi akun.
     3. Ketikkan nama aplikasi, "Certificate Generator".
     6. Klik *Create*.
-    7. Salin app password yang tampil dan tempelkan pada variabel $this->mail->Password di kelas EmailService.
+    7. Salin app password yang tampil dan tempelkan pada variabel EMAIL_PASSWORD di .env file.
 
-### Koneksi Database
-1. 
 
-## Alur Kerja Sistem
+
+
+<!-- ## Alur Kerja Sistem
 1. Pengumpulan Data
     - Peserta mengisi data dan mengklik 'Kirim' pada Google Form.
     - Data tersebut tersimpan otomatis ke dalam Google Sheets.
@@ -79,4 +101,4 @@ Install
 
 ## Kekurangan
 1. Aplikasi belum memiliki fitur penghapusan otomatis untuk sertifikat yang sudah melewati batas waktu tertentu. Akibatnya, data dapat menumpuk, sehingga perlu dilakukan penghapusan secara manual.
-2. Apabila terdapat beberapa Peserta yang mengisi Google Form di waktu bersamaan, maka aplikasi hanya akan mencatat tautan ke Peserta terakhir di Google Sheets. Meskipun begitu, semua Peserta tetap akan menerima tautan sertifikat mereka melalui email dengan benar. Masalah ini hanya terjadi pada pencatatan di Google Sheets. 
+2. Apabila terdapat beberapa Peserta yang mengisi Google Form di waktu bersamaan, maka aplikasi hanya akan mencatat tautan ke Peserta terakhir di Google Sheets. Meskipun begitu, semua Peserta tetap akan menerima tautan sertifikat mereka melalui email dengan benar. Masalah ini hanya terjadi pada pencatatan di Google Sheets.  -->

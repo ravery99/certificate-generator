@@ -3,11 +3,13 @@
 ini buat testing aja 
 
 -->
-
+<?php use App\Config\Config; ?>
 
 <div>
     <h2>Add New Participant</h2>
-    <form method="POST">
+    <form action="<?= Config::BASE_URL ?>/participants" method="POST">
+        <input type="hidden" name="role" value="<?= isset($_SESSION['admin']) ? 'admin' : 'public' ?>">
+
         <label>Email:</label><br>
         <input type="email" name="email" required><br><br>
         
