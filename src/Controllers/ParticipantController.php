@@ -12,24 +12,24 @@ class ParticipantController extends Controller
     public function addNewParticipant()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
-            
+
             $data = $this->validateInput($_POST);
-            
+
             if ($data === false) {
                 // return $this->redirectToFailPage();
                 return $this->redirect(Config::BASE_URL . '/fail');
                 // return $this->renderView('form', ['error' => 'Data tidak valid. Silakan coba lagi.']);
             }
-            
+
             $participant_model = new ParticipantBaru();
             $participant_model->addParticipant($data);
 
             return $this->redirect(Config::BASE_URL . '/success');
             // return $this->redirectToSuccessPage();
         }
-        $this->renderView('form', [], "Form Trustmedis");
+        $this->renderView('forms', [], "Form Trustmedis");
     }
-    
+
     public function redirectToSuccessPage()
     {
         $data = [
@@ -62,7 +62,7 @@ class ParticipantController extends Controller
                 ? (preg_match('/^\d{10,15}$/', $input['phone_number']) ? $input['phone_number'] : null)
                 : null
         ];
-        $this->checkRequiredFields($filtered_data);     
+        $this->checkRequiredFields($filtered_data);
         return $filtered_data;
     }
 

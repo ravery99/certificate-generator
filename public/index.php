@@ -43,3 +43,4 @@ try {
 } catch (Exception $e) {
     $errorController->handleGeneralError($e->getMessage());
 }
+
