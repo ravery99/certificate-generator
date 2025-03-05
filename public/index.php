@@ -67,6 +67,11 @@ require "../vendor/autoload.php";
 
 use App\Core\Router;
 use App\Core\AppContainer;
+use App\Utils\CertificateTemplate;
+use App\Utils\TextStyles;
+
+CertificateTemplate::init();
+TextStyles::init();
 
 $container = (new AppContainer())->getContainer(); // Inisialisasi DI container
 $router = new Router($container); // Inisialisasi Router

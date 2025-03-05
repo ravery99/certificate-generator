@@ -10,11 +10,11 @@ class UserRoutes extends Routes
 {
     public function register(): void
     {
-        $this->router->get(Config::BASE_URL . "/facilities", $this->resolve(UserController::class, 'index'));
-        $this->router->get(Config::BASE_URL . "/facilities/create", $this->resolve(UserController::class, 'create'));
-        $this->router->post(Config::BASE_URL . "/facilities", $this->resolve(UserController::class, 'store'));
-        $this->router->get(Config::BASE_URL . "/facilities/{id}/edit", $this->resolve(UserController::class, 'edit'));
-        $this->router->patch(Config::BASE_URL . "/facilities/{id}", $this->resolve(UserController::class, 'update'));
-        $this->router->delete(Config::BASE_URL . "/facilities/{id}", $this->resolve(UserController::class, 'destroy'));
+        $this->router->get(Config::BASE_URL . "/users", $this->resolve(UserController::class, 'index'));
+        $this->router->get(Config::BASE_URL . "/users/create", $this->resolve(UserController::class, 'create'));
+        $this->router->post(Config::BASE_URL . "/users", $this->resolve(UserController::class, 'store'));
+        $this->router->get(Config::BASE_URL . "/users/{id}/edit", $this->resolve(UserController::class, 'edit'));
+        $this->router->patch(Config::BASE_URL . "/users/{id}", $this->resolve(UserController::class, 'update'));
+        $this->router->delete(Config::BASE_URL . "/users/{id}", $this->resolve(UserController::class, 'destroy'));
     }
 }

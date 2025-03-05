@@ -1,6 +1,6 @@
 CREATE TABLE participants (
     id UUID PRIMARY KEY,  
-    email VARCHAR(255) NOT NULL UNIQUE,
+    email VARCHAR(255) NOT NULL,
     training_date DATE NOT NULL,
     p_name VARCHAR(255) NOT NULL,
     division_id INT NOT NULL,

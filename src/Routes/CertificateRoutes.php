@@ -15,6 +15,6 @@ class CertificateRoutes extends Routes
         $this->router->get(Config::BASE_URL . "/certificates/{id}/download", $this->resolve(CertificateController::class, 'download'));
         $this->router->delete(Config::BASE_URL . "/certificates/{id}", $this->resolve(CertificateController::class, 'destroy'));
  
-        $this->router->get(Config::BASE_URL . "/certificate/{email}/{name}/{timestamp}", $this->resolve(CertificateController::class, 'showCertificate'));
+        // $this->router->get(Config::BASE_URL . "/certificate/{email}/{name}/{timestamp}", $this->resolve(CertificateController::class, 'showCertificate'));
     }
 }

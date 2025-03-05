@@ -21,6 +21,6 @@ class LogService
         $log_msg = json_encode($log_data) . PHP_EOL;
         $log_file = ($type === "security") ? "security.log" : "errors.log";
 
-        error_log($log_msg, 3, __DIR__ . "/../../logs/$log_file");
+        error_log($log_msg, 3, __DIR__ . "/../../storage/logs/$log_file");
     }
 }

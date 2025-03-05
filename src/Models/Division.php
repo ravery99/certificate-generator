@@ -16,7 +16,6 @@ class Division
     public function getAllDivisions(): array
     {
         $this->db->query("SELECT * FROM divisions ORDER BY name ASC");
-        $this->db->execute();
         return $this->db->results();
     }
 
@@ -24,7 +23,6 @@ class Division
     {
         $this->db->query("SELECT * FROM divisions WHERE id = :id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->result();
     }
 
@@ -32,7 +30,6 @@ class Division
     {
         $this->db->query("INSERT INTO divisions (name) VALUES (:name)");
         $this->db->bind(':name', $name);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 
@@ -41,7 +38,6 @@ class Division
         $this->db->query("UPDATE divisions SET name = :name, updated_at = CURRENT_TIMESTAMP WHERE id = :id");
         $this->db->bind(':id', $id);
         $this->db->bind(':name', $name);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 
@@ -49,7 +45,14 @@ class Division
     {
         $this->db->query("DELETE FROM divisions WHERE id = :id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
+
+    public function findDivisionByName(string $name): bool
+    {
+        $this->db->query("SELECT COUNT(*) FROM divisions WHERE name = :name");
+        $this->db->bind(':name', $name);
+        return $this->db->fetchColumn() > 0;
+    }
+
 }

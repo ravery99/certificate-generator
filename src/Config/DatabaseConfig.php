@@ -70,7 +70,14 @@ class DatabaseConfig
     
     public function rowCount()
     {
+        $this->execute();
         return $this->stmt->rowCount();
+    }
+
+    public function fetchColumn()
+    {
+        $this->execute();
+        return $this->stmt->fetchColumn();
     }
     
     public function bind($param, $value, $type = null)

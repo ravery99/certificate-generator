@@ -20,7 +20,6 @@ class Participant
     public function getAllParticipants(): array
     {
         $this->db->query("SELECT * FROM participants ORDER BY created_at DESC");
-        $this->db->execute();
         return $this->db->results();
     }
 
@@ -28,7 +27,6 @@ class Participant
     {
         $this->db->query("SELECT * FROM participants WHERE id=:id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->result();
     }
 
@@ -36,18 +34,17 @@ class Participant
     {
         $this->db->query("SELECT * FROM participants WHERE email=:email");
         $this->db->bind(':email', $email);
-        $this->db->execute();
         return $this->db->result();
     }
 
-    public function addParticipant(array $data): ?string
+    public function addParticipant(array $data): ?array
     {
         // $uuid = Uuid::uuid4()->toString();
 
         $this->db->query(
             "INSERT INTO participants (id, email, training_date, p_name, division_id, facility_id, phone_number)
                   VALUES (gen_random_uuid(), :email, :training_date, :p_name, :division_id, :facility_id, :phone_number)
-                  RETURNING id"
+                  RETURNING *"
         );
 
         // $this->db->bind(':id', $uuid);
@@ -57,10 +54,9 @@ class Participant
         $this->db->bind(':division_id', $data['division_id']);
         $this->db->bind(':facility_id', $data['facility_id']);
         $this->db->bind(':phone_number', $data['phone_number']);
-        $this->db->execute();
-
         $result = $this->db->result();
-        return $result['id'] ?? null;
+        return $result ?? null;
+        // return $result['id'] ?? null;
         // return $uuid;
         // $this->setCertificatePath($uuid);
         // $this->sendCertificateLink($uuid);
@@ -82,8 +78,6 @@ class Participant
         $this->db->bind(':division_id', $data['division_id']);
         $this->db->bind(':facility_id', $data['facility_id']);
         $this->db->bind(':phone_number', $data['phone_number']);
-        $this->db->execute();
-
         return $this->db->rowCount() > 0;
     }
 
@@ -91,7 +85,6 @@ class Participant
     {
         $this->db->query("DELETE FROM participants WHERE id = :id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 
@@ -108,7 +101,7 @@ class Participant
     //     $this->db->query("UPDATE participants SET certificate_filename = :certificate_filename WHERE id = :id");
     //     $this->db->bind(':certificate_filename', $certificatePath);
     //     $this->db->bind(':id', $id);
-    //     $this->db->execute();
+    //     
     // }
 
     // private function sendCertificateLink(string $id)

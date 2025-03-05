@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Config\Config;
 use App\Core\Controller;
 use App\Models\Facility;
 use App\Services\LogService;
@@ -14,86 +15,93 @@ class FacilityController extends Controller
 
     public function __construct(Facility $facility_model)
     {
+        parent::__construct(); 
         $this->facility_model = $facility_model;
     }
 
     public function index()
     {
-        $this->facility_model->getAllFacilities();
-        $this->renderView('facilities/index', '', []);
+        $facilities = $this->facility_model->getAllFacilities();
+        $this->renderView('facilities/index', 'layouts/', [
+            "page_title" => "Tabel Fasilitas", 
+            "facilities" => $facilities
+        ]);
     }
 
     public function create()
     {
-        $this->renderView('facilities/create', '', []);
+        $this->renderView('facilities/create', 'layouts/', [
+            "page_title" => "Formulir Tambah Fasilitas Baru", 
+        ]);
     }
 
     public function store()
     {
         try {
             $name = trim($_POST['name']); 
-            $success = $this->facility_model->addFacility($name);
-            $_SESSION['message'] = "Division added successfully!";
-        } catch (PDOException $e) { 
-            LogService::logError("Database Error", $e->getMessage(), $e);
-            $_SESSION['message'] = "Failed to add division. Please try again.";
-            $success = false;
+            if ($this->facility_model->findFacilityByName($name)) {
+                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
+                http_response_code(409);
+            } else {
+                $success = $this->facility_model->addFacility($name);
+                $this->flash_service->set(
+                    $success ? "success" : "error",
+                    $success ? "Fasilitas baru berhasil ditambahkan!" : "Gagal menambahkan fasilitas '$name'. Terjadi kesalahan saat menyimpan data.");
+    
+                http_response_code($success ? 201 : 500);
+            }
+            
         } catch (Exception $e) { 
-            LogService::logError("General Error", $e->getMessage(), $e);
-            $_SESSION['message'] = "An unexpected error occurred.";
-            $success = false;
+            $this->exception_handler->handle($e, 'tambah', 'fasilitas');
         }
-        $this->redirect($success);
+        $this->redirect();
     }
 
     public function edit(string $id)
     {
         $facility = $this->facility_model->getFacilityById($id);
-        $this->renderView('facilities/edit', '', ['id' => $id, 'facility_name'=> $facility['name']]);
+        $this->renderView('facilities/edit', 'layouts/', ['id' => $id, 'facility_name'=> $facility['name']]);
     }
 
     public function update(string $id)
     {
         try {
             $name = trim($_POST['name']); 
-            $success = $this->facility_model->updateFacility($id, $name);
-            $_SESSION['message'] = "Division updated successfully!";
-        } catch (PDOException $e) { 
-            LogService::logError("Database Error", $e->getMessage(), $e);
-            $_SESSION['message'] = "Failed to update division. Please try again.";
-            $success = false;
+            if ($this->facility_model->findFacilityByName($name)) {
+                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
+                http_response_code(409);
+            } else {
+                $success = $this->facility_model->updateFacility($id, $name);
+                $this->flash_service->set(
+                    $success ? "success" : "error",
+                    $success ? "Fasilitas dengan ID $id berhasil diperbarui!" : "Gagal memperbarui fasilitas dengan ID $id. Terjadi kesalahan saat menyimpan data."
+                );
+                http_response_code($success ? 200 : 500);
+            }
         } catch (Exception $e) { 
-            LogService::logError("General Error", $e->getMessage(), $e);
-            $_SESSION['message'] = "An unexpected error occurred.";
-            $success = false;
+            $this->exception_handler->handle($e, 'edit', 'fasilitas', $id);
         }
-        $this->redirect($success);
+        $this->redirect();
     }
 
     public function destroy(string $id)
     {
         try {
-            $deleted = $this->facility_model->deleteFacility($$id);
-    
-            if ($deleted) {
-                echo json_encode(["status" => "success", "message" => "Division deleted successfully!"]);
-            } else {
-                echo json_encode(["status" => "error", "message" => "Failed to delete division with ID: $id"]);
-            }
-        } catch (Exception $e) {
-            LogService::logError("Deletion Error", $e->getMessage(), $e);
-            echo json_encode(["status" => "error", "message" => $e->getMessage()]);
+            $deleted = $this->facility_model->deleteFacility($id);
+            $this->flash_service->set(
+                $deleted ? "success" : "error",
+                $deleted ? "Fasilitas dengan ID $id berhasil dihapus!" : "Fasilitas dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+
+            http_response_code($deleted ? 200 : 404);
+        } catch (Exception $e) { 
+            $this->exception_handler->handle($e, 'hapus', 'fasilitas', $id);
         }
-    
-        http_response_code(200);
-        exit;
+        $this->redirect();
     }
 
-    protected function redirect(bool $success, string|null $role = null)
+    protected function redirect(string|null $user_role = null, bool|null $success = null)
     {
-        // TODO: buat bisa /create dan /edit
-        $url = $success ? "/divisions" : "/divisions/create";
-        header("Location: $url");
+        header("Location: " . Config::BASE_URL . "/facilities");
         exit;
     }
 }
