@@ -2,8 +2,20 @@
 
 namespace App\Core;
 
+use App\Services\ExceptionHandlerService;
+use App\Services\FlashMessageService;
+
 abstract class Controller
 {
+    protected ExceptionHandlerService $exception_handler;
+    protected FlashMessageService $flash_service;
+
+    public function __construct()
+    {
+        $this->exception_handler = new ExceptionHandlerService();
+        $this->flash_service = new FlashMessageService();
+    }
+    
     protected function renderView(string $view_path, string $layout_path, array $data = [])
     {
         extract($data);
@@ -40,7 +52,7 @@ abstract class Controller
         throw new \Exception("Method destroy() is not implemented in " . static::class);
     }
 
-    protected function redirect(bool $success, string|null $role)
+    protected function redirect(string|null $user_role = null, bool|null $success = null)
     {
         throw new \Exception("Method redirect() is not implemented in " . static::class);
     }

@@ -9,24 +9,24 @@ use PHPMailer\PHPMailer\Exception;
 class EmailService
 {
     private PHPMailer $mail;
-    private string $email_sender = Config::get('EMAIL_ADDRESS'); // Ganti dengan email pengirim
+    private string $email_sender; 
     
     public function __construct()
     {
         $this->mail = new PHPMailer(true);
+        $this->email_sender = Config::get('EMAIL_ADDRESS'); // ini email pengirim
         
         try {
             $this->mail->isSMTP();
             $this->mail->Host = 'smtp.gmail.com'; // Ganti dengan SMTP server
             $this->mail->SMTPAuth = true;
             $this->mail->Username = $this->email_sender; 
-            $this->mail->Password = Config::get('EMAIL_PASSWORD'); // Ganti dengan app password dari akun email pengirim
+            $this->mail->Password = Config::get('EMAIL_PASSWORD'); // ini app password dari akun email pengirim
             $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $this->mail->Port = 587;
             $this->mail->setFrom($this->email_sender, 'Trustmedis');
         } catch (Exception $e) {
-            // throw new Exception("Mailer Error: " . $e->getMessage());
-            error_log("Mailer Error: " . $e->getMessage());
+            throw new Exception("Mailer Error: " . $e->getMessage());
         }
     }
 

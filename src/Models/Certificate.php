@@ -16,7 +16,6 @@ class Certificate
     public function getAllCertificates(): array
     {
         $this->db->query("SELECT * FROM certificates ORDER BY created_at DESC");
-        $this->db->execute();
         return $this->db->results();
     }
 
@@ -24,7 +23,6 @@ class Certificate
     {
         $this->db->query("SELECT * FROM certificates WHERE participant_id=:participant_id");
         $this->db->bind(':participant_id', $participant_id);
-        $this->db->execute();
         return $this->db->result();
     }
 
@@ -37,8 +35,6 @@ class Certificate
         $this->db->bind(':participant_id', $participant_id);
         $this->db->bind(':certificate_filename', $certificate_filename);
         $this->db->bind(':certificate_link', $certificate_link);
-        $this->db->execute();
-
         return $this->db->rowCount() > 0;
     }
 
@@ -46,7 +42,6 @@ class Certificate
     {
         $this->db->query("DELETE FROM certificates WHERE participant_id = :participant_id");
         $this->db->bind(':participant_id', $participant_id);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 

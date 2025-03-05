@@ -3,5 +3,5 @@ CREATE TABLE certificates (
     certificate_filename TEXT NOT NULL,
     certificate_link TEXT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (participant_id) REFERENCES tb_participant(id) ON DELETE CASCADE
+    FOREIGN KEY (participant_id) REFERENCES participants(id) ON DELETE CASCADE
 );
