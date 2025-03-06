@@ -6,9 +6,9 @@ ini buat testing aja
 
 <div>
      <h2>
-        <?= $data['title'] ?>
+        <?= $title_text ?>
     </h2>
     <p>
-        <?= $data['desc'] ?>
+        <?= $desc_text ?>
     </p>
  </div>

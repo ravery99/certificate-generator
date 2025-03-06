@@ -16,7 +16,6 @@ class Facility
     public function getAllFacilities(): array
     {
         $this->db->query("SELECT * FROM facilities ORDER BY name ASC");
-        $this->db->execute();
         return $this->db->results();
     }
 
@@ -24,7 +23,6 @@ class Facility
     {
         $this->db->query("SELECT * FROM facilities WHERE id = :id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->result();
     }
 
@@ -32,7 +30,6 @@ class Facility
     {
         $this->db->query("INSERT INTO facilities (name) VALUES (:name)");
         $this->db->bind(':name', $name);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 
@@ -41,7 +38,6 @@ class Facility
         $this->db->query("UPDATE facilities SET name = :name, updated_at = CURRENT_TIMESTAMP WHERE id = :id");
         $this->db->bind(':id', $id);
         $this->db->bind(':name', $name);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
 
@@ -49,7 +45,14 @@ class Facility
     {
         $this->db->query("DELETE FROM facilities WHERE id = :id");
         $this->db->bind(':id', $id);
-        $this->db->execute();
         return $this->db->rowCount() > 0;
     }
+
+    public function findFacilityByName(string $name): bool
+    {
+        $this->db->query("SELECT COUNT(*) FROM facilities WHERE name = :name");
+        $this->db->bind(':name', $name);
+        return $this->db->fetchColumn() > 0;
+    }
+
 }

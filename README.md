@@ -51,9 +51,9 @@ composer require phpmailer/phpmailer
 2. Klik kanan pada database, lali klik *Query Tool*.
 3. Buka folder */src/Scripts* pada aplikasi.
 4. Jalankan semua skrip table dengan urutan :
-    1. tb_users.sql
+    1. tb_facilities.sql
     2. tb_divisions.sql
-    3. tb_facilities.sql
+    3. tb_users.sql
     4. tb_participants.sql
     5. tb_certificates.sql
 4. Jalankan skrip *fn_update_timestamp.sql*.

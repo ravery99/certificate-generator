@@ -5,23 +5,22 @@ namespace App\Generator;
 use App\Services\CertificateService;
 use App\Utils\CertificateTemplate;
 use App\Utils\TextStyles;
-// use App\Models\Participant;
 use App\Utils\UnitConverter;
 use App\Config\Config;
 
 class CertificateGenerator
 {
-    private CertificateService $certificate_service = new CertificateService();   
+    private CertificateService $certificate_service;   
     private array $participant;
     private array $text_boxes = [];
     private array $certificate_info = [];
 
     public function __construct(array $participant)
     {
+        $this->certificate_service = new CertificateService();
         $this->participant = $participant;
     }
 
-    // public function generate(): string
     public function generate(): array
     {
         $this->createTextBoxes();
@@ -37,8 +36,8 @@ class CertificateGenerator
         $training_name = "Training Sistem Informasi Manajemen Rumah Sakit";
         $text_box_data = [
             ['text' => $this->participant['p_name'], 'size' => new Size(24, 2.2), 'coordinate' => new Coordinate(5.4, 6.97), 'font' => TextStyles::$TITLE],
-            ['text' => "Divisi " . $this->participant['division'], 'size' => new Size(24, 0.63), 'coordinate' => new Coordinate(5.4, 11.65), 'font' => TextStyles::$SUBTITLE],
-            ['text' => $this->participant['facility'], 'size' => new Size(24, 0.63), 'coordinate' => new Coordinate(5.4, 13.9), 'font' => TextStyles::$SUBTITLE],
+            ['text' => "Divisi " . $this->participant['division_name'], 'size' => new Size(24, 0.63), 'coordinate' => new Coordinate(5.4, 11.65), 'font' => TextStyles::$SUBTITLE],
+            ['text' => $this->participant['facility_name'], 'size' => new Size(24, 0.63), 'coordinate' => new Coordinate(5.4, 13.9), 'font' => TextStyles::$SUBTITLE],
             
             // ['text' => "Dalam partisipasinya mengikuti kegiatan " . $this->participant['training_name'], 'size' => new Size(22.46, 0.65), 'coordinate' => new Coordinate(3.25, 15.3), 'font' => TextStyles::$DESCRIPTION],
             
@@ -57,7 +56,6 @@ class CertificateGenerator
         return new TextBox($text_display, $size, $coordinate);
     }
 
-    // private function createCertificateImage(): string
     private function createCertificateImage()
     {
         $image = CertificateTemplate::getImage();
@@ -70,24 +68,17 @@ class CertificateGenerator
 
             imagettftext($image, $fontStyle->getFontSize(), 0, $coordinate->getXCoordinate(), $coordinate->getYCoordinate(), $fontStyle->getFontColor(), $fontStyle->getFontFilename(), $text);
         }
-        // $filename = $this->setCertificateFilename();
+        $filepath = __DIR__ . '/../../storage/certificates/' . $this->certificate_info['filename'];
         
-        imagepng($image, $this->certificate_info['filename']);
+        imagepng($image, $filepath);
         imagedestroy($image);
-        // return $filename;
     }
     
-    // private function setCertificateFilename(): string 
     private function setCertificateFilename()
     {
-        $email = $this->participant['email'];
-        $name = $this->participant['p_name'];
-        
-        $filename = $this->certificate_service->formatCertificateFilename($email, $name);
-        // $filepath = __DIR__ . '/../../storage/certificates/' . $filename;
-        
+        $id = $this->participant['id'];
+        $filename = $this->certificate_service->formatCertificateFilename($id); 
         $this->certificate_info['filename'] = $filename;
-        // return $filename;
     }
 
     private function setCertificateLink()
