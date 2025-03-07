@@ -12,7 +12,7 @@ sama aj kek form.php
     <h2>Add New Participant</h2>
     <form action="<?= Config::BASE_URL ?>/participants" method="POST">
 
-        <input type="hidden" name="user_role" value="<?= isset($_SESSION['admin']) ? 'admin' : 'public' ?>">
+        <input type="hidden" name="user_role" value="<?= isset($_SESSION['user']) ? 'admin' : 'public' ?>">
 
         <label>Email:</label><br>
         <input type="email" name="email" required><br><br>

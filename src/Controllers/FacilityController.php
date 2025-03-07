@@ -4,24 +4,19 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
-use App\Models\Facility;
-use App\Services\LogService;
-use PDOException;
-use Exception;
+use App\Services\FacilityService;
 
 class FacilityController extends Controller
 {
-    private Facility $facility_model;
-
-    public function __construct(Facility $facility_model)
-    {
-        parent::__construct(); 
-        $this->facility_model = $facility_model;
+    private FacilityService $facility_service;
+    
+    public function __construct(FacilityService $facility_service)
+    { 
+        $this->facility_service = $facility_service;
     }
-
     public function index()
     {
-        $facilities = $this->facility_model->getAllFacilities();
+        $facilities = $this->facility_service->getFacilities();
         $this->renderView('facilities/index', 'layouts/', [
             "page_title" => "Tabel Fasilitas", 
             "facilities" => $facilities
@@ -37,71 +32,31 @@ class FacilityController extends Controller
 
     public function store()
     {
-        try {
-            $name = trim($_POST['name']); 
-            if ($this->facility_model->findFacilityByName($name)) {
-                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
-                http_response_code(409);
-            } else {
-                $success = $this->facility_model->addFacility($name);
-                $this->flash_service->set(
-                    $success ? "success" : "error",
-                    $success ? "Fasilitas baru berhasil ditambahkan!" : "Gagal menambahkan fasilitas '$name'. Terjadi kesalahan saat menyimpan data.");
-    
-                http_response_code($success ? 201 : 500);
-            }
-            
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'tambah', 'fasilitas');
-        }
+        $this->facility_service->store();
         $this->redirect();
     }
 
     public function edit(string $id)
     {
-        $facility = $this->facility_model->getFacilityById($id);
+        $facility = $this->facility_service->getFacility($id);
         $this->renderView('facilities/edit', 'layouts/', ['id' => $id, 'facility_name'=> $facility['name']]);
     }
 
     public function update(string $id)
     {
-        try {
-            $name = trim($_POST['name']); 
-            if ($this->facility_model->findFacilityByName($name)) {
-                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
-                http_response_code(409);
-            } else {
-                $success = $this->facility_model->updateFacility($id, $name);
-                $this->flash_service->set(
-                    $success ? "success" : "error",
-                    $success ? "Fasilitas dengan ID $id berhasil diperbarui!" : "Gagal memperbarui fasilitas dengan ID $id. Terjadi kesalahan saat menyimpan data."
-                );
-                http_response_code($success ? 200 : 500);
-            }
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'edit', 'fasilitas', $id);
-        }
+        $this->facility_service->update($id);
         $this->redirect();
     }
 
     public function destroy(string $id)
     {
-        try {
-            $deleted = $this->facility_model->deleteFacility($id);
-            $this->flash_service->set(
-                $deleted ? "success" : "error",
-                $deleted ? "Fasilitas dengan ID $id berhasil dihapus!" : "Fasilitas dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
-
-            http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'hapus', 'fasilitas', $id);
-        }
+        $this->facility_service->destroy($id);
         $this->redirect();
     }
 
-    protected function redirect(string|null $user_role = null, bool|null $success = null)
+    protected function redirect()
     {
-        header("Location: " . Config::BASE_URL . "/facilities");
+        header("Location: " . Config::BASE_URL . "/facilities", true, 303);
         exit;
     }
 }

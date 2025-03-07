@@ -2,143 +2,134 @@
 
 namespace App\Services;
 
-use App\Config\DatabaseConfig;
 use App\Config\Config;
+use App\Core\Service;
 use App\Models\Participant;
 use App\Models\Certificate;
-use App\Models\Division;
-use App\Models\Facility;
 
 use App\Generator\CertificateGenerator;
+
+use App\Validators\ParticipantValidator;
 use Exception;
-use Dotenv\Exception\ValidationException;
-use DateTime;
 
-class ParticipantService {
+class ParticipantService extends Service
+{
+    private Participant $participant_model;
+    private Certificate $certificate_model;
+    private DivisionService $division_service;
+    private FacilityService $facility_service;
+
+    public function __construct(Participant $participant_model, Certificate $certificate_model, DivisionService $division_service, FacilityService $facility_service)
+    {
+        parent::__construct(); 
+        $this->participant_model = $participant_model;
+        $this->certificate_model = $certificate_model;
+        $this->division_service = $division_service;
+        $this->facility_service = $facility_service;
+    }
+
+    public function store()
+    {
+        try {
+            $data = $this->validateInput($_POST);
+            $participant_data = $this->participant_model->addParticipant($data);
+            $certificate_data = $this->addDivisionAndFacilityNames($participant_data);
+            
+            $certificate_link = $this->createCertificate($certificate_data);
+            $success = $this->sendCertificateLink($participant_data, $certificate_link);
+            $this->flash_service->set("success", "Peserta baru berhasil ditambahkan!");
+            
+        } catch (Exception $e) {
+            $this->exception_handler->handle($e, 'tambah', 'peserta');
+        }
+
+        return $success ?? false;
+    }
+
+    public function destroy(string $id)
+    {
+        try {
+            $deleted = $this->participant_model->deleteParticipant($id);
+            
+            $this->flash_service->set(
+                $deleted ? "success" : "error",
+                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+
+            http_response_code($deleted ? 200 : 404);
+        } catch (Exception $e) { 
+            $this->exception_handler->handle($e, 'hapus', 'peserta', $id);
+        }
+
+        return $deleted ?? false;
+    }
+
+    private function validateInput(array $input)
+    {
+        $validator = new ParticipantValidator($this->division_service, $this->facility_service);
+        return $validator->validate($input);
+    }
+
+
+    public function getDivisions(): array
+    {
+        $divisions = $this->division_service->getDivisions();
+        return $divisions;
+    }
     
-    public function getDivisions(DatabaseConfig $db): array
+    public function getFacilities(): array
     {
-        $division_model = new Division($db);
-        return $division_model->getAllDivisions();
+        $facilities = $this->facility_service->getFacilities();
+        return $facilities;
+    }
+    
+    public function getParticipants(): array
+    {
+        $participants = $this->participant_model->getAllParticipants();
+        $participants_data = [];
+        foreach ($participants as $participant) {
+            $participants_data[] = $this->addDivisionAndFacilityNames($participant);
+        }        
+
+        return $participants_data;
     }
 
-    public function getFacilities(DatabaseConfig $db): array
+    private function getParticipantDivisionName(string $division_id): string
     {
-        $facility_model = new Facility($db);
-        return $facility_model->getAllFacilities();
-    }
-
-    public function getParticipants(DatabaseConfig $db): array
-    {
-        $participant_model = new Participant($db);
-        return $participant_model->getAllParticipants();
-    }
-
-    public function deleteParticipant(DatabaseConfig $db, string $id): bool
-    {
-        $participant_model = new Participant($db);
-        return $participant_model->deleteParticipant($id);
-    }
-
-    public function getParticipantDivisionName(DatabaseConfig $db, string $division_id): string
-    {
-        $divisions = $this->getDivisions($db); 
+        $divisions = $this->division_service->getDivisions(); 
         $division_map = array_column($divisions, 'name', 'id'); 
         return $division_map[$division_id] ?? null;
     }
 
-    public function getParticipantFacilityName(DatabaseConfig $db, string $facility_id): string
+    private function getParticipantFacilityName(string $facility_id): string
     {
-        $facilities = $this->getFacilities($db);
+        $facilities = $this->facility_service->getFacilities();
         $facility_map = array_column($facilities, 'name', 'id'); 
         return $facility_map[$facility_id] ?? null;
     }
 
-    public function validateInput(DatabaseConfig $db, array $input): array
+    private function addDivisionAndFacilityNames(array $participant_data)
     {
-        $filtered_data = [
-            'email'         => $this->validateEmail($input['email'] ?? ''),
-            'training_date' => $this->validateTrainingDate($input['training_date'] ?? ''),
-            'p_name'        => $this->validateName($input['p_name'] ?? ''),
-            'division_id'      => $this->validateDivisionId($db, $input['division_id'] ?? ''),
-            'facility_id'      => $this->validateFacilityId($db, $input['facility_id'] ?? ''),
-            'phone_number'  => $this->validatePhoneNumber($input['phone_number'] ?? '')
-        ];
-        
-        $this->checkRequiredFields($filtered_data);
-        return $filtered_data;
-    }
+        $participant_division_name = $this->getParticipantDivisionName($participant_data['division_id']);
+        $participant_facility_name = $this->getParticipantFacilityName($participant_data['facility_id']);
 
-    private function checkRequiredFields($data): void
-    {
-        $required_fields = ['email', 'training_date', 'p_name', 'division_id', 'facility_id'];
-        foreach ($required_fields as $field) {
-            if (!isset($data[$field]) || empty($data[$field])) {
-                throw new ValidationException("Field '{$field}' is required but missing or empty or invalid. Field '{$field}' : $data[$field]");
-            }
-        }
-    }
-    
-    private function validateEmail($email): ?string
-    {
-        return filter_var($email, FILTER_VALIDATE_EMAIL) ?: null;
-    }
+        $certificate_data = array_merge($participant_data, [
+            "division_name" => $participant_division_name,
+            "facility_name" => $participant_facility_name
+        ]);   
 
-    private function validateTrainingDate($date): ?string
-    {
-        return DateTime::createFromFormat('Y-m-d', $date) !== false ? $date : null;
+        return $certificate_data;
     }
-
-    private function validateName($name): ?string
-    {
-        return preg_match('/^[a-zA-Z\s]+$/', trim($name)) ? trim($name) : null;
-    }
-
-    private function validateDivisionId(DatabaseConfig $db, $division_id): ?string
-    {
-        $division_ids = array_column($this->getDivisions($db), 'id');
-        return in_array((int) $division_id, $division_ids, true) ? $division_id : null;
-    }
-
-    private function validateFacilityId(DatabaseConfig $db, $facility_id): ?string
-    {
-        $facility_ids = array_column($this->getFacilities($db), 'id'); 
-        return in_array((int) $facility_id, $facility_ids, true) ? $facility_id : null;
-    }
-
-    private function validatePhoneNumber($phone): ?string
-    {
-        return preg_match('/^\d{10,15}$/', $phone) ? $phone : null;
-    }
-
-    public function createParticipant(DatabaseConfig $db, array $validated_input): array
+    private function createCertificate(array $participant_data): string
     {
         try {
-            $participant_model = new Participant($db);
-            $participant_data = $participant_model->addParticipant($validated_input);
-
-            if (!$participant_data) {
-                throw new Exception("Failed to save participant data");
-            }
-    
-            return $participant_data;
-        } catch (Exception $e) {
-            throw new Exception("Error in createParticipant: " . $e->getMessage());
-        }
-    }
-
-    public function createCertificate(DatabaseConfig $db, array $participant_data): string
-    {
-        try {
-            $certificate_model = new Certificate($db);
-            $certificate_generator = new CertificateGenerator($participant_data);
+            $certificate_generator = new CertificateGenerator($participant_data, $this->certificate_model);
             $certificate_info = $certificate_generator->generate();
     
             if (!$certificate_info || !isset($certificate_info['filename'], $certificate_info['link'])) {
                 throw new Exception("Failed to generate certificate");
             }
     
-            $is_saved = $certificate_model->addCertificate($participant_data['id'], $certificate_info['filename'], $certificate_info['link']);
+            $is_saved = $this->certificate_model->addCertificate($participant_data['id'], $certificate_info['filename'], $certificate_info['link']);
             if (!$is_saved) {
                 throw new Exception("Failed to save certificate");
             }
@@ -149,7 +140,7 @@ class ParticipantService {
         }
     }
 
-    public function sendCertificateLink(array $participant_data, string $certificate_link)
+    private function sendCertificateLink(array $participant_data, string $certificate_link): bool
     {
         $email = $participant_data['email'];
         $name = $participant_data['p_name'];
@@ -164,5 +155,6 @@ class ParticipantService {
         if (!$is_sent) {
             throw new Exception("Failed to send certificate link via email");
         }
+        return $is_sent;
     }
 }
