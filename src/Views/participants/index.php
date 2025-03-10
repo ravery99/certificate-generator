@@ -49,8 +49,8 @@
                         <td><?= htmlspecialchars($participant['email']) ?></td>
                         <td><?= htmlspecialchars($participant['training_date']) ?></td>
                         <td><?= htmlspecialchars($participant['p_name']) ?></td>
-                        <td><?= htmlspecialchars($participant['division_id']) ?></td>
-                        <td><?= htmlspecialchars($participant['facility_id']) ?></td>
+                        <td><?= htmlspecialchars($participant['division_name']) ?></td>
+                        <td><?= htmlspecialchars($participant['facility_name']) ?></td>
                         <td><?= htmlspecialchars($participant['phone_number'] ?? '-') ?></td>
                         <td><?= htmlspecialchars($participant['created_at']) ?></td>
                     </tr>

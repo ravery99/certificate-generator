@@ -2,6 +2,7 @@
 
 namespace App\Generator;
 
+use App\Models\Certificate;
 use App\Services\CertificateService;
 use App\Utils\CertificateTemplate;
 use App\Utils\TextStyles;
@@ -15,17 +16,15 @@ class CertificateGenerator
     private array $text_boxes = [];
     private array $certificate_info = [];
 
-    public function __construct(array $participant)
+    public function __construct(array $participant, Certificate $certificate_model)
     {
-        $this->certificate_service = new CertificateService();
+        $this->certificate_service = new CertificateService($certificate_model);
         $this->participant = $participant;
     }
 
     public function generate(): array
     {
         $this->createTextBoxes();
-        // return $this->createCertificateImage();
-        // $this->setCertificateFilename();
         $this->setCertificateLink();
         $this->createCertificateImage();
         return $this->certificate_info;

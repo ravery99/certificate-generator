@@ -19,7 +19,7 @@ class Certificate
         return $this->db->results();
     }
 
-    public function getCertificate(string $participant_id): array
+    public function getCertificateById(string $participant_id): array
     {
         $this->db->query("SELECT * FROM certificates WHERE participant_id=:participant_id");
         $this->db->bind(':participant_id', $participant_id);

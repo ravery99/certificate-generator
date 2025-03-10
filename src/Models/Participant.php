@@ -39,15 +39,12 @@ class Participant
 
     public function addParticipant(array $data): ?array
     {
-        // $uuid = Uuid::uuid4()->toString();
-
         $this->db->query(
             "INSERT INTO participants (id, email, training_date, p_name, division_id, facility_id, phone_number)
                   VALUES (gen_random_uuid(), :email, :training_date, :p_name, :division_id, :facility_id, :phone_number)
                   RETURNING *"
         );
 
-        // $this->db->bind(':id', $uuid);
         $this->db->bind(':email', $data['email']);
         $this->db->bind(':training_date', $data['training_date']);
         $this->db->bind(':p_name', $data['p_name']);
@@ -56,11 +53,6 @@ class Participant
         $this->db->bind(':phone_number', $data['phone_number']);
         $result = $this->db->result();
         return $result ?? null;
-        // return $result['id'] ?? null;
-        // return $uuid;
-        // $this->setCertificatePath($uuid);
-        // $this->sendCertificateLink($uuid);
-
     }
 
     public function updateParticipant(array $data)
@@ -87,39 +79,4 @@ class Participant
         $this->db->bind(':id', $id);
         return $this->db->rowCount() > 0;
     }
-
-    // private function setCertificatePath(string $id)
-    // {
-    //     $participant = $this->getParticipant($id);
-    //     if (!$participant) {
-    //         throw new \Exception("Participant not found.");
-    //     }
-
-    //     $certificate = new CertificateBaru($participant);
-    //     $certificatePath = $certificate->generate();
-
-    //     $this->db->query("UPDATE participants SET certificate_filename = :certificate_filename WHERE id = :id");
-    //     $this->db->bind(':certificate_filename', $certificatePath);
-    //     $this->db->bind(':id', $id);
-    //     
-    // }
-
-    // private function sendCertificateLink(string $id)
-    // {
-    //     $participant = $this->getParticipant($id);
-    //     if (!$participant || empty($participant['certificate_filename'])) {
-    //         throw new \Exception("Participant not found or certificate not generated.");
-    //     }
-
-    //     $email = $participant['email'];
-    //     $name = $participant['p_name'];
-    //     $certificate_link = Config::BASE_URL . "/certificates/" . basename($participant['certificate_filename']);
-
-    //     $subject = "Sertifikat Anda Sudah Siap!";
-    //     $body = "Hai $name,\n\nSertifikat Anda sudah siap! Klik tautan di bawah ini untuk mengaksesnya:\n\n$certificate_link\n\nHarap segera mengunduh sertifikat Anda sebelum tautan kedaluwarsa atau sertifikat dihapus dari sistem.\n\nSalam,\nTim Trustmedis";
-
-    //     // Gunakan EmailService untuk mengirim email
-    //     $email_service = new EmailService();
-    //     $email_service->sendEmail($email, $subject, $body);
-    // }
 }
