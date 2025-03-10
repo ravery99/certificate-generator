@@ -11,6 +11,7 @@ use App\Generator\CertificateGenerator;
 
 use App\Validators\ParticipantValidator;
 use Exception;
+use DateTime;
 
 class ParticipantService extends Service
 {
@@ -33,7 +34,7 @@ class ParticipantService extends Service
         try {
             $data = $this->validateInput($_POST);
             $participant_data = $this->participant_model->addParticipant($data);
-            $certificate_data = $this->addDivisionAndFacilityNames($participant_data);
+            $certificate_data = $this->formatParticipantData($participant_data);
             
             $certificate_link = $this->createCertificate($certificate_data);
             $success = $this->sendCertificateLink($participant_data, $certificate_link);
@@ -87,10 +88,25 @@ class ParticipantService extends Service
         $participants = $this->participant_model->getAllParticipants();
         $participants_data = [];
         foreach ($participants as $participant) {
-            $participants_data[] = $this->addDivisionAndFacilityNames($participant);
+            $participants_data[] = $this->formatParticipantData($participant);
         }        
 
         return $participants_data;
+    }
+
+    private function setParticipantTrainingDate(string $training_date)
+    {
+        $formatter = new \IntlDateFormatter(
+            'id_ID', 
+            \IntlDateFormatter::FULL, 
+            \IntlDateFormatter::NONE,
+            'Asia/Jakarta', 
+            \IntlDateFormatter::GREGORIAN,
+            'd MMMM yyyy' 
+        );
+    
+        $date_time = new DateTime($training_date);
+        return $formatter->format($date_time);
     }
 
     private function getParticipantDivisionName(string $division_id): string
@@ -107,10 +123,11 @@ class ParticipantService extends Service
         return $facility_map[$facility_id] ?? null;
     }
 
-    private function addDivisionAndFacilityNames(array $participant_data)
+    private function formatParticipantData(array $participant_data)
     {
         $participant_division_name = $this->getParticipantDivisionName($participant_data['division_id']);
         $participant_facility_name = $this->getParticipantFacilityName($participant_data['facility_id']);
+        $participant_data['training_date'] = $this->setParticipantTrainingDate($participant_data['training_date']);
 
         $certificate_data = array_merge($participant_data, [
             "division_name" => $participant_division_name,

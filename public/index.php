@@ -71,16 +71,12 @@ use App\Utils\CertificateTemplate;
 use App\Utils\TextStyles;
 
 CertificateTemplate::init();
-TextStyles::init();
+TextStyles::init(CertificateTemplate::getImage());
 
 session_start();
-ob_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-// session_destroy();
 
-$container = (new AppContainer())->getContainer(); // Inisialisasi DI container
-$router = new Router($container); // Inisialisasi Router
+$container = (new AppContainer())->getContainer(); 
+$router = new Router($container); 
 
-$response = $router->dispatch(); // Jalankan router
+$response = $router->dispatch(); 
 echo $response;
