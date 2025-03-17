@@ -12,7 +12,7 @@ class DivisionService extends Service
 
     public function __construct(Division $division_model)
     {
-        parent::__construct(); 
+        parent::__construct();
         $this->division_model = $division_model;
     }
 
@@ -31,7 +31,7 @@ class DivisionService extends Service
     public function store()
     {
         try {
-            $name = trim($_POST['name']); 
+            $name = trim($_POST['name']);
             if ($this->division_model->findDivisionByName($name)) {
                 $this->flash_service->set("error", "Divisi '$name' sudah ada.");
                 http_response_code(409);
@@ -39,11 +39,12 @@ class DivisionService extends Service
                 $success = $this->division_model->addDivision($name);
                 $this->flash_service->set(
                     $success ? "success" : "error",
-                    $success ? "Divisi baru berhasil ditambahkan!" : "Gagal menambahkan divisi '$name'. Terjadi kesalahan saat menyimpan data.");
-    
+                    $success ? "Divisi baru berhasil ditambahkan!" : "Gagal menambahkan divisi '$name'. Terjadi kesalahan saat menyimpan data."
+                );
+
                 http_response_code($success ? 201 : 500);
             }
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'tambah', 'divisi');
         }
         return $success ?? false;
@@ -52,7 +53,7 @@ class DivisionService extends Service
     public function update(string $id)
     {
         try {
-            $name = trim($_POST['name']); 
+            $name = trim($_POST['name']);
             if ($this->division_model->findDivisionByName($name)) {
                 $this->flash_service->set("error", "Divisi '$name' sudah ada.");
                 http_response_code(409);
@@ -60,12 +61,12 @@ class DivisionService extends Service
                 $success = $this->division_model->updateDivision($id, $name);
                 $this->flash_service->set(
                     $success ? "success" : "error",
-                    $success ? "Divisi dengan ID $id berhasil diperbarui!" : "Gagal memperbarui divisi dengan ID $id. Terjadi kesalahan saat menyimpan data.");
-    
+                    $success ? "Divisi dengan ID $id berhasil diperbarui!" : "Gagal memperbarui divisi dengan ID $id. Terjadi kesalahan saat menyimpan data."
+                );
+
                 http_response_code($success ? 200 : 500);
             }
-            
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'edit', 'divisi', $id);
         }
         return $success ?? false;
@@ -77,10 +78,11 @@ class DivisionService extends Service
             $deleted = $this->division_model->deleteDivision($id);
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Divisi dengan ID $id berhasil dihapus!" : "Divisi dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Divisi dengan ID $id berhasil dihapus!" : "Divisi dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'divisi', $id);
         }
         return $deleted ?? false;

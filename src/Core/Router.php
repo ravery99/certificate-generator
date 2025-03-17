@@ -9,6 +9,7 @@ use Psr\Container\ContainerInterface;
 use App\Routes\CertificateRoutes;
 use App\Routes\ParticipantRoutes;
 use App\Routes\AuthRoutes;
+use App\Routes\DashboardRoutes;
 use App\Routes\DivisionRoutes;
 use App\Routes\FacilityRoutes;
 use App\Routes\UserRoutes;
@@ -37,6 +38,7 @@ class Router
             new DivisionRoutes($this->router, $this->container),
             new FacilityRoutes($this->router, $this->container),
             new AuthRoutes($this->router, $this->container),
+            new DashboardRoutes($this->router, $this->container),
         ];
 
         foreach ($routes as $route) {

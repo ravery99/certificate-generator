@@ -10,22 +10,6 @@ use Exception;
 
 class CertificateController extends Controller
 {
-
-    // public function showCertificate($email, $name, $timestamp): void
-    // {
-    //     $certificate_service = new CertificateService();    
-    //     $certificate = $certificate_service->findCertificate($email, $name, $timestamp); 
-    //     // $certificate ? $this->renderView("certificates", "layout", ['certificate' => $certificate, 'page_title' => 'Sertifikat Trustmedis']) 
-    //     $certificate ? $this->renderView("certificates/show", "layout", ['certificate' => $certificate, 'page_title' => 'Sertifikat Trustmedis']) 
-    //                     : $this->showExpire();
-    // }
-
-
-
-
-
-    //diatas itu yang lama, dibawh ini yang baru
-
     private CertificateService $certificate_service;
     
     public function __construct(CertificateService $certificate_service)
