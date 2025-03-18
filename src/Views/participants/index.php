@@ -16,12 +16,9 @@ use App\Config\Config;
 
 <body class="bg-gray-50 flex">
 
-
     <!-- Konten Utama -->
     <div class=" grow overflow-y-auto p-8 bg-gray-100  ">
         <h1 class="text-3xl font-bold text-gray-700">Tabel Peserta</h1>
-
-
 
         <div class=" mt-8 w-40">
             <a href="<?= Config::BASE_URL . '/participants/create' ?>" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-950 
@@ -34,8 +31,6 @@ use App\Config\Config;
                 Tambah Peserta
             </a>
         </div>
-
-
 
         <div class="overflow-x-auto rounded-lg shadow-lg bg-white p-6 mt-10">
             <table class="w-full border border-gray-300 rounded-lg text-sm">

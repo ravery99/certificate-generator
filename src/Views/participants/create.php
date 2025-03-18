@@ -61,8 +61,8 @@
 
             <form id="kuisionerForm" action="<?= Config::BASE_URL ?>/participants" method="POST" class="flex flex-col"
                 onsubmit="submitForm(event)">
-
-
+              
+                <input type="hidden" name="user_role" value="<?= isset($_SESSION['user']) ? 'admin' : 'public' ?>">
 
                 <label for="email" class="text-sm font-semibold">Email</label>
                 <input type="email" id="email" name="email" placeholder="name@gmail.com" required

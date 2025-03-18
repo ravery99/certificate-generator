@@ -12,6 +12,10 @@ use App\Routes\UserRoutes;
 use Psr\Container\ContainerInterface;
 use App\Routes\CertificateRoutes;
 use App\Routes\ParticipantRoutes;
+use App\Routes\AuthRoutes;
+use App\Routes\DivisionRoutes;
+use App\Routes\FacilityRoutes;
+use App\Routes\UserRoutes;
 
 use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\Dispatcher;
@@ -34,8 +38,9 @@ class Router
             new CertificateRoutes($this->router, $this->container),
             new ParticipantRoutes($this->router, $this->container),
             new UserRoutes($this->router, $this->container),
-            new FacilityRoutes($this->router, $this->container),
             new DivisionRoutes($this->router, $this->container),
+            new FacilityRoutes($this->router, $this->container),
+            new AuthRoutes($this->router, $this->container),
         ];
 
         foreach ($routes as $route) {

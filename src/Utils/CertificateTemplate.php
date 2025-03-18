@@ -39,5 +39,3 @@ class CertificateTemplate
     }
 }
 
-// **Harus dipanggil sekali saat aplikasi dimulai**
-// CertificateTemplate::init();

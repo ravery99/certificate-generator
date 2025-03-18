@@ -4,25 +4,20 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
-use App\Models\Division;
-use App\Services\FlashMessageService;
-use App\Services\LogService;
-use PDOException;
-use Exception;
+use App\Services\DivisionService;
 
 class DivisionController extends Controller
 {
-    private Division $division_model;
+    private DivisionService $division_service;
 
-    public function __construct(Division $division_model)
+    public function __construct(DivisionService $division_service)
     {
-        parent::__construct(); 
-        $this->division_model = $division_model;
+        $this->division_service = $division_service;
     }
 
     public function index()
     {
-        $divisions = $this->division_model->getAllDivisions();
+        $divisions = $this->division_service->getDivisions();
         $this->renderView('divisions/index', 'layouts/main', [
             "page_title" => "Tabel Divisi", 
             "divisions" => $divisions
@@ -38,23 +33,7 @@ class DivisionController extends Controller
 
     public function store()
     {
-        try {
-            $name = trim($_POST['name']); 
-            if ($this->division_model->findDivisionByName($name)) {
-                $this->flash_service->set("error", "Divisi '$name' sudah ada.");
-                http_response_code(409);
-            } else {
-                $success = $this->division_model->addDivision($name);
-                $this->flash_service->set(
-                    $success ? "success" : "error",
-                    $success ? "Divisi baru berhasil ditambahkan!" : "Gagal menambahkan divisi '$name'. Terjadi kesalahan saat menyimpan data.");
-    
-                http_response_code($success ? 201 : 500);
-            }
-            
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'tambah', 'divisi');
-        }
+        $this->division_service->store();
         $this->redirect();
     }
 
@@ -66,42 +45,17 @@ class DivisionController extends Controller
 
     public function update(string $id)
     {
-        try {
-            $name = trim($_POST['name']); 
-            if ($this->division_model->findDivisionByName($name)) {
-                $this->flash_service->set("error", "Divisi '$name' sudah ada.");
-                http_response_code(409);
-            } else {
-                $success = $this->division_model->updateDivision($id, $name);
-                $this->flash_service->set(
-                    $success ? "success" : "error",
-                    $success ? "Divisi dengan ID $id berhasil diperbarui!" : "Gagal memperbarui divisi dengan ID $id. Terjadi kesalahan saat menyimpan data.");
-    
-                http_response_code($success ? 200 : 500);
-            }
-            
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'edit', 'divisi', $id);
-        }
+        $this->division_service->update($id);
         $this->redirect();
     }
 
     public function destroy(string $id)
     {
-        try {
-            $deleted = $this->division_model->deleteDivision($id);
-            $this->flash_service->set(
-                $deleted ? "success" : "error",
-                $deleted ? "Divisi dengan ID $id berhasil dihapus!" : "Divisi dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
-
-            http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
-            $this->exception_handler->handle($e, 'hapus', 'divisi', $id);
-        }
+        $this->division_service->destroy($id);
         $this->redirect();
     }
 
-    protected function redirect(string|null $user_role = null, bool|null $success = null)
+    protected function redirect()
     {
         header("Location: " . Config::BASE_URL . "/divisions", true, 303);
         exit;
