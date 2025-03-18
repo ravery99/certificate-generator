@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace App\Core;
 
 use App\Controllers\ErrorController;
+use App\Controllers\UserController;
+use App\Routes\DivisionRoutes;
+use App\Routes\FacilityRoutes;
+use App\Routes\UserRoutes;
 use Psr\Container\ContainerInterface;
 use App\Routes\CertificateRoutes;
 use App\Routes\ParticipantRoutes;

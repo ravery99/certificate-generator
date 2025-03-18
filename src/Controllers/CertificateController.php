@@ -30,7 +30,7 @@ class CertificateController extends Controller
         $certificate = $this->certificate_service->findCertificate($id);
 
         if ($certificate) {
-            $this->renderView("certificates/show", "layouts/main", [ //layout_path nya sesuaiin lagi
+            $this->renderView("certificates/show", "layouts/main", [
                 'certificate' => $certificate['url'],
                 'id' => $id,
                 'page_title' => 'Sertifikat Trustmedis'

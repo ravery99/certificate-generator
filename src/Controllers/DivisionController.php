@@ -28,8 +28,8 @@ class DivisionController extends Controller
 
     public function create()
     {
-        $this->renderView('divisions/create', 'layouts/', [
-            "page_title" => "Formulir Tambah Divisi Baru",
+        $this->renderView('divisions/create', 'layouts/main', [
+            "page_title" => "Formulir Tambah Divisi Baru", 
         ]);
     }
 
@@ -42,7 +42,7 @@ class DivisionController extends Controller
     public function edit(string $id)
     {
         $division = $this->division_service->getDivision($id);
-        $this->renderView('divisions/edit', 'layouts/', ['id' => $id, 'division_name' => $division['name']]);
+        $this->renderView('divisions/edit', 'layouts/main', ['id' => $id, 'division_name'=> $division['name']]);
     }
 
     public function update(string $id)

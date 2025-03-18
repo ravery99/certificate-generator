@@ -28,8 +28,8 @@ class UserController extends Controller
 
     public function create()
     {
-        $this->renderView('users/create', 'layouts/', [
-            "page_title" => "Formulir Tambah Admin Baru",
+        $this->renderView('users/create', 'layouts/main', [
+            "page_title" => "Formulir Tambah Admin Baru", 
         ]);
     }
 
@@ -42,7 +42,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = $this->user_service->getUserById($id);
-        $this->renderView('users/edit', 'layouts/', ['id' => $id, 'username' => $user['username']]);
+        $this->renderView('users/edit', 'layouts/main', ['id' => $id, 'username'=> $user['username']]);
     }
 
     public function update(string $id)
@@ -57,7 +57,7 @@ class UserController extends Controller
         $this->redirect();
     }
 
-    protected function redirect(string|null $user_role = null, bool|null $success = null)
+    protected function redirect()
     {
         header("Location: " . Config::BASE_URL . "/users", true, 303);
         exit;
