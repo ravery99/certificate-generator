@@ -4,19 +4,21 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
+use App\Services\AuthService;
 use App\Services\FacilityService;
 
 class FacilityController extends Controller
 {
     private FacilityService $facility_service;
-    
+
     public function __construct(FacilityService $facility_service)
-    { 
+    {
+        AuthService::check();
         $this->facility_service = $facility_service;
     }
     public function index()
     {
-        $facilities = $this->facility_model->getAllFacilities();
+        $facilities = $this->facility_service->getFacilities();
         $this->renderView('facilities/index', 'layouts/main', [
             "page_title" => "Tabel Fasilitas",
             "facilities" => $facilities
@@ -38,7 +40,7 @@ class FacilityController extends Controller
 
     public function edit(string $id)
     {
-        $facility = $this->facility_model->getFacilityById($id);
+        $facility = $this->facility_service->getFacility($id);
         $this->renderView('facilities/edit', 'layouts/main', ['id' => $id, 'facility_name' => $facility['name']]);
     }
 

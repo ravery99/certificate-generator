@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -17,10 +17,10 @@ class AuthController extends Controller
 
     public function login()
     {
-        if($this->auth_service->login()){
-            $this->redirect('dashboard');        
+        if ($this->auth_service->login()) {
+            $this->redirect('dashboard');
         } else {
-            $this->redirect('login');        
+            $this->redirect('login');
         }
     }
 
@@ -32,10 +32,10 @@ class AuthController extends Controller
 
     public function register()
     {
-        if($this->auth_service->register()){
-            $this->redirect('login');        
+        if ($this->auth_service->register()) {
+            $this->redirect('login');
         } else {
-            $this->redirect('register');        
+            $this->redirect('register');
         }
     }
 
@@ -51,13 +51,6 @@ class AuthController extends Controller
     {
         $this->renderView("auth/register", "layouts/main", [
             "page_title" => "Register Admin",
-        ]); //layout_path nya benerin lagi
-    }
-
-    public function dashboard()
-    {
-        $this->renderView("dashboard", "layouts/main", [
-            "page_title" => "Dashboard",
         ]); //layout_path nya benerin lagi
     }
 

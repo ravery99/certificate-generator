@@ -7,14 +7,6 @@ use App\Services\LogService;
 
 class ErrorController extends Controller
 {
-    // private function logError($title, $message)
-    // {
-    //     date_default_timezone_set('Asia/Jakarta'); // Pastikan zona waktu Indonesia
-    //     $log_msg = "[" . date("d-m-Y H:i:s") . "] $title: $message" . PHP_EOL;
-    //     error_log($log_msg, 3, __DIR__ . "/../../logs/errors.log");
-    // }
-
-
     public function handleRouteNotFound($message)
     {
         LogService::logError("Error 404", $message);

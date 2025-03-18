@@ -6,24 +6,23 @@ use App\Core\Controller;
 use App\Services\CertificateService;
 use App\Config\Config;
 use App\Config\DatabaseConfig;
+use App\Services\AuthService;
 use Exception;
 
 class CertificateController extends Controller
 {
     private CertificateService $certificate_service;
-    
+
     public function __construct(CertificateService $certificate_service)
-    { 
+    {
         $this->certificate_service = $certificate_service;
     }
 
     public function index()
     {
-        $certificates = $this->certificate_service->getCertificates($this->db);
-        $this->renderView('certificates/index', 'layouts/main', [
-            "page_title" => "Tabel Sertifikat",
-            "certificates" => $certificates
-        ]);
+        AuthService::check();
+        $certificates = $this->certificate_service->getCertificates();
+        $this->renderView('certificates/index', 'layouts/main', ["page_title" => "Tabel Sertifikat", $certificates]);
     }
 
     public function show($id): void
@@ -35,7 +34,7 @@ class CertificateController extends Controller
                 'certificate' => $certificate['url'],
                 'id' => $id,
                 'page_title' => 'Sertifikat Trustmedis'
-            ]); 
+            ]);
         } else {
             $this->showExpire();
         }
@@ -48,12 +47,13 @@ class CertificateController extends Controller
 
     public function download(string $id): void
     {
-        $this->certificate_service->downloadCertificate( $id);
+        $this->certificate_service->downloadCertificate($id);
     }
 
     public function destroy(string $id)
     {
-        $this->certificate_service->deleteCertificate( $id);
+        AuthService::check();
+        $this->certificate_service->deleteCertificate($id);
         $this->redirect();
     }
 
@@ -63,5 +63,3 @@ class CertificateController extends Controller
         exit;
     }
 }
-
-

@@ -10,7 +10,6 @@ class AuthRoutes extends Routes
 {
     public function register(): void
     {
-        $this->router->get(Config::BASE_URL . "/dashboard", $this->resolve(AuthController::class, 'dashboard'));
         $this->router->get(Config::BASE_URL . "/login", $this->resolve(AuthController::class, 'showLoginForm'));
         $this->router->get(Config::BASE_URL . "/register", $this->resolve(AuthController::class, 'showRegisterForm'));
         $this->router->post(Config::BASE_URL . "/login", $this->resolve(AuthController::class, 'login'));

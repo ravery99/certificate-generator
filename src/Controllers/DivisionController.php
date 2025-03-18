@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
+use App\Services\AuthService;
 use App\Services\DivisionService;
 
 class DivisionController extends Controller
@@ -12,6 +13,7 @@ class DivisionController extends Controller
 
     public function __construct(DivisionService $division_service)
     {
+        AuthService::check();
         $this->division_service = $division_service;
     }
 
@@ -19,7 +21,7 @@ class DivisionController extends Controller
     {
         $divisions = $this->division_service->getDivisions();
         $this->renderView('divisions/index', 'layouts/main', [
-            "page_title" => "Tabel Divisi", 
+            "page_title" => "Tabel Divisi",
             "divisions" => $divisions
         ]);
     }
@@ -39,7 +41,7 @@ class DivisionController extends Controller
 
     public function edit(string $id)
     {
-        $division = $this->division_model->getDivisionById($id);
+        $division = $this->division_service->getDivision($id);
         $this->renderView('divisions/edit', 'layouts/main', ['id' => $id, 'division_name'=> $division['name']]);
     }
 

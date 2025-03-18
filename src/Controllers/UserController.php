@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
+use App\Services\AuthService;
 use App\Services\UserService;
 
 class UserController extends Controller
@@ -12,6 +13,7 @@ class UserController extends Controller
 
     public function __construct(UserService $user_service)
     {
+        AuthService::check();
         $this->user_service = $user_service;
     }
 
@@ -39,7 +41,7 @@ class UserController extends Controller
 
     public function edit(string $id)
     {
-        $user = $this->user_model->getUserById($id);
+        $user = $this->user_service->getUserById($id);
         $this->renderView('users/edit', 'layouts/main', ['id' => $id, 'username'=> $user['username']]);
     }
 
