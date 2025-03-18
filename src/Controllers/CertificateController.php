@@ -10,22 +10,6 @@ use Exception;
 
 class CertificateController extends Controller
 {
-
-    // public function showCertificate($email, $name, $timestamp): void
-    // {
-    //     $certificate_service = new CertificateService();    
-    //     $certificate = $certificate_service->findCertificate($email, $name, $timestamp); 
-    //     // $certificate ? $this->renderView("certificates", "layout", ['certificate' => $certificate, 'page_title' => 'Sertifikat Trustmedis']) 
-    //     $certificate ? $this->renderView("certificates/show", "layout", ['certificate' => $certificate, 'page_title' => 'Sertifikat Trustmedis']) 
-    //                     : $this->showExpire();
-    // }
-
-
-
-
-
-    //diatas itu yang lama, dibawh ini yang baru
-
     private CertificateService $certificate_service;
     
     public function __construct(CertificateService $certificate_service)
@@ -35,16 +19,19 @@ class CertificateController extends Controller
 
     public function index()
     {
-        $certificates = $this->certificate_service->getCertificates();
-        $this->renderView('certificates/index', 'layouts/main', ["page_title" => "Tabel Sertifikat", $certificates]);
+        $certificates = $this->certificate_service->getCertificates($this->db);
+        $this->renderView('certificates/index', 'layouts/main', [
+            "page_title" => "Tabel Sertifikat",
+            "certificates" => $certificates
+        ]);
     }
 
     public function show($id): void
     {
-        $certificate = $this->certificate_service->findCertificate($id); 
-        
+        $certificate = $this->certificate_service->findCertificate($id);
+
         if ($certificate) {
-            $this->renderView("certificates/show", "layouts/main", [ //layout_path nya sesuaiin lagi
+            $this->renderView("certificates/show", "layouts/main", [
                 'certificate' => $certificate['url'],
                 'id' => $id,
                 'page_title' => 'Sertifikat Trustmedis'

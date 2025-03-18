@@ -19,8 +19,8 @@ class ParticipantController extends Controller
     {
         $participants = $this->participant_service->getParticipants();
         $this->renderView('participants/index', 'layouts/main', [
-            "page_title" => "Tabel Peserta", 
-            "participants" => $participants
+            "page_title" => "Tabel Peserta",
+            "participants" => $participants //disini nanti
         ]);
     }
 
@@ -47,7 +47,7 @@ class ParticipantController extends Controller
         $this->participant_service->destroy($id);
         $this->redirect('admin');
     }
-    
+
     public function showSubmissionSuccess()
     {
         $data = [

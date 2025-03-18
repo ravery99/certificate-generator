@@ -1,12 +1,22 @@
-<!-- formnya panggil file /Views/partials/ -->
-
-<h2>Edit Nama Fasilitas</h2>
-
-<?php 
-    $action = "/facilities/$id";
-    $type = "Fasilitas";
-    $name = $facility_name;
-    $button_text = "Edit";
-
-    include __DIR__ . "../partials/dropdown_form.php";
+<?php
+use App\Config\Config;
 ?>
+
+<?php
+
+// Set variabel untuk form.php
+$title = "Edit Fasilitas";
+$formAction = Config::BASE_URL . "/facilities/$id";      
+$nameInput = "nama_fasilitas";
+$placeholder = "Masukkan nama fasilitas";
+$submitText = "Update Fasilitas";
+$divisiValue = 'nama_fasilitas'; 
+$isFacility = true; 
+
+include(__DIR__ . '/../partials/dropdown_form.php');
+?>
+
+
+
+
+

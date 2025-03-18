@@ -26,7 +26,7 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/",$data);
+        $this->renderView("error", "layouts/main",$data);
     }
 
     public function handleMethodNotAllowed($message)
@@ -40,7 +40,7 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/", $data);
+        $this->renderView("error", "layouts/main", $data);
     }
 
     public function handleGeneralError($message)
@@ -54,6 +54,6 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/", $data);
+        $this->renderView("error", "layouts/main", $data);
     }
 }

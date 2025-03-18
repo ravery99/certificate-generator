@@ -8,6 +8,7 @@ abstract class Controller
     protected function renderView(string $view_path, string $layout_path, array $data = [])
     {
         extract($data);
+        
         include __DIR__ . "/../../src/Views/$layout_path.php";
     }
 

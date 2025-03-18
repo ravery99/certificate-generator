@@ -13,11 +13,14 @@ class User
         $this->db = $db;
     }
 
+
+
     public function getAllUsers(): array
-    {
-        $this->db->query("SELECT id, username, created_at FROM users ORDER BY username ASC");
-        return $this->db->results();
-    }
+{
+    $this->db->query("SELECT id, username,  created_at FROM users ORDER BY username ASC");
+    return $this->db->results();
+}
+
 
     public function getUserById(string $id): array
     {

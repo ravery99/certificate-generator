@@ -1,12 +1,17 @@
-<!-- formnya panggil file /Views/partials/ -->
+<?php
+use App\Config\Config;
+?>
 
-<h2>Edit Nama Divisi</h2>
+<?php
 
-<?php 
-    $action = "/divisions/$id";
-    $type = "Divisi";
-    $name = $division_name;
-    $button_text = "Edit";
 
-    include __DIR__ . "../partials/dropdown_form.php";
+$title = "Edit Divisi";
+$formAction = Config::BASE_URL . "/divisions/$id";
+$nameInput = "nama_divisi";
+$placeholder = "Masukkan nama divisi";
+$submitText = "Update Divisi";
+$divisiValue = 'nama_divisi'; // Ambil nama divisi dari database
+$isFacility = false;
+
+include(__DIR__ . '/../partials/dropdown_form.php');
 ?>
