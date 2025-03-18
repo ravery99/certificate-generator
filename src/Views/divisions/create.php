@@ -1,12 +1,20 @@
 <!-- formnya panggil file /Views/partials/ -->
 
-<h2>Tambah Divisi Baru</h2>
-
-<?php 
-    $action = "/divisions";
-    $type = "Divisi";
-    $name = "";
-    $button_text = "Tambah";
-
-    include __DIR__ . "../partials/dropdown_form.php";
+<?php
+use App\Config\Config;
 ?>
+
+
+<?php
+
+$title = "Tambah Divisi Baru";
+$placeholder = "Masukkan nama divisi";
+$nameInput = "nama_Divisi";
+$submitText = "Simpan Divisi";
+$formAction = Config::BASE_URL . "/divisions";
+$isFacility = false;
+
+
+include(__DIR__ . '/../partials/dropdown_form.php');
+?>
+

@@ -15,10 +15,11 @@ abstract class Controller
         $this->exception_handler = new ExceptionHandlerService();
         $this->flash_service = new FlashMessageService();
     }
-    
+
     protected function renderView(string $view_path, string $layout_path, array $data = [])
     {
         extract($data);
+        
         include __DIR__ . "/../../src/Views/$layout_path.php";
     }
 

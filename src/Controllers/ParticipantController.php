@@ -10,36 +10,12 @@ use Exception;
 
 class ParticipantController extends Controller
 {
-<<<<<<< HEAD
-    public function addNewParticipant()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == "POST") {
-
-            $data = $this->validateInput($_POST);
-
-            if ($data === false) {
-                // return $this->redirectToFailPage();
-                return $this->redirect(Config::BASE_URL . '/fail');
-                // return $this->renderView('form', ['error' => 'Data tidak valid. Silakan coba lagi.']);
-            }
-
-            $participant_model = new ParticipantBaru();
-            $participant_model->addParticipant($data);
-
-            return $this->redirect(Config::BASE_URL . '/success');
-            // return $this->redirectToSuccessPage();
-        }
-        $this->renderView('forms', [], "Form Trustmedis");
-    }
-
-    public function redirectToSuccessPage()
-=======
     private ParticipantService $participant_service;
     private DatabaseConfig $db;
 
     public function __construct(ParticipantService $participant_service, DatabaseConfig $db)
     {
-        parent::__construct(); 
+        parent::__construct();
         $this->participant_service = $participant_service;
         $this->db = $db;
     }
@@ -48,8 +24,8 @@ class ParticipantController extends Controller
     {
         $participants = $this->participant_service->getParticipants($this->db);
         $this->renderView('participants/index', 'layouts/main', [
-            "page_title" => "Tabel Peserta", 
-            "participants" => $participants
+            "page_title" => "Tabel Peserta",
+            "participants" => $participants //disini nanti
         ]);
     }
 
@@ -69,14 +45,14 @@ class ParticipantController extends Controller
         try {
             $data = $this->participant_service->validateInput($this->db, $_POST);
             $participant_data = $this->participant_service->createParticipant($this->db, $data);
-            
+
             $participant_division_name = $this->participant_service->getParticipantDivisionName($this->db, $participant_data['division_id']);
             $participant_facility_name = $this->participant_service->getParticipantFacilityName($this->db, $participant_data['facility_id']);
             $certificate_data = array_merge($participant_data, [
                 "division_name" => $participant_division_name,
                 "facility_name" => $participant_facility_name
             ]);
-            
+
             $certificate_link = $this->participant_service->createCertificate($this->db, $certificate_data);
             $this->participant_service->sendCertificateLink($participant_data, $certificate_link);
 
@@ -95,20 +71,20 @@ class ParticipantController extends Controller
     {
         try {
             $deleted = $this->participant_service->deleteParticipant($this->db, $id);
-            
+
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'peserta', $id);
         }
         $this->redirect('admin');
     }
-    
+
     public function showSubmissionSuccess()
->>>>>>> aecb973cc0add02be58eb232f88a4c84752b5a0a
     {
         $data = [
             "page_title" => "Pengiriman Formulir Berhasil",
@@ -137,7 +113,7 @@ class ParticipantController extends Controller
             'public' => Config::BASE_URL . "/participants/create/" . ($success ? "success" : "fail"),
         ];
 
-        header("Location: $routes[$user_role]", true);
+        header("Location: $routes[$user_role]", true, 303);
         exit;
     }
 }

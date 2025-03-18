@@ -1,12 +1,23 @@
 <!-- formnya panggil file /Views/partials/ -->
 
-<h2>Tambah Fasilitas Baru</h2>
+<?php
+use App\Config\Config;
+?>
 
-<?php 
-    $action = "/facilities";
-    $type = "Divisi";
-    $name = "";
-    $button_text = "Tambah";
 
-    include __DIR__ . "../partials/dropdown_form.php";
+
+
+
+
+
+<?php
+$title = "Formulir Tambah Fasilitas Baru";
+$placeholder = "Masukkan nama fasilitas";
+$nameInput = "nama_fasilitas"; // Harus pakai underscore, bukan spasi
+$submitText = "Simpan Fasilitas";
+$formAction = Config::BASE_URL . "/facilities";
+$isFacility = true;
+
+
+include(__DIR__ . '/../partials/dropdown_form.php');
 ?>

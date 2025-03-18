@@ -32,7 +32,7 @@ class CertificateController extends Controller
 
     public function __construct(CertificateService $certificate_service, DatabaseConfig $db)
     {
-        parent::__construct(); 
+        parent::__construct();
         $this->certificate_service = $certificate_service;
         $this->db = $db;
     }
@@ -40,15 +40,18 @@ class CertificateController extends Controller
     public function index()
     {
         $certificates = $this->certificate_service->getCertificates($this->db);
-        $this->renderView('certificates/index', 'layouts/main', ["page_title" => "Tabel Sertifikat", $certificates]);
+        $this->renderView('certificates/index', 'layouts/main', [
+            "page_title" => "Tabel Sertifikat",
+            "certificates" => $certificates
+        ]);
     }
 
     public function show($id): void
     {
-        $certificate = $this->certificate_service->findCertificate($id); 
-        
+        $certificate = $this->certificate_service->findCertificate($id);
+
         if ($certificate) {
-            $this->renderView("certificates/show", "layouts/", [
+            $this->renderView("certificates/show", "layouts/main", [
                 'certificate' => $certificate['url'],
                 'id' => $id,
                 'page_title' => 'Sertifikat Trustmedis'
@@ -73,15 +76,17 @@ class CertificateController extends Controller
     public function destroy(string $id)
     {
         try {
-            $deleted = $this->certificate_service->deleteCertificates($this->db, $id);db: 
-            
+            $deleted = $this->certificate_service->deleteCertificates($this->db, $id);
+            db:
+
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Sertifikat dengan ID $id berhasil dihapus!" : "Sertifikat dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Sertifikat dengan ID $id berhasil dihapus!" : "Sertifikat dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
 
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'sertifikat', $id);
         }
         $this->redirect();
@@ -89,7 +94,7 @@ class CertificateController extends Controller
 
     protected function redirect(string|null $user_role = null, bool|null $success = null)
     {
-        header("Location: " . Config::BASE_URL . "/certificates");
+        header("Location: " . Config::BASE_URL . "/certificates", true, 303);
         exit;
     }
 }

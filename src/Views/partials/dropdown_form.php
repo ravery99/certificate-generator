@@ -1,49 +1,56 @@
-<!-- ini form create/edit untuk divisi & fasilitas -->
-<!-- file ini dipanggil di create.php & edit.php pada folder /Views/divisions dan /Views/facilities -->
-<!-- jadi nanti di kedua file itu, tinggal kirim variabel2 yg dibutuhin -->
+<?php
+use App\Config\Config;
 
 
-
+$isFacility = isset($isFacility) && $isFacility;
+?>
 
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Tambah Data</title>
+    <title><?php echo isset($title) ? $title : ($isFacility ? "Form Fasilitas" : "Form Divisi"); ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
-        <h2 class="text-2xl font-semibold text-center text-gray-700 mb-4">Tambah Data</h2>
-        <form action="" method="POST" class="space-y-4">
-            <div>
-                <label class="block text-sm font-medium text-gray-600">Pilih Jenis Data</label>
-                <select name="jenis" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    <option value="divisi">Divisi</option>
-                    <option value="fasilitas">Fasilitas</option>
-                </select>
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-600">Nama</label>
-                <input type="text" name="nama" required class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
-            </div>
-            <button type="submit" name="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600">Simpan</button>
-        </form>
 
-        <?php
-        if (isset($_POST['submit'])) {
-            $jenis = $_POST['jenis'];
-            $nama = $_POST['nama'];
+<body class="flex h-screen bg-gray-100">
+    <!-- Konten utama -->
+    <div class="flex flex-grow items-start justify-center px-12 mt-24 ml-64">
+        <div class="bg-white p-10 rounded-lg shadow-lg w-full max-w-lg border-l-8 border-green-800">
+            <h2 class="text-3xl font-bold text-green-900 text-center mb-8">
+                <?php echo isset($title) ? $title : ($isFacility ? "Form Fasilitas" : "Form Divisi"); ?>
+            </h2>
 
-            if ($jenis == "divisi") {
-                header("Location: create_divisi.php?nama=" . urlencode($nama));
-            } else {
-                header("Location: create_fasilitas.php?nama=" . urlencode($nama));
-            }
-            exit();
-        }
-        ?>
+            <form action=<?= $formAction ?> method="POST" class="space-y-8">
+                <div class="flex flex-col">
+                    <label
+                        for="<?php echo isset($nameInput) ? $nameInput : ($isFacility ? "nama_fasilitas" : "nama_divisi"); ?>"
+                        class="block text-green-900 font-semibold mb-3 text-lg">
+                        <?php echo isset($nameInput) ? ucfirst(str_replace('_', ' ', $nameInput)) : ($isFacility ? "Nama Fasilitas" : "Nama Divisi"); ?>
+                    </label>
+                    <input type="text" id="name" name="name"
+                        class="w-full max-w-md p-4 border border-green-800 rounded-md bg-green-100 
+                                focus:ring-2 focus:ring-green-700 focus:outline-none  placeholder-green-700 placeholder-opacity-70"
+                        placeholder="<?php echo $isFacility ? 'Masukkan nama fasilitas' : 'Masukkan nama divisi'; ?>"
+                        value="<?= $name ?? '' ?>" required>
+
+                </div>
+
+                <button type="submit" name="submit" value="<?= isset($id) ? 'update' : 'create' ?>"
+                    class="w-full py-3 bg-gradient-to-r from-green-600 to-blue-950 text-white rounded-md 
+                           hover:opacity-90 transition duration-300 text-lg active:bg-green-300 active:text-green-900 font-bold">
+                    <?php echo isset($submitText) ? $submitText : "Simpan"; ?>
+                </button>
+
+
+
+
+            </form>
+        </div>
     </div>
+
 </body>
+
 </html>

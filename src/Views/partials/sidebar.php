@@ -1,3 +1,9 @@
+<?php
+use App\Config\Config;
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,62 +16,88 @@
         tailwind.config = {
             darkMode: 'class',
             theme: {
-                extend: {}
+                extend: {
+                    colors: {
+                        primary: '#071952',
+                        secondary: '#0B666A',
+                        accent: '#35A29F',
+                        hoverHighlight: '#4ADE80' // Warna hover lebih terang
+                    }
+                }
             }
         }
     </script>
 </head>
 
-<body class="flex h-screen bg-gray-100">
+<body class="">
 
-    <!-- sidebar -->
     <!-- Sidebar -->
-    <div class="hidden md:flex flex-col w-64 bg-gray-800 h-screen">
-        <div class="flex items-center justify-center h-16 bg-gray-900">
-            <span class="text-white font-bold uppercase">Sidebar</span>
+    <div class="fixed top-0 left-0 bg-gradient-to-b from-primary to-secondary shadow-lg rounded-r-2xl flex flex-col
+                ">
+        <!-- Header Sidebar -->
+        <div class="flex items-center justify-center h-16 bg-primary border-b border-gray-600">
+            <span class="text-white font-bold uppercase tracking-wide text-lg">Dashboard</span>
         </div>
-        <div class="flex flex-col flex-1 overflow-y-auto">
-            <nav class="flex-1 px-2 py-4 bg-gray-800">
-                <a href="dashboard.php" class="flex items-center px-4 py-2 text-gray-100 hover:bg-green-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h11M9 21V3m8 18h-8m8-10h-3m3 10V3m0 18h-3" />
+
+        <!-- Menu Sidebar -->
+        <div class="grow h-full overflow-y-auto ">
+            <nav class="px-4 py-4 space-y-2">
+                <a href="<?= Config::BASE_URL . '/dashboard' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9L12 2L21 9V20H3V9Z"></path>
+                        <path d="M9 22V12H15V22"></path>
                     </svg>
                     Dashboard
                 </a>
-                <a href="user.php" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 12A4 4 0 1 1 8 12a4 4 0 0 1 8 0zM3 20h18" />
+                <a href="<?= Config::BASE_URL . '/users' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 20V18C5 16.9 5.9 16 7 16H17C18.1 16 19 16.9 19 18V20"></path>
+                        <circle cx="12" cy="10" r="4"></circle>
                     </svg>
                     Tabel User
                 </a>
-                <a href="participant_table.php" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3S9 6.34 9 8s1.34 3 3 3zm0 1c-2.67 0-8 1.34-8 4v1h16v-1c0-2.66-5.33-4-8-4z" />
+                <a href="<?= Config::BASE_URL . '/participants' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21V19C16 17.9 15.1 17 14 17H10C8.9 17 8 17.9 8 19V21"></path>
+                        <circle cx="12" cy="10" r="4"></circle>
                     </svg>
                     Tabel Partisipan
                 </a>
-                <a href="divisi_table.php" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h11M9 21V3m8 18h-8m8-10h-3m3 10V3m0 18h-3" />
+                <a href="<?= Config::BASE_URL . '/divisions' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 21V9L12 2L21 9V21H3Z"></path>
+                        <path d="M9 21V12H15V21"></path>
                     </svg>
                     Tabel Divisi
                 </a>
-                <a href="fasilitas_table.php" class="flex items-center px-4 py-2 mt-2 text-gray-100 hover:bg-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 3h12M6 9h12M6 15h12m-6 6v-6" />
+                <a href="<?= Config::BASE_URL . '/facilities' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3H21V9H3V3Z"></path>
+                        <path d="M3 15H21V21H3V15Z"></path>
                     </svg>
-                    Tabel Fasilitas
+                    Tabel fasilitas
                 </a>
+                <a href="<?= Config::BASE_URL . '/certificates' ?>"
+                    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
+                    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 12L16 16L22 10"></path>
+                        <path d="M20 4H8L4 8V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4Z"></path>
+                        <circle cx="12" cy="14" r="3"></circle>
+                    </svg>
+                    Tabel Sertifikat
+                </a>
+
             </nav>
         </div>
     </div>

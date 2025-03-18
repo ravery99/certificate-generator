@@ -31,7 +31,7 @@ class DivisionController extends Controller
 
     public function create()
     {
-        $this->renderView('divisions/create', 'layouts/', [
+        $this->renderView('divisions/create', 'layouts/main', [
             "page_title" => "Formulir Tambah Divisi Baru", 
         ]);
     }
@@ -61,7 +61,7 @@ class DivisionController extends Controller
     public function edit(string $id)
     {
         $division = $this->division_model->getDivisionById($id);
-        $this->renderView('divisions/edit', 'layouts/', ['id' => $id, 'division_name'=> $division['name']]);
+        $this->renderView('divisions/edit', 'layouts/main', ['id' => $id, 'division_name'=> $division['name']]);
     }
 
     public function update(string $id)
@@ -103,7 +103,7 @@ class DivisionController extends Controller
 
     protected function redirect(string|null $user_role = null, bool|null $success = null)
     {
-        header("Location: " . Config::BASE_URL . "/divisions");
+        header("Location: " . Config::BASE_URL . "/divisions", true, 303);
         exit;
     }
 }
