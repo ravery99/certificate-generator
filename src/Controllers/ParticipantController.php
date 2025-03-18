@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Config\Config;
+use App\Services\AuthService;
 use App\Services\ParticipantService;
 
 class ParticipantController extends Controller
@@ -17,9 +18,10 @@ class ParticipantController extends Controller
 
     public function index()
     {
+        AuthService::check();
         $participants = $this->participant_service->getParticipants();
         $this->renderView('participants/index', 'layouts/main', [
-            "page_title" => "Tabel Peserta", 
+            "page_title" => "Tabel Peserta",
             "participants" => $participants
         ]);
     }
@@ -44,10 +46,11 @@ class ParticipantController extends Controller
 
     public function destroy(string $id)
     {
+        AuthService::check();
         $this->participant_service->destroy($id);
         $this->redirect('admin');
     }
-    
+
     public function showSubmissionSuccess()
     {
         $data = [

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Exception;
 use App\Core\Service;
+use App\Config\Config;
 use App\Services\UserService;
 
 class AuthService extends Service
@@ -18,6 +19,8 @@ class AuthService extends Service
 
     public function logout()
     {
+        $_SESSION = [];
+        session_unset();
         session_destroy();
         $this->flash_service->set("success", "Anda berhasil logout.");
     }
@@ -29,6 +32,9 @@ class AuthService extends Service
             $user = $this->user_service->getUserByUsername($input['username']);
             $is_password_valid = password_verify($input['password'], $user['password']);
             if ($user && $is_password_valid) {
+                // session_start();
+                session_regenerate_id(true);
+
                 $_SESSION['user'] = [
                     'id' => $user['id'],
                     'username' => $user['username'],
@@ -53,7 +59,8 @@ class AuthService extends Service
             $success = $this->user_service->store();
             $this->flash_service->set(
                 $success ? "success" : "error",
-                $success ? "Registrasi berhasil! Silakan login." : "Registrasi gagal! Username mungkin sudah terpakai.");
+                $success ? "Registrasi berhasil! Silakan login." : "Registrasi gagal! Username mungkin sudah terpakai."
+            );
             LogService::logError("Registration Succeed :", "this is register() function in AuthService class. Value of success is $success.");
         } catch (Exception $e) {
             LogService::logError("Registration Error :", $e->getMessage());
@@ -62,4 +69,14 @@ class AuthService extends Service
         return $success ?? false;
     }
 
+    public static function check()
+    {
+        // if (session_status() === PHP_SESSION_NONE) {
+        //     session_start();
+        // }
+        if (!isset($_SESSION['user'])) {
+            header("Location: " . Config::BASE_URL . "/login");
+            exit();
+        }
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Config\Config;
 use App\Core\Controller;
+use App\Services\AuthService;
 use App\Services\DivisionService;
 
 class DivisionController extends Controller
@@ -12,6 +13,7 @@ class DivisionController extends Controller
 
     public function __construct(DivisionService $division_service)
     {
+        AuthService::check();
         $this->division_service = $division_service;
     }
 
