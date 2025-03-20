@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $users = $this->user_service->getUsers();
         $this->renderView('users/index', 'layouts/main', [
-            "page_title" => "Tabel Admin",
+            "page_title" => "Manajemen Admin",
             "users" => $users
         ]);
     }
@@ -29,7 +29,7 @@ class UserController extends Controller
     public function create()
     {
         $this->renderView('users/create', 'layouts/main', [
-            "page_title" => "Formulir Tambah Admin Baru", 
+            "page_title" => "Form Pendaftaran Admin",
         ]);
     }
 
@@ -42,7 +42,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = $this->user_service->getUserById($id);
-        $this->renderView('users/edit', 'layouts/main', ['id' => $id, 'username'=> $user['username']]);
+        $this->renderView('users/edit', 'layouts/main', ['page_title' => 'Form Edit Admin', 'id' => $id, 'username' => $user['username']]);
     }
 
     public function update(string $id)

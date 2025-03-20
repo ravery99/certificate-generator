@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         $data = $this->dashboard_service->getData();
         $this->renderView("dashboard", "layouts/main", [
-            "page_title" => "Dashboard Admin",
+            "page_title" => "Beranda Admin",
             "data" => $data,
         ]);
     }

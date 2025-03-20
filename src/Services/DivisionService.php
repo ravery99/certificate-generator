@@ -53,6 +53,8 @@ class DivisionService extends Service
     public function update(string $id)
     {
         try {
+            
+
             $name = trim($_POST['name']);
             if ($this->division_model->findDivisionByName($name)) {
                 $this->flash_service->set("error", "Divisi '$name' sudah ada.");

@@ -21,7 +21,7 @@ class DivisionController extends Controller
     {
         $divisions = $this->division_service->getDivisions();
         $this->renderView('divisions/index', 'layouts/main', [
-            "page_title" => "Tabel Divisi",
+            "page_title" => "Manajemen Divisi",
             "divisions" => $divisions
         ]);
     }
@@ -29,7 +29,7 @@ class DivisionController extends Controller
     public function create()
     {
         $this->renderView('divisions/create', 'layouts/main', [
-            "page_title" => "Formulir Tambah Divisi Baru", 
+            "page_title" => "Tambah Divisi Baru",
         ]);
     }
 
@@ -42,7 +42,7 @@ class DivisionController extends Controller
     public function edit(string $id)
     {
         $division = $this->division_service->getDivision($id);
-        $this->renderView('divisions/edit', 'layouts/main', ['id' => $id, 'division_name'=> $division['name']]);
+        $this->renderView('divisions/edit', 'layouts/main', ['page_title' => 'Edit Divisi', 'id' => $id, 'division_name' => $division['name']]);
     }
 
     public function update(string $id)

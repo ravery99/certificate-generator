@@ -20,7 +20,7 @@ class FacilityController extends Controller
     {
         $facilities = $this->facility_service->getFacilities();
         $this->renderView('facilities/index', 'layouts/main', [
-            "page_title" => "Tabel Fasilitas",
+            "page_title" => "Manajemen Fasilitas",
             "facilities" => $facilities
         ]);
     }
@@ -28,7 +28,7 @@ class FacilityController extends Controller
     public function create()
     {
         $this->renderView('facilities/create', 'layouts/main', [
-            "page_title" => "Formulir Tambah Fasilitas Baru",
+            "page_title" => "Tambah Fasilitas Baru",
         ]);
     }
 
@@ -41,7 +41,7 @@ class FacilityController extends Controller
     public function edit(string $id)
     {
         $facility = $this->facility_service->getFacility($id);
-        $this->renderView('facilities/edit', 'layouts/main', ['id' => $id, 'facility_name' => $facility['name']]);
+        $this->renderView('facilities/edit', 'layouts/main', ['page_title' => 'Edit Fasilitas', 'id' => $id, 'facility_name' => $facility['name']]);
     }
 
     public function update(string $id)

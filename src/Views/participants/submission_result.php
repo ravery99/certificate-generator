@@ -12,10 +12,10 @@ use App\Config\Config;
     <div class="w-full md:w-1/2 p-8 flex flex-col justify-center items-center">
         <h1
             class="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-950 to-green-600 text-center whitespace-nowrap max-w-full mb-4">
-            TERIMA KASIH
+            <?= $title_text ?>
         </h1>
         <p class="text-center text-lg sm:text-xl md:text-2xl text-gray-800 font-medium mb-6">
-            Terima kasih, Anda sudah mengisi formulir. Silakan cek email Anda untuk informasi lebih lanjut.
+            <?= $desc_text ?>
         </p>
         <button onclick="window.location.href='<?= Config::BASE_URL ?>/participants/create'"
             class="mt-4 px-6 py-3 bg-gradient-to-r from-green-600 to-blue-950 text-white rounded-md 

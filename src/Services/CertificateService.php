@@ -28,16 +28,15 @@ class CertificateService extends Service
         $link = "/certificates/$filename_without_ext";
         return $link;
     }
-        
-    public function findCertificate(string $id): array
+
+    public function findCertificate(string $id): string
     {
-        $path = __DIR__ . "/../../storage/certificates"; 
+        $path = __DIR__ . "/../../storage/certificates";
         $filename = "$id.png";
         $file = $path . DIRECTORY_SEPARATOR . $filename;
-        $base_url = "http://localhost/certificate-generator/storage/certificates";
-        
-        return (file_exists($file) && is_readable($file)) ? 
-                ['url' => $base_url, 'path' => $file] : [];
+
+        return (file_exists($file) && is_readable($file)) ?
+            $file : "";
     }
 
     public function sendFileDownload(string $file_path, string $filename): void
@@ -70,14 +69,14 @@ class CertificateService extends Service
     {
         try {
             $deleted = $this->certificate_model->deleteCertificate($id);
-            
+
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Sertifikat dengan ID $id berhasil dihapus!" : "Sertifikat dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Sertifikat dengan ID $id berhasil dihapus!" : "Sertifikat dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
-
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'sertifikat', $id);
         }
         return $deleted ?? false;
@@ -86,6 +85,6 @@ class CertificateService extends Service
     public function downloadCertificate(string $id)
     {
         $certificate = $this->findCertificate($id);
-        $this->sendFileDownload($certificate['path'], "Sertifikat_Trustmedis.png");
+        $this->sendFileDownload($certificate, "Sertifikat_Trustmedis.png");
     }
 }

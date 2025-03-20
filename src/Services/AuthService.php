@@ -32,7 +32,6 @@ class AuthService extends Service
             $user = $this->user_service->getUserByUsername($input['username']);
             $is_password_valid = password_verify($input['password'], $user['password']);
             if ($user && $is_password_valid) {
-                // session_start();
                 session_regenerate_id(true);
 
                 $_SESSION['user'] = [

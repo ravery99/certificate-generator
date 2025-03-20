@@ -44,5 +44,4 @@ class Certificate
         $this->db->bind(':participant_id', $participant_id);
         return $this->db->rowCount() > 0;
     }
-
 }

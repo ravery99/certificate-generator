@@ -1,22 +1,11 @@
 <?php
+
 use App\Config\Config;
-?>
 
-<?php
-
-// Set variabel untuk form.php
-$title = "Edit Fasilitas";
-$formAction = Config::BASE_URL . "/facilities/$id";      
-$nameInput = "nama_fasilitas";
+$form_action = Config::BASE_URL . "/facilities/$id";
 $placeholder = "Masukkan nama fasilitas";
-$submitText = "Update Fasilitas";
-$divisiValue = 'nama_fasilitas'; 
-$isFacility = true; 
+$name_label = "Nama Fasilitas";
+$value = $facility_name;
+
 
 include(__DIR__ . '/../partials/dropdown_form.php');
-?>
-
-
-
-
-
