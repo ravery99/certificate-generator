@@ -8,7 +8,7 @@ use App\Config\Config;
 
 <div class="flex flex-col md:flex-row w-full max-w-4xl bg-white rounded-xl shadow-2xl overflow-hidden mx-auto mt-10">
     <div class="w-full md:w-1/2 bg-cover bg-center min-h-[300px] md:min-h-[450px]"
-        style="background-image: url('gambar3.webp');"></div>
+        style="background-image: url('/certificate-generator/src/Views/participants/gambar3.jpg');"></div>
     <div class="w-full md:w-1/2 p-8 flex flex-col justify-center items-center">
         <h1
             class="text-2xl sm:text-3xl md:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-950 to-green-600 text-center whitespace-nowrap max-w-full mb-4">

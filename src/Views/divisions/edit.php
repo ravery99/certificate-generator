@@ -13,5 +13,5 @@ $submitText = "Update Divisi";
 $divisiValue = 'nama_divisi'; // Ambil nama divisi dari database
 $isFacility = false;
 
-include(__DIR__ . '/../partials/dropdown_form.php');
+include(__DIR__ . '/../partials/division_facility_form.php');
 ?>

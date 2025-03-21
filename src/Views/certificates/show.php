@@ -19,7 +19,10 @@
 
     <!-- Bagian Gambar -->
     <div class="flex-1 flex justify-center items-center bg-gradient-to-r from-blue-950 to-green-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
-        <img src= "<?php echo $certificate; ?>" alt="Gambar Sertifikat" 
-             class="max-w-full sm:rounded-xl shadow-2xl">
+         <img src= "<?php echo $certificate; ?>" alt="Gambar Sertifikat" 
+                class="max-w-full sm:rounded-xl shadow-2xl">
     </div>
 </div>
+
+
+=

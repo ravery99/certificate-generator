@@ -1,6 +1,11 @@
 <?php
 use App\Config\Config;
 
+
+$limit = 6; 
+$page = max(1, (int) ($_GET['page'] ?? 1));
+$totalPages = ceil(count($users) / $limit);
+$usersPaginated = array_slice($users, ($page - 1) * $limit, $limit);
 ?>
 
 <!DOCTYPE html>
@@ -10,76 +15,75 @@ use App\Config\Config;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabel Admin</title>
-    <link href="../src/Views/output.css" rel="stylesheet">
+    <link href="../output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
-
-
-
-    <!-- Content Area -->
-    <div class=" grow overflow-y-auto p-8 bg-gray-100  ">
-        <h1 class="text-3xl font-bold text-gray-700">Tabel Admin</h1>
-
-        <!-- Tombol Tambah User -->
-        <div class="mt-8 w-40">
-            <a href="<?= Config::BASE_URL . '/users/create' ?>" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-950 
-        text-white rounded-md hover:opacity-90 transition duration-300 text-sm 
-        active:bg-green-300 active:text-green-900 font-semibold shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                </svg>
-                Tambah User
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="w-full max-w-6xl p-10 bg-white shadow-2xl rounded-3xl border border-gray-200">
+        <div class="mb-6">
+            <h1 class="text-3xl font-extrabold text-[#508C9B] mb-4">Tabel Admin</h1>
+            <a href="<?= Config::BASE_URL . '/users/create' ?>"
+                class="flex items-center justify-center gap-2 px-5 py-2 min-w-[140px] bg-[#508C9B] text-white rounded-md hover:bg-[#417A89] transition text-sm font-bold shadow-md w-fit">
+                ➕ Tambah Admin
             </a>
         </div>
 
-
-        <!-- Tabel User -->
-        <div class="overflow-hidden rounded-lg shadow-lg bg-white p-4 mt-6">
-            <table class="w-full border border-gray-300 rounded-lg text-base">
+        <div class="overflow-hidden rounded-xl shadow-xl bg-white p-6 border border-gray-200">
+            <table class="w-full border border-gray-300 rounded-xl text-sm">
                 <thead>
-                    <tr class="bg-green-600 text-white">
-                        <th class="border border-gray-300 px-6 py-3">ID</th>
-                        <th class="border border-gray-300 px-6 py-3">Username</th>
-                        <th class="border border-gray-300 px-6 py-3">Aksi</th>
+                    <tr class="bg-[#508C9B] text-white">
+                        <th class="border px-6 py-3">ID</th>
+                        <th class="border px-6 py-3">Nama Pengguna</th>
+                        <th class="border px-6 py-3">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if (empty($users)): ?>
+                    <?php if (empty($usersPaginated)): ?>
                         <tr>
-                            <td colspan="8" class="text-center text-gray-700 p-4">No users found.</td>
+                            <td colspan="3" class="text-center text-gray-700 p-4 italic">Pengguna Tidak Ditemukan</td>
                         </tr>
                     <?php else: ?>
-                        <?php foreach ($users as $user): ?>
-                            <tr class='text-center text-gray-700 hover:bg-gray-100 transition'>
-                                <td class='border border-gray-300 px-6 py-3'><?= htmlspecialchars($user['id']) ?></td>
-                                <td class='border border-gray-300 px-6 py-3'><?= htmlspecialchars($user['username']) ?></td>
-
-
-                                <td class='border border-gray-300 px-6 py-3 flex justify-center space-x-2'>
+                        <?php foreach ($usersPaginated as $user): ?>
+                            <tr class="text-center text-gray-700 hover:bg-gray-100 transition">
+                                <td class="border px-6 py-3"><?= htmlspecialchars($user['id']) ?></td>
+                                <td class="border px-6 py-3"><?= htmlspecialchars($user['username']) ?></td>
+                                <td class="border px-6 py-3 flex justify-center gap-2">
                                     <a href="<?= Config::BASE_URL . "/users/" . $user['id'] . "/edit" ?>"
-                                        class='bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition shadow-md text-sm'>
-                                        Edit
-                                    </a>
-
-                                    <form action="<?= Config::BASE_URL . "/users/" . $user['id']?>" method='POST'
-                                        onsubmit='return confirm("Apakah Anda yakin ingin menghapus user ini?");'>
+                                        class="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700 text-xs">Edit</a>
+                                    <form action="<?= Config::BASE_URL . "/users/" . $user['id'] ?>" method="POST"
+                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus user ini?');">
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <button type='submit'
-                                            class='bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition shadow-md text-sm'>
-                                            Hapus
-                                        </button>
+                                        <button type="submit"
+                                            class="bg-red-600 text-white px-3 py-1 rounded-md hover:bg-red-700 text-xs">Hapus</button>
                                     </form>
-
-
-                                    
+                                </td>
                             </tr>
                         <?php endforeach ?>
                     <?php endif ?>
                 </tbody>
             </table>
         </div>
-    </div>
 
+        <!-- Navigasi Halaman -->
+        <div class="mt-6 flex justify-center gap-2">
+            <?php if ($page > 1): ?>
+                <a href="?page=<?= $page - 1 ?>" class="px-3 py-1 border rounded-md bg-gray-200 hover:bg-gray-300">‹
+                    Prev</a>
+            <?php endif; ?>
+
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="?page=<?= $i ?>"
+                    class="px-3 py-1 border rounded-md <?= ($i == $page) ? 'bg-[#508C9B] text-white' : 'bg-gray-200 hover:bg-gray-300' ?>">
+                    <?= $i ?>
+                </a>
+            <?php endfor; ?>
+
+            <?php if ($page < $totalPages): ?>
+                <a href="?page=<?= $page + 1 ?>" class="px-3 py-1 border rounded-md bg-gray-200 hover:bg-gray-300">Next
+                    ›</a>
+            <?php endif; ?>
+        </div>
+    </div>
 </body>
+
+</html>

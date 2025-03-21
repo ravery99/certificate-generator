@@ -64,7 +64,7 @@ class CertificateController extends Controller
     public function showExpire(): void
     {
         // $this->renderView("expired_certificate", "layout");
-        $this->renderView("certificates/expired", "layouts/"); //layout_path nya benerin lagi, yg atas juga
+        $this->renderView("certificates/expired", "layouts/main"); //layout_path nya benerin lagi, yg atas juga
     }
 
     public function download(string $id): void

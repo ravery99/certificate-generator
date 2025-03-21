@@ -13,7 +13,7 @@ $submitText = "Update Fasilitas";
 $divisiValue = 'nama_fasilitas'; 
 $isFacility = true; 
 
-include(__DIR__ . '/../partials/dropdown_form.php');
+include(__DIR__ . '/../partials/division_facility_form.php');
 ?>
 
 

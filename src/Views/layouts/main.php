@@ -22,7 +22,7 @@
 
     <!-- Sidebar -->
 
-    <div class="flex h-56 bg-red-800 fixed inset-y-0 left-0 shadow-md transition-transform duration-300 ease-in-out sm:relative sm:translate-x-0 z-50"
+    <div class="flex   fixed inset-y-0 left-0 shadow-md transition-transform duration-300 ease-in-out sm:relative sm:translate-x-0 z-50"
         :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'">
         <?php require_once __DIR__ . '../../partials/sidebar.php'; ?>
     </div>

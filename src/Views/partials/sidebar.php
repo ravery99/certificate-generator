@@ -29,15 +29,31 @@ use App\Config\Config;
     </script>
 </head>
 
+<?php
+session_start(); // Mulai sesi
+
+// Proses logout jika dikonfirmasi
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    session_destroy(); // Hapus semua sesi
+    header("Location: ../login.php"); // Arahkan ke halaman login
+    exit();
+}
+?>
+
+
 <body class="">
 
     <!-- Sidebar -->
     <div class="fixed top-0 left-0 bg-gradient-to-b from-primary to-secondary shadow-lg rounded-r-2xl flex flex-col
                 ">
         <!-- Header Sidebar -->
-        <div class="flex items-center justify-center h-16 bg-primary border-b border-gray-600">
-            <span class="text-white font-bold uppercase tracking-wide text-lg">Dashboard</span>
+
+        <div class="p-1.5 flex justify-center">
+            <div class="flex bg-white px-4 py-2  shadow-md justify-center items-center mt-1">
+                <img src="/certificate-generator/src/Views/partials/logok.webp" alt="" class="h-8 w-auto">
+            </div>
         </div>
+
 
         <!-- Menu Sidebar -->
         <div class="grow h-full overflow-y-auto ">
@@ -51,6 +67,7 @@ use App\Config\Config;
                     </svg>
                     Dashboard
                 </a>
+
                 <a href="<?= Config::BASE_URL . '/users' ?>"
                     class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
                     <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
@@ -58,7 +75,7 @@ use App\Config\Config;
                         <path d="M5 20V18C5 16.9 5.9 16 7 16H17C18.1 16 19 16.9 19 18V20"></path>
                         <circle cx="12" cy="10" r="4"></circle>
                     </svg>
-                    Tabel User
+                    Tabel Admin
                 </a>
                 <a href="<?= Config::BASE_URL . '/participants' ?>"
                     class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
@@ -67,7 +84,7 @@ use App\Config\Config;
                         <path d="M16 21V19C16 17.9 15.1 17 14 17H10C8.9 17 8 17.9 8 19V21"></path>
                         <circle cx="12" cy="10" r="4"></circle>
                     </svg>
-                    Tabel Partisipan
+                    Tabel Peserta
                 </a>
                 <a href="<?= Config::BASE_URL . '/divisions' ?>"
                     class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
@@ -85,7 +102,7 @@ use App\Config\Config;
                         <path d="M3 3H21V9H3V3Z"></path>
                         <path d="M3 15H21V21H3V15Z"></path>
                     </svg>
-                    Tabel fasilitas
+                    Tabel Fasilitas
                 </a>
                 <a href="<?= Config::BASE_URL . '/certificates' ?>"
                     class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 transform hover:bg-hoverHighlight hover:text-black hover:shadow-md hover:scale-105">
@@ -97,6 +114,26 @@ use App\Config\Config;
                     </svg>
                     Tabel Sertifikat
                 </a>
+
+                <a href="<?= Config::BASE_URL . '/logout/index.php' ?>" 
+    class="flex items-center px-4 py-3 text-white bg-opacity-20 rounded-lg transition-all duration-300 
+           transform hover:bg-red-500 hover:text-white hover:shadow-lg hover:scale-105">
+    <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 12L16 16L22 10"></path>
+        <path d="M20 4H8L4 8V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4Z"></path>
+        <circle cx="12" cy="14" r="3"></circle>
+    </svg>
+    <span class="font-semibold">Logout</span>
+</a>
+
+
+
+
+
+
+
+
 
             </nav>
         </div>

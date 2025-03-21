@@ -15,6 +15,6 @@ $formAction = Config::BASE_URL . "/divisions";
 $isFacility = false;
 
 
-include(__DIR__ . '/../partials/dropdown_form.php');
+include(__DIR__ . '/../partials/division_facility_form.php');
 ?>
 

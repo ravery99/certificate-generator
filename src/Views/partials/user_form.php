@@ -30,7 +30,7 @@
                 <?php endif; ?>
 
                 <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">Username</label>
+                    <label class="block text-sm font-medium text-gray-700">Nama Pengguna</label>
                     <input type="text" name="username" value="<?= htmlspecialchars($username ?? '') ?>" required
                         class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500">
                 </div>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <label class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
                     <input type="password" name="confirm_password" <?= isset($id) ? '' : 'required' ?>
                         class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500">
                 </div>
