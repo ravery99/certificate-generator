@@ -43,7 +43,15 @@
                 Silakan isi formulir kuisioner di bawah ini untuk dapat mengunduh sertifikat Anda. Pastikan semua informasi diisi dengan benar.
             </p>
 
+<<<<<<< HEAD
             <form id="kuisionerForm" action="<?= Config::BASE_URL ?>/participants" method="POST" class="flex flex-col">
+=======
+
+            <form id="kuisionerForm" action="<?= Config::BASE_URL ?>/participants" method="POST" class="flex flex-col"
+                onsubmit="submitForm(event)">
+              
+                <input type="hidden" name="user_role" value="<?= isset($_SESSION['user']) ? 'admin' : 'public' ?>">
+>>>>>>> 7dbaa110ae7cbec935e75031511b63e66790f254
 
                 <label for="email" class="text-sm font-semibold">Email</label>
                 <input type="email" id="email" name="email" placeholder="name@gmail.com" required
@@ -119,4 +127,8 @@
     </dialog>
 
 </body>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7dbaa110ae7cbec935e75031511b63e66790f254
 </html>

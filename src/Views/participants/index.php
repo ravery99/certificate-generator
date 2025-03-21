@@ -23,11 +23,19 @@ use App\Config\Config;
             Tabel Peserta
         </h1>
 
+<<<<<<< HEAD
         <div class="mt-8">
             <a href="<?= Config::BASE_URL . '/participants/create' ?>" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#006A67] to-[#38A69D] 
         text-white rounded-lg hover:brightness-110 transition duration-300 text-base 
         active:scale-95 font-semibold shadow-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+=======
+        <div class=" mt-8 w-40">
+            <a href="<?= Config::BASE_URL . '/participants/create' ?>" class="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600 to-blue-950 
+        text-white rounded-md hover:opacity-90 transition duration-300 text-sm 
+        active:bg-green-300 active:text-green-900 font-semibold shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+>>>>>>> 7dbaa110ae7cbec935e75031511b63e66790f254
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
@@ -35,7 +43,10 @@ use App\Config\Config;
             </a>
         </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7dbaa110ae7cbec935e75031511b63e66790f254
         <div class="overflow-x-auto rounded-lg shadow-lg bg-white p-6 mt-10">
             <table class="w-full border border-gray-200 rounded-lg text-sm">
                 <thead>

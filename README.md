@@ -1,8 +1,8 @@
 # certificate-generator
 
-Certificate Generator adalah aplikasi untuk membuat sertifikat otomatis dari data hasil Google Forms. 
+Certificate Generator adalah aplikasi untuk membuat sertifikat otomatis dari data hasil formulir pendaftaran. 
 
-Peserta terlebih dahulu menginputkan datanya melalui Google Forms, lalu tidak lama kemudian akan mendapatkan email berisi tautan untuk melihat dan mengunduh sertifikat miliknya. Apabila sertifikat tersebut sudah terhapus, maka Peserta tidak bisa mengaksesnya lagi.
+Peserta terlebih dahulu menginputkan datanya melalui halaman formulir pendaftaran, lalu tidak lama kemudian akan mendapatkan email berisi tautan untuk melihat dan mengunduh sertifikat miliknya. Apabila sertifikat tersebut sudah dihapus oleh Admin, maka Peserta tidak bisa mengaksesnya lagi.
 
 Data yang diinputkan terdiri dari:
 1. Email
@@ -41,46 +41,50 @@ Data yang diinputkan terdiri dari:
 ### Install Packages & Libraries
 1. Install Composer.
 2. Install dibawah ini semua.
-composer require phroute/phroute
+`composer require phroute/phroute
 composer require vlucas/phpdotenv
 composer require ramsey/uuid
-composer require phpmailer/phpmailer
+composer require phpmailer/phpmailer`
 
 ### Koneksi Database
 1. Buka pgadmin dan buat database baru
-2. Klik kanan pada database, lali klik *Query Tool*.
-3. Buka folder */src/Scripts* pada aplikasi.
+2. Klik kanan pada database, lali klik **Query Tool**.
+3. Buka folder **/src/Scripts** pada aplikasi.
 4. Jalankan semua skrip table dengan urutan :
     1. tb_facilities.sql
     2. tb_divisions.sql
     3. tb_users.sql
     4. tb_participants.sql
     5. tb_certificates.sql
-4. Jalankan skrip *fn_update_timestamp.sql*.
-5. Jalankan semua skrip trigger, yaitu *trg_update_divisions.sql* dan *trg_update_facilities.sql*.
+4. Jalankan skrip **fn_update_timestamp.sql**.
+5. Jalankan semua skrip trigger, yaitu **trg_update_divisions.sql** dan **trg_update_facilities.sql**.
 
 ### Persiapkan ENV
-1. Ganri nama file *.env.example* menjadi *.env* saja.
+1. Ganri nama file **.env.example** menjadi **.env** saja.
 2. Isi setiap variabel dengan nilai yang sesuai.
 3. Variabel EMAIL_PASSWORD untuk menampung nilai dari App Password.
 
 ### Email Pengirim
 1. Nyalakan verifikasi 2 langkah pada akun email pengirim. 
-    1. Pergi ke https://myaccount.google.com/.
-    2. Klik *Security*.
+    1. Pergi ke *https://myaccount.google.com/*.
+    2. Klik **Security**.
     3. Pada bagian *Signing in to Google*, klik *2-Step Verification*.
-    4. Klik *GET STARTED*.
-    5. Ketikkan kata sandi akun, lalu gunakan ponselmu untuk mengonfirmasi proses. Klik *CONTINUE*.
-    6. Tambahkan opsi cadangan. Klik *NEXT*.
-    7. Klik *TURN ON* untuk menyalakan verifikasi 2 langkah.
+    4. Klik **GET STARTED**.
+    5. Ketikkan kata sandi akun, lalu gunakan ponselmu untuk mengonfirmasi proses. Klik **CONTINUE**.
+    6. Tambahkan opsi cadangan. Klik **NEXT**.
+    7. Klik **TURN ON** untuk menyalakan verifikasi 2 langkah.
 2. Buat kata sandi aplikasi (app password).
-    1. Pergi ke https://myaccount.google.com/apppasswords.
+    1. Pergi ke *https://myaccount.google.com/apppasswords*.
     2. Konfirmasi kredensial. Ketikkan kata sandi akun.
     3. Ketikkan nama aplikasi, "Certificate Generator".
-    6. Klik *Create*.
-    7. Salin app password yang tampil dan tempelkan pada variabel EMAIL_PASSWORD di .env file.
+    6. Klik **Create**.
+    7. Salin app password yang tampil dan tempelkan pada variabel EMAIL_PASSWORD di **.env file**.
 
-
+### Aktifkan Ekstensi PHP
+1. Buka file **php.ini**.
+2. Hapus tanda ; pada semua baris dibawah ini:
+    1. intl
+    2. 
 
 
 <!-- ## Alur Kerja Sistem

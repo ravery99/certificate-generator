@@ -3,26 +3,21 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Config\DatabaseConfig;
 use App\Config\Config;
 use App\Services\ParticipantService;
-use Exception;
 
 class ParticipantController extends Controller
 {
     private ParticipantService $participant_service;
-    private DatabaseConfig $db;
 
-    public function __construct(ParticipantService $participant_service, DatabaseConfig $db)
+    public function __construct(ParticipantService $participant_service)
     {
-        parent::__construct();
         $this->participant_service = $participant_service;
-        $this->db = $db;
     }
 
     public function index()
     {
-        $participants = $this->participant_service->getParticipants($this->db);
+        $participants = $this->participant_service->getParticipants();
         $this->renderView('participants/index', 'layouts/main', [
             "page_title" => "Tabel Peserta",
             "participants" => $participants //disini nanti
@@ -31,8 +26,8 @@ class ParticipantController extends Controller
 
     public function create()
     {
-        $divisions = $this->participant_service->getDivisions($this->db);
-        $facilities = $this->participant_service->getFacilities($this->db);
+        $divisions = $this->participant_service->getDivisions();
+        $facilities = $this->participant_service->getFacilities();
         $this->renderView('participants/create', 'layouts/main', [
             "page_title" => "Formulir Pembuatan Sertifikat Trustmedis",
             "divisions" => $divisions,
@@ -42,45 +37,14 @@ class ParticipantController extends Controller
 
     public function store()
     {
-        try {
-            $data = $this->participant_service->validateInput($this->db, $_POST);
-            $participant_data = $this->participant_service->createParticipant($this->db, $data);
-
-            $participant_division_name = $this->participant_service->getParticipantDivisionName($this->db, $participant_data['division_id']);
-            $participant_facility_name = $this->participant_service->getParticipantFacilityName($this->db, $participant_data['facility_id']);
-            $certificate_data = array_merge($participant_data, [
-                "division_name" => $participant_division_name,
-                "facility_name" => $participant_facility_name
-            ]);
-
-            $certificate_link = $this->participant_service->createCertificate($this->db, $certificate_data);
-            $this->participant_service->sendCertificateLink($participant_data, $certificate_link);
-
-            $this->flash_service->set("success", "Peserta baru berhasil ditambahkan!");
-            $user_role = $data['user_role'] ?? 'public';
-            $this->redirect($user_role, true);
-
-        } catch (Exception $e) {
-            $this->exception_handler->handle($e, 'tambah', 'peserta');
-            $user_role = $_POST['user_role'] ?? 'public';
-            $this->redirect($user_role, false);
-        }
+        $success = $this->participant_service->store();
+        $user_role = $_POST['user_role'];
+        $this->redirect($user_role, $success ?? false);
     }
 
     public function destroy(string $id)
     {
-        try {
-            $deleted = $this->participant_service->deleteParticipant($this->db, $id);
-
-            $this->flash_service->set(
-                $deleted ? "success" : "error",
-                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
-            );
-
-            http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) {
-            $this->exception_handler->handle($e, 'hapus', 'peserta', $id);
-        }
+        $this->participant_service->destroy($id);
         $this->redirect('admin');
     }
 
