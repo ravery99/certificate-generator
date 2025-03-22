@@ -16,5 +16,6 @@ class UserRoutes extends Routes
         $this->router->get(Config::BASE_URL . "/users/{id}/edit", $this->resolve(UserController::class, 'edit'));
         $this->router->patch(Config::BASE_URL . "/users/{id}", $this->resolve(UserController::class, 'update'));
         $this->router->delete(Config::BASE_URL . "/users/{id}", $this->resolve(UserController::class, 'destroy'));
+        $this->router->post(Config::BASE_URL . "/users/search", $this->resolve(UserController::class, 'search'));
     }
 }

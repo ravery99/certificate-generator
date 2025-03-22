@@ -13,16 +13,23 @@ class Facility
         $this->db = $db;
     }
 
-    public function getAllFacilities(): array
+    public function getAllFacilities(): array|bool
     {
         $this->db->query("SELECT * FROM facilities ORDER BY name ASC");
         return $this->db->results();
     }
 
-    public function getFacilityById(string $id): array
+    public function getFacilityById(string $id): array|bool
     {
         $this->db->query("SELECT * FROM facilities WHERE id = :id");
         $this->db->bind(':id', $id);
+        return $this->db->result();
+    }
+
+    public function getFacilityByName(string $name): array|bool
+    {
+        $this->db->query("SELECT * FROM facilities WHERE name = :name");
+        $this->db->bind(':name', $name);
         return $this->db->result();
     }
 
@@ -48,11 +55,12 @@ class Facility
         return $this->db->rowCount() > 0;
     }
 
-    public function findFacilityByName(string $name): bool
+    public function searchFacilities(string $keyword): array|bool
     {
-        $this->db->query("SELECT COUNT(*) FROM facilities WHERE name = :name");
-        $this->db->bind(':name', $name);
-        return $this->db->fetchColumn() > 0;
+        $this->db->query("SELECT * FROM facilities WHERE 
+                            id::TEXT ILIKE :keyword OR 
+                            name ILIKE :keyword");
+        $this->db->bind(':keyword', "%$keyword%");
+        return $this->db->results();
     }
-
 }

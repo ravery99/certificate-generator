@@ -1,3 +1,8 @@
-/vendor/
 .env
-/storage/logs/
+
+node_modules
+vendor
+storage/logs
+output.css
+
+

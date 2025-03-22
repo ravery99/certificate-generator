@@ -1,17 +1,11 @@
 <?php
+
 use App\Config\Config;
-?>
 
-<?php
-
-
-$title = "Edit Divisi";
-$formAction = Config::BASE_URL . "/divisions/$id";
-$nameInput = "nama_divisi";
+$form_action = Config::BASE_URL . "/divisions/$id";
 $placeholder = "Masukkan nama divisi";
-$submitText = "Update Divisi";
-$divisiValue = 'nama_divisi'; // Ambil nama divisi dari database
-$isFacility = false;
+$name_label = "Nama Divisi";
+$value = $division_name;
 
 include(__DIR__ . '/../partials/division_facility_form.php');
 ?>

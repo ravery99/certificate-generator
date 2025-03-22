@@ -16,5 +16,6 @@ class DivisionRoutes extends Routes
         $this->router->get(Config::BASE_URL . "/divisions/{id}/edit", $this->resolve(DivisionController::class, 'edit'));
         $this->router->patch(Config::BASE_URL . "/divisions/{id}", $this->resolve(DivisionController::class, 'update'));
         $this->router->delete(Config::BASE_URL . "/divisions/{id}", $this->resolve(DivisionController::class, 'destroy'));
+        $this->router->post(Config::BASE_URL . "/divisions/search", $this->resolve(DivisionController::class, 'search'));
     }
 }

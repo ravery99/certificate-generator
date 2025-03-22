@@ -14,7 +14,7 @@ class ExceptionHandlerService
         $this->flash_service = new FlashMessageService();
     }
 
-    public function handle(Exception $e, string $action, string $table, string $id = null)
+    public function handle(Exception $e, string $action, string $table, string|null $id = null)
     {
         $messages = [
             'tambah' => "Gagal menambahkan ". strtolower($table) . " baru.",

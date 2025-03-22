@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Core;
 
 use App\Controllers\ErrorController;
-use App\Controllers\UserController;
 use App\Routes\DivisionRoutes;
 use App\Routes\FacilityRoutes;
 use App\Routes\UserRoutes;
@@ -13,9 +12,7 @@ use Psr\Container\ContainerInterface;
 use App\Routes\CertificateRoutes;
 use App\Routes\ParticipantRoutes;
 use App\Routes\AuthRoutes;
-use App\Routes\DivisionRoutes;
-use App\Routes\FacilityRoutes;
-use App\Routes\UserRoutes;
+use App\Routes\DashboardRoutes;
 
 use Phroute\Phroute\RouteCollector;
 use Phroute\Phroute\Dispatcher;
@@ -41,6 +38,7 @@ class Router
             new DivisionRoutes($this->router, $this->container),
             new FacilityRoutes($this->router, $this->container),
             new AuthRoutes($this->router, $this->container),
+            new DashboardRoutes($this->router, $this->container),
         ];
 
         foreach ($routes as $route) {
@@ -55,6 +53,7 @@ class Router
         $errorController = $this->container->get(ErrorController::class);
 
         try {
+            $this->overrideRequestMethod();
             return (string) $dispatcher->dispatch($_SERVER["REQUEST_METHOD"], $path);
         } catch (\Phroute\Phroute\Exception\HttpRouteNotFoundException $e) {
             return (string) $errorController->handleRouteNotFound($e->getMessage());
@@ -62,6 +61,19 @@ class Router
             return (string) $errorController->handleMethodNotAllowed($e->getMessage());
         } catch (\Exception $e) {
             return (string) $errorController->handleGeneralError($e->getMessage());
+        }
+    }
+
+    /**
+     * Override HTTP method jika ada _method di request POST.
+     */
+    private function overrideRequestMethod(): void
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method'])) {
+            $method = strtoupper($_POST['_method']);
+            if (in_array($method, ['PATCH', 'PUT', 'DELETE'])) {
+                $_SERVER['REQUEST_METHOD'] = $method;
+            }
         }
     }
 }

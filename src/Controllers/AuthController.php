@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controllers;
 
@@ -17,10 +17,10 @@ class AuthController extends Controller
 
     public function login()
     {
-        if($this->auth_service->login()){
-            $this->redirect('dashboard');        
+        if ($this->auth_service->login()) {
+            $this->redirect('dashboard');
         } else {
-            $this->redirect('login');        
+            $this->redirect('login');
         }
     }
 
@@ -32,33 +32,33 @@ class AuthController extends Controller
 
     public function register()
     {
-        if($this->auth_service->register()){
-            $this->redirect('login');        
+        if ($this->auth_service->register()) {
+            $this->redirect('login');
         } else {
-            $this->redirect('register');        
+            $this->redirect('register');
         }
     }
 
     public function showLoginForm()
     {
-        $this->renderView("auth/login", "layouts/main", [
-            "page_title" => "Login Admin",
-        ]); //layout_path nya benerin lagi
+        if (isset($_SESSION['user'])) {
+            $this->redirect('dashboard');
+        };
 
+        $this->renderView("auth/login", "layouts/base", [
+            "page_title" => "Form Masuk Admin",
+        ]);
     }
 
     public function showRegisterForm()
     {
-        $this->renderView("auth/register", "layouts/main", [
-            "page_title" => "Register Admin",
-        ]); //layout_path nya benerin lagi
-    }
+        if (isset($_SESSION['user'])) {
+            $this->redirect('dashboard');
+        };
 
-    public function dashboard()
-    {
-        $this->renderView("dashboard", "layouts/main", [
-            "page_title" => "Dashboard",
-        ]); //layout_path nya benerin lagi
+        $this->renderView("auth/register", "layouts/base", [
+            "page_title" => "Form Pendaftaran Admin",
+        ]);
     }
 
     protected function redirect(string|null $url = null)

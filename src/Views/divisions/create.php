@@ -1,19 +1,11 @@
-<!-- formnya panggil file /Views/partials/ -->
-
 <?php
+
 use App\Config\Config;
-?>
 
-
-<?php
-
-$title = "Tambah Divisi Baru";
+$form_action = Config::BASE_URL . "/divisions";
 $placeholder = "Masukkan nama divisi";
-$nameInput = "nama_Divisi";
-$submitText = "Simpan Divisi";
-$formAction = Config::BASE_URL . "/divisions";
-$isFacility = false;
-
+$name_label = "Nama Divisi";
+$button_text = "Simpan Divisi";
 
 include(__DIR__ . '/../partials/division_facility_form.php');
 ?>

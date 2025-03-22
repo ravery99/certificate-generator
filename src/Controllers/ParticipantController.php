@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Config\Config;
+use App\Services\AuthService;
 use App\Services\ParticipantService;
 
 class ParticipantController extends Controller
@@ -17,10 +18,11 @@ class ParticipantController extends Controller
 
     public function index()
     {
+        AuthService::check();
         $participants = $this->participant_service->getParticipants();
         $this->renderView('participants/index', 'layouts/main', [
-            "page_title" => "Tabel Peserta",
-            "participants" => $participants //disini nanti
+            "page_title" => "Manajemen Peserta",
+            "participants" => $participants
         ]);
     }
 
@@ -28,7 +30,7 @@ class ParticipantController extends Controller
     {
         $divisions = $this->participant_service->getDivisions();
         $facilities = $this->participant_service->getFacilities();
-        $this->renderView('participants/create', 'layouts/main', [
+        $this->renderView('participants/create', isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', [
             "page_title" => "Formulir Pembuatan Sertifikat Trustmedis",
             "divisions" => $divisions,
             "facilities" => $facilities,
@@ -44,6 +46,7 @@ class ParticipantController extends Controller
 
     public function destroy(string $id)
     {
+        AuthService::check();
         $this->participant_service->destroy($id);
         $this->redirect('admin');
     }
@@ -56,7 +59,7 @@ class ParticipantController extends Controller
             "desc_text" => "Respons Anda telah dicatat. \nSilakan cek email Anda untuk mengunduh sertifikat.",
         ];
 
-        $this->renderView('participants/submission_result', 'layout', $data);
+        $this->renderView('participants/submission_result', isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
     }
 
     public function showSubmissionFail()
@@ -67,7 +70,16 @@ class ParticipantController extends Controller
             "desc_text" => "Data yang dimasukkan tidak valid. \nPeriksa kembali format penulisannya dan coba lagi.",
         ];
 
-        $this->renderView('participants/submission_result', 'layout', $data);
+        $this->renderView('participants/submission_result', isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
+    }
+
+    public function search()
+    {
+        $input = $_POST['input'];
+        $participants = $this->participant_service->searchParticipants($input);
+        $this->renderView('participants/table', 'layouts/base', [
+            "participants" => $participants
+        ]);
     }
 
     protected function redirect(string|null $user_role = null, bool|null $success = null)
