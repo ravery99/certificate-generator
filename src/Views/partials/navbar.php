@@ -15,10 +15,10 @@
                 d="M5.121 17.804A12.073 12.073 0 0 1 12 15.5c2.58 0 5.012.79 7.121 2.304M12 3a4 4 0 1 1 0 8 4 4 0 0 1 0-8z" />
         </svg>
     </div>
-    <span class="text-white text-lg font-sans font-semibold tracking-wide">{{ bella }}</span>
+    <!-- <span class="text-white text-lg font-sans font-semibold tracking-wide">{{ bella }}</span> -->
 </div>
 
-<script>
+<!-- <script>
     new Vue({
         el: '#app',
         data: {
@@ -26,19 +26,10 @@
         }
     });
 </script>
+ -->
 
-
-
-
-</div>
-
-
-
------------------
-
-  <!-- Tombol Logout -->
-   <!-- Tombol Logout -->
-   <a href="javascript:void(0);" onclick="openModal()"
+<!-- Tombol Logout -->
+<!-- <a href="javascript:void(0);" onclick="openModal()"
         class="flex items-center px-4 py-3 text-white bg-blue-600 rounded-lg transition-all duration-300 transform hover:bg-blue-700 hover:text-white hover:shadow-md hover:scale-105">
         <svg class="h-6 w-6 mr-3 text-white" fill="none" stroke="currentColor" stroke-width="2"
             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -47,10 +38,10 @@
             <circle cx="12" cy="14" r="3"></circle>
         </svg>
         Logout
-    </a>
+    </a> -->
 
-    <!-- Overlay Gelap & Modal -->
-    <div id="logoutModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+<!-- Overlay Gelap & Modal -->
+<!-- <div id="logoutModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center mt-10">
             <h2 class="text-lg font-semibold mb-4">Apakah Anda yakin?</h2>
             <p class="text-sm text-gray-500 mb-4">Data yang dihapus tidak bisa dikembalikan!</p>
@@ -73,4 +64,4 @@
         function logout() {
             window.location.href = "logout-url"; // Ganti dengan URL logout yang benar
         }
-    </script>
+    </script> -->
