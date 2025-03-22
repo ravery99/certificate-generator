@@ -22,7 +22,7 @@ class ParticipantService extends Service
 
     public function __construct(Participant $participant_model, Certificate $certificate_model, DivisionService $division_service, FacilityService $facility_service)
     {
-        parent::__construct(); 
+        parent::__construct();
         $this->participant_model = $participant_model;
         $this->certificate_model = $certificate_model;
         $this->division_service = $division_service;
@@ -35,11 +35,10 @@ class ParticipantService extends Service
             $data = $this->validateInput($_POST);
             $participant_data = $this->participant_model->addParticipant($data);
             $certificate_data = $this->formatParticipantData($participant_data);
-            
+
             $certificate_link = $this->createCertificate($certificate_data);
             $success = $this->sendCertificateLink($participant_data, $certificate_link);
             $this->flash_service->set("success", "Peserta baru berhasil ditambahkan!");
-            
         } catch (Exception $e) {
             $this->exception_handler->handle($e, 'tambah', 'peserta');
         }
@@ -51,13 +50,14 @@ class ParticipantService extends Service
     {
         try {
             $deleted = $this->participant_model->deleteParticipant($id);
-            
+
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Peserta dengan ID $id berhasil dihapus!" : "Peserta dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'peserta', $id);
         }
 
@@ -70,57 +70,41 @@ class ParticipantService extends Service
         return $validator->validate($input);
     }
 
-
     public function getDivisions(): array
     {
         $divisions = $this->division_service->getDivisions();
         return $divisions;
     }
-    
+
     public function getFacilities(): array
     {
         $facilities = $this->facility_service->getFacilities();
         return $facilities;
     }
-    
+
     public function getParticipants(): array
     {
         $participants = $this->participant_model->getAllParticipants();
-        $participants_data = [];
-        foreach ($participants as $participant) {
-            $participants_data[] = $this->formatParticipantData($participant);
-        }        
+        $participants_data = $this->getAllData($participants);
 
         return $participants_data;
     }
 
-    private function setParticipantTrainingDate(string $training_date)
+    public function searchParticipants(string $keyword)
     {
-        $formatter = new \IntlDateFormatter(
-            'id_ID', 
-            \IntlDateFormatter::FULL, 
-            \IntlDateFormatter::NONE,
-            'Asia/Jakarta', 
-            \IntlDateFormatter::GREGORIAN,
-            'd MMMM yyyy' 
-        );
-    
-        $date_time = new DateTime($training_date);
-        return $formatter->format($date_time);
+        $participants = $this->participant_model->searchParticipants($keyword);
+        $participants_data = $this->getAllData($participants);
+
+        return $participants_data;
     }
 
-    private function getParticipantDivisionName(string $division_id): string
+    private function getAllData(array $participants)
     {
-        $divisions = $this->division_service->getDivisions(); 
-        $division_map = array_column($divisions, 'name', 'id'); 
-        return $division_map[$division_id] ?? null;
-    }
-
-    private function getParticipantFacilityName(string $facility_id): string
-    {
-        $facilities = $this->facility_service->getFacilities();
-        $facility_map = array_column($facilities, 'name', 'id'); 
-        return $facility_map[$facility_id] ?? null;
+        $participants_data = [];
+        foreach ($participants as $participant) {
+            $participants_data[] = $this->formatParticipantData($participant);
+        }
+        return $participants_data;
     }
 
     private function formatParticipantData(array $participant_data)
@@ -132,25 +116,55 @@ class ParticipantService extends Service
         $certificate_data = array_merge($participant_data, [
             "division_name" => $participant_division_name,
             "facility_name" => $participant_facility_name
-        ]);   
+        ]);
 
         return $certificate_data;
     }
+
+    private function setParticipantTrainingDate(string $training_date)
+    {
+        $formatter = new \IntlDateFormatter(
+            'id_ID',
+            \IntlDateFormatter::FULL,
+            \IntlDateFormatter::NONE,
+            'Asia/Jakarta',
+            \IntlDateFormatter::GREGORIAN,
+            'd MMMM yyyy'
+        );
+
+        $date_time = new DateTime($training_date);
+        return $formatter->format($date_time);
+    }
+
+    private function getParticipantDivisionName(string $division_id): string
+    {
+        $divisions = $this->division_service->getDivisions();
+        $division_map = array_column($divisions, 'name', 'id');
+        return $division_map[$division_id] ?? null;
+    }
+
+    private function getParticipantFacilityName(string $facility_id): string
+    {
+        $facilities = $this->facility_service->getFacilities();
+        $facility_map = array_column($facilities, 'name', 'id');
+        return $facility_map[$facility_id] ?? null;
+    }
+
     private function createCertificate(array $participant_data): string
     {
         try {
             $certificate_generator = new CertificateGenerator($participant_data, $this->certificate_model);
             $certificate_info = $certificate_generator->generate();
-    
+
             if (!$certificate_info || !isset($certificate_info['filename'], $certificate_info['link'])) {
                 throw new Exception("Failed to generate certificate");
             }
-    
+
             $is_saved = $this->certificate_model->addCertificate($participant_data['id'], $certificate_info['filename'], $certificate_info['link']);
             if (!$is_saved) {
                 throw new Exception("Failed to save certificate");
             }
-    
+
             return $certificate_info['link'];
         } catch (Exception $e) {
             throw new Exception("Error in createCertificate: " . $e->getMessage());

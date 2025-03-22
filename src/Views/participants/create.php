@@ -1,13 +1,12 @@
-<?php use App\Config\Config; ?>
+<?php
+
+use App\Config\Config; ?>
 
 
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuisioner Partisipan</title>
     <script>
         function submitForm(event) {
             if (event) event.preventDefault(); // Cegah form reload
@@ -16,9 +15,9 @@
             let formData = new FormData(form);
 
             fetch(form.action, {
-                method: form.method,
-                body: formData
-            })
+                    method: form.method,
+                    body: formData
+                })
                 .then(response => {
                     if (response.redirected) {
                         // Jika server merespon dengan redirect (302), arahkan pengguna ke halaman sukses
@@ -37,9 +36,6 @@
             document.getElementById('popup-modal').close(); // Tutup modal setelah submit
         }
     </script>
-
-
-    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -61,7 +57,7 @@
 
             <form id="kuisionerForm" action="<?= Config::BASE_URL ?>/participants" method="POST" class="flex flex-col"
                 onsubmit="submitForm(event)">
-              
+
                 <input type="hidden" name="user_role" value="<?= isset($_SESSION['user']) ? 'admin' : 'public' ?>">
 
                 <label for="email" class="text-sm font-semibold">Email</label>

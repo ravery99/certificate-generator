@@ -18,10 +18,22 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $data = $this->dashboard_service->getData();
-        $this->renderView("dashboard", "layouts/main", [
-            "page_title" => "Dashboard Admin",
+        $data = $this->dashboard_service->getTotals();
+        $participants = $this->dashboard_service->getParticipants();
+
+        $this->renderView("dashboards/index", "layouts/main", [
+            "page_title" => "Beranda",
             "data" => $data,
+            "participants" => $participants,
+        ]);
+    }
+
+    public function search()
+    {
+        $input = $_POST['input'];
+        $participants = $this->dashboard_service->searchParticipants($input);
+        $this->renderView("dashboards/table", "layouts/base", [
+            "participants" => $participants,
         ]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Config\Config;
 use App\Core\Controller;
 use App\Services\AuthService;
+use App\Services\LogService;
 use App\Services\UserService;
 
 class UserController extends Controller
@@ -19,9 +20,15 @@ class UserController extends Controller
 
     public function index()
     {
+        // if (isset($_POST['search_input']) && isset($_SESSION['search_results'])) {
+        //     $users = $_SESSION['search_results'];
+        //     // LogService::logError("Testing search()", "Isi search_result : $users");
+        // } else {
+        //     $users = $this->user_service->getUsers();
+        // }
         $users = $this->user_service->getUsers();
         $this->renderView('users/index', 'layouts/main', [
-            "page_title" => "Tabel Admin",
+            "page_title" => "Manajemen Admin",
             "users" => $users
         ]);
     }
@@ -29,7 +36,7 @@ class UserController extends Controller
     public function create()
     {
         $this->renderView('users/create', 'layouts/main', [
-            "page_title" => "Formulir Tambah Admin Baru", 
+            "page_title" => "Form Pendaftaran Admin",
         ]);
     }
 
@@ -42,7 +49,7 @@ class UserController extends Controller
     public function edit(string $id)
     {
         $user = $this->user_service->getUserById($id);
-        $this->renderView('users/edit', 'layouts/main', ['id' => $id, 'username'=> $user['username']]);
+        $this->renderView('users/edit', 'layouts/main', ['page_title' => 'Form Edit Admin', 'id' => $id, 'username' => $user['username']]);
     }
 
     public function update(string $id)
@@ -55,6 +62,15 @@ class UserController extends Controller
     {
         $this->user_service->destroy($id);
         $this->redirect();
+    }
+
+    public function search()
+    {
+        $input = $_POST['input'];
+        $users = $this->user_service->search($input);
+        $this->renderView('users/table', 'layouts/base', [
+            "users" => $users
+        ]);
     }
 
     protected function redirect()

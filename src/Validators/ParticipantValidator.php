@@ -29,7 +29,7 @@ class ParticipantValidator
             'facility_id'      => $this->validateFacilityId($input['facility_id'] ?? ''),
             'phone_number'  => $this->validatePhoneNumber($input['phone_number'] ?? '')
         ];
-        
+
         $this->checkRequiredFields($filtered_data);
         return $filtered_data;
     }
@@ -43,7 +43,7 @@ class ParticipantValidator
             }
         }
     }
-    
+
     private function validateEmail($email): ?string
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) ?: null;
@@ -67,7 +67,7 @@ class ParticipantValidator
 
     private function validateFacilityId($facility_id): ?string
     {
-        $facility_ids = array_column($this->facility_service->getFacilities(), 'id'); 
+        $facility_ids = array_column($this->facility_service->getFacilities(), 'id');
         return in_array((int) $facility_id, $facility_ids, true) ? $facility_id : null;
     }
 

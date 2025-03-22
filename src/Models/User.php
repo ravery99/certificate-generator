@@ -13,18 +13,16 @@ class User
         $this->db = $db;
     }
 
-
-
-    public function getAllUsers(): array
-{
-    $this->db->query("SELECT id, username,  created_at FROM users ORDER BY username ASC");
-    return $this->db->results();
-}
-
-
-    public function getUserById(string $id): array
+    public function getAllUsers(): array|bool
     {
-        $this->db->query("SELECT id, username, created_at FROM users WHERE id = :id");
+        $this->db->query("SELECT * FROM users ORDER BY username ASC");
+        return $this->db->results();
+    }
+
+
+    public function getUserById(string $id): array|bool
+    {
+        $this->db->query("SELECT * FROM users WHERE id = :id");
         $this->db->bind(':id', $id);
         return $this->db->result();
     }
@@ -36,9 +34,15 @@ class User
         return $this->db->result();
     }
 
+    public function searchUsers(string $keyword): array|bool
+    {
+        $this->db->query("SELECT * FROM users WHERE id::TEXT ILIKE :keyword OR username ILIKE :keyword");
+        $this->db->bind(':keyword', "%$keyword%");
+        return $this->db->results();
+    }
+
     public function addUser(string $username, string $password): bool
     {
-        
         $this->db->query("INSERT INTO users (username, password) VALUES (:username, :password)");
         $this->db->bind(':username', $username);
         $this->db->bind(':password', $password);

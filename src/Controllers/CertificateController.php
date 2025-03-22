@@ -5,9 +5,7 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Services\CertificateService;
 use App\Config\Config;
-use App\Config\DatabaseConfig;
 use App\Services\AuthService;
-use Exception;
 
 class CertificateController extends Controller
 {
@@ -22,7 +20,10 @@ class CertificateController extends Controller
     {
         AuthService::check();
         $certificates = $this->certificate_service->getCertificates();
-        $this->renderView('certificates/index', 'layouts/main', ["page_title" => "Tabel Sertifikat", $certificates]);
+        $this->renderView('certificates/index', 'layouts/main', [
+            "page_title" => "Manajemen Sertifikat",
+            "certificates" => $certificates
+        ]);
     }
 
     public function show($id): void
@@ -30,8 +31,7 @@ class CertificateController extends Controller
         $certificate = $this->certificate_service->findCertificate($id);
 
         if ($certificate) {
-            $this->renderView("certificates/show", "layouts/main", [
-                'certificate' => $certificate['url'],
+            $this->renderView("certificates/show", isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', [
                 'id' => $id,
                 'page_title' => 'Sertifikat Trustmedis'
             ]);
@@ -42,7 +42,11 @@ class CertificateController extends Controller
 
     public function showExpire(): void
     {
-        $this->renderView("certificates/expired", "layouts/main"); //layout_path nya sesuaiin lagi
+        $this->renderView("certificates/expired", isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', [
+            "page_title" => "Sertifikat Sudah Terhapus",
+            "title_text" => "Mohon Maaf",
+            "desc_text" => "Sertifikat tidak dapat diakses karena telah terhapus dari sistem.",
+        ]);
     }
 
     public function download(string $id): void
@@ -55,6 +59,15 @@ class CertificateController extends Controller
         AuthService::check();
         $this->certificate_service->deleteCertificate($id);
         $this->redirect();
+    }
+
+    public function search()
+    {
+        $input = $_POST['input'];
+        $certificates = $this->certificate_service->searchCertificates($input);
+        $this->renderView('certificates/table', 'layouts/base', [
+            "certificates" => $certificates
+        ]);
     }
 
     protected function redirect()

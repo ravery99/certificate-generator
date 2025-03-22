@@ -32,10 +32,8 @@ class DivisionService extends Service
     {
         try {
             $name = trim($_POST['name']);
-            if ($this->division_model->findDivisionByName($name)) {
-                $this->flash_service->set("error", "Divisi '$name' sudah ada.");
-                http_response_code(409);
-            } else {
+
+            if (!$this->getDivisionByName($name)) {
                 $success = $this->division_model->addDivision($name);
                 $this->flash_service->set(
                     $success ? "success" : "error",
@@ -54,11 +52,10 @@ class DivisionService extends Service
     {
         try {
             $name = trim($_POST['name']);
-            if ($this->division_model->findDivisionByName($name)) {
-                $this->flash_service->set("error", "Divisi '$name' sudah ada.");
-                http_response_code(409);
-            } else {
+
+            if (!$this->getDivisionByName($name)) {
                 $success = $this->division_model->updateDivision($id, $name);
+
                 $this->flash_service->set(
                     $success ? "success" : "error",
                     $success ? "Divisi dengan ID $id berhasil diperbarui!" : "Gagal memperbarui divisi dengan ID $id. Terjadi kesalahan saat menyimpan data."
@@ -86,5 +83,24 @@ class DivisionService extends Service
             $this->exception_handler->handle($e, 'hapus', 'divisi', $id);
         }
         return $deleted ?? false;
+    }
+
+    public function search(string $keyword)
+    {
+        $divisions = $this->division_model->searchDivisions($keyword);
+        return $divisions;
+    }
+
+    private function getDivisionByName(string $name)
+    {
+        $division = $this->division_model->getDivisionByName($name);
+        if (!$division) {
+            $this->flash_service->set("error", "Divisi tidak dapat ditemukan!");
+            return false;
+        } else {
+            $this->flash_service->set("error", "Divisi $name sudah ada.");
+            http_response_code(409);
+            return $division;
+        }
     }
 }

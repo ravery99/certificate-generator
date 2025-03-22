@@ -41,17 +41,24 @@ class AuthController extends Controller
 
     public function showLoginForm()
     {
-        $this->renderView("auth/login", "layouts/main", [
-            "page_title" => "Login Admin",
-        ]); //layout_path nya benerin lagi
+        if (isset($_SESSION['user'])) {
+            $this->redirect('dashboard');
+        };
 
+        $this->renderView("auth/login", "layouts/base", [
+            "page_title" => "Form Masuk Admin",
+        ]);
     }
 
     public function showRegisterForm()
     {
-        $this->renderView("auth/register", "layouts/main", [
-            "page_title" => "Register Admin",
-        ]); //layout_path nya benerin lagi
+        if (isset($_SESSION['user'])) {
+            $this->redirect('dashboard');
+        };
+
+        $this->renderView("auth/register", "layouts/base", [
+            "page_title" => "Form Pendaftaran Admin",
+        ]);
     }
 
     protected function redirect(string|null $url = null)

@@ -1,3 +1,7 @@
+<?php
+
+use App\Config\Config; ?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -5,40 +9,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page_title ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="<?= Config::BASE_URL ?>/../output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD@400,0,0">
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <style>
-        body {
-            background-color: #f9fafb;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
-<body class="flex flex-col min-h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
+<body class="overscroll-none bg-gradient-to-b from-[#071952] to-[#0B666A]" x-data="{ sidebarOpen: false }">
 
+    <div class="flex flex-row">
 
-    <div x-show="sidebarOpen" class="fixed inset-0 bg-black bg-opacity-50 z-40 sm:hidden" @click="sidebarOpen = false">
-    </div>
-
-    <!-- Sidebar -->
-
-    <div class="flex h-56 bg-red-800 fixed inset-y-0 left-0 shadow-md transition-transform duration-300 ease-in-out sm:relative sm:translate-x-0 z-50"
-        :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'">
-        <?php require_once __DIR__ . '../../partials/sidebar.php'; ?>
-    </div>
-
-    <!-- Konten utama -->
-    <div class="flex flex-col flex-1 transition-all duration-300 sm:ml-64">
-
-        <!-- Navbar -->
-        <div
-            class="fixed top-0 left-0 w-full sm:left-64 sm:w-[calc(100%-16rem)] h-16 bg-green-900 flex items-center px-4 shadow-md z-50">
-            <?php require_once __DIR__ . '../../partials/navbar.php'; ?>
+        <div x-show=" sidebarOpen" class="fixed inset-0 bg-opacity-50 z-40 lg:hidden" @click="sidebarOpen = false">
         </div>
 
-        <!-- View -->
-        <div class="flex flex-1 p-6 pt-20">
-            <?php require_once "../src/Views/$view_path.php"; ?>
+        <!-- Sidebar -->
+        <div class="fixed lg:w-1/4 lg:flex h-screen shadow-md transition-transform duration-300 ease-out lg:translate-x-0 z-50 "
+            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
+            <?php require_once __DIR__ . '../../partials/sidebar.php'; ?>
+        </div>
+
+        <!-- Konten utama -->
+        <div class="lg:ml-[25%] flex flex-col min-h-screen w-full overflow-hidden">
+
+            <!-- Navbar -->
+            <div class="sticky top-0">
+                <?php require_once __DIR__ . '../../partials/navbar.php'; ?>
+            </div>
+
+            <!-- View -->
+            <div class="h-full p-12 bg-gray-100">
+                <?php require_once "../src/Views/$view_path.php"; ?>
+            </div>
+
         </div>
     </div>
 

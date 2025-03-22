@@ -18,7 +18,8 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/main",$data);
+        $this->renderView("error", 'layouts/base', $data);
+        // $this->renderView("error", isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
     }
 
     public function handleMethodNotAllowed($message)
@@ -32,7 +33,8 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/main", $data);
+        $this->renderView("error", 'layouts/base', $data);
+        // $this->renderView("error", isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
     }
 
     public function handleGeneralError($message)
@@ -46,6 +48,7 @@ class ErrorController extends Controller
             "message" => $message,
         ];
 
-        $this->renderView("error", "layouts/main", $data);
+        $this->renderView("error", 'layouts/base', $data);
+        // $this->renderView("error", isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
     }
 }

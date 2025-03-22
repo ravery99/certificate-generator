@@ -12,7 +12,7 @@ class FacilityService extends Service
 
     public function __construct(Facility $facility_model)
     {
-        parent::__construct(); 
+        parent::__construct();
         $this->facility_model = $facility_model;
     }
 
@@ -31,20 +31,18 @@ class FacilityService extends Service
     public function store()
     {
         try {
-            $name = trim($_POST['name']); 
-            if ($this->facility_model->findFacilityByName($name)) {
-                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
-                http_response_code(409);
-            } else {
+            $name = trim($_POST['name']);
+
+            if (!$this->getFacilityByName($name)) {
                 $success = $this->facility_model->addFacility($name);
                 $this->flash_service->set(
                     $success ? "success" : "error",
-                    $success ? "Fasilitas baru berhasil ditambahkan!" : "Gagal menambahkan fasilitas '$name'. Terjadi kesalahan saat menyimpan data.");
-    
+                    $success ? "Fasilitas baru berhasil ditambahkan!" : "Gagal menambahkan fasilitas '$name'. Terjadi kesalahan saat menyimpan data."
+                );
+
                 http_response_code($success ? 201 : 500);
             }
-            
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'tambah', 'fasilitas');
         }
         return $success ?? false;
@@ -53,19 +51,18 @@ class FacilityService extends Service
     public function update(string $id)
     {
         try {
-            $name = trim($_POST['name']); 
-            if ($this->facility_model->findFacilityByName($name)) {
-                $this->flash_service->set("error", "Fasilitas '$name' sudah ada.");
-                http_response_code(409);
-            } else {
+            $name = trim($_POST['name']);
+
+            if (!$this->getFacilityByName($name)) {
                 $success = $this->facility_model->updateFacility($id, $name);
+
                 $this->flash_service->set(
                     $success ? "success" : "error",
                     $success ? "Fasilitas dengan ID $id berhasil diperbarui!" : "Gagal memperbarui fasilitas dengan ID $id. Terjadi kesalahan saat menyimpan data."
                 );
                 http_response_code($success ? 200 : 500);
             }
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'edit', 'fasilitas', $id);
         }
         return $success ?? false;
@@ -77,12 +74,32 @@ class FacilityService extends Service
             $deleted = $this->facility_model->deleteFacility($id);
             $this->flash_service->set(
                 $deleted ? "success" : "error",
-                $deleted ? "Fasilitas dengan ID $id berhasil dihapus!" : "Fasilitas dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi.");
+                $deleted ? "Fasilitas dengan ID $id berhasil dihapus!" : "Fasilitas dengan ID $id sudah tidak tersedia. Silakan muat ulang halaman dan coba lagi."
+            );
 
             http_response_code($deleted ? 200 : 404);
-        } catch (Exception $e) { 
+        } catch (Exception $e) {
             $this->exception_handler->handle($e, 'hapus', 'fasilitas', $id);
         }
         return $deleted ?? false;
+    }
+
+    public function search(string $keyword)
+    {
+        $facilities = $this->facility_model->searchFacilities($keyword);
+        return $facilities;
+    }
+
+    private function getFacilityByName(string $name)
+    {
+        $facility = $this->facility_model->getFacilityByName($name);
+        if (!$facility) {
+            $this->flash_service->set("error", "Fasilitas tidak dapat ditemukan!");
+            return false;
+        } else {
+            $this->flash_service->set("error", "Fasilitas $name sudah ada.");
+            http_response_code(409);
+            return $facility;
+        }
     }
 }
