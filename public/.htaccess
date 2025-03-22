@@ -1,8 +1,0 @@
-Options -Indexes
-Options -Multiviews
-
-RewriteEngine On
-RewriteBase /certificate-generator/public/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
