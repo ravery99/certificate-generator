@@ -15,7 +15,7 @@ function deleteButton(string $table_name, string $link)
         <input type="hidden" name="_method" value="DELETE">
 
         <button type='submit'
-            class='bg-red-300 text-red-700 px-4 py-2 rounded-md hover:bg-red-500 hover:text-white shadow-md cursor-pointer flex items-center '>
+            class='bg-red-300 text-red-700 px-4 py-2 rounded-xl hover:bg-red-500 hover:text-white shadow-md cursor-pointer flex items-center '>
 
             <span class="material-symbols-outlined">
                 delete

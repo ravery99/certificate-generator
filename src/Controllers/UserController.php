@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Config\Config;
 use App\Core\Controller;
 use App\Services\AuthService;
+use App\Services\LogService;
 use App\Services\UserService;
 
 class UserController extends Controller
@@ -19,6 +20,12 @@ class UserController extends Controller
 
     public function index()
     {
+        // if (isset($_POST['search_input']) && isset($_SESSION['search_results'])) {
+        //     $users = $_SESSION['search_results'];
+        //     // LogService::logError("Testing search()", "Isi search_result : $users");
+        // } else {
+        //     $users = $this->user_service->getUsers();
+        // }
         $users = $this->user_service->getUsers();
         $this->renderView('users/index', 'layouts/main', [
             "page_title" => "Manajemen Admin",
@@ -55,6 +62,15 @@ class UserController extends Controller
     {
         $this->user_service->destroy($id);
         $this->redirect();
+    }
+
+    public function search()
+    {
+        $input = $_POST['input'];
+        $users = $this->user_service->search($input);
+        $this->renderView('users/table', 'layouts/base', [
+            "users" => $users
+        ]);
     }
 
     protected function redirect()

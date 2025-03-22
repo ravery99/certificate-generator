@@ -41,23 +41,21 @@ class UserService extends Service
         }
     }
 
+    public function search(string $keyword)
+    {
+        $users = $this->user_model->searchUsers($keyword);
+        return $users;
+    }
+
     public function store(): bool
     {
         try {
             $input = $this->getInput();
-            $user = $this->validateUsername($input['username']);
+            $is_username_valid = $this->validateUsername($input['username']);
             $is_password_valid = $this->validatePassword($input['password']);
             $is_password_confirmed = $this->isPasswordConfirmed($input['password'], $input['password_confirmation']);
 
-            if ($user) {
-                return false;
-            }
-
-            if (!$is_password_valid) {
-                return false;
-            }
-
-            if (!$is_password_confirmed) {
+            if (!$is_username_valid || !$is_password_valid || !$is_password_confirmed) {
                 return false;
             }
 
@@ -159,19 +157,20 @@ class UserService extends Service
             $this->flash_service->set("error", "Username hanya boleh berisi huruf, angka, titik, atau garis bawah dan harus antara 3-30 karakter.");
             return false;
         }
-        if (!$this->getUserByUsername($username)) {
-            return true;
+        if ($this->getUserByUsername($username)) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     private function validatePassword(string $password): bool
     {
-        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/', $password)) {
-            LogService::logError("Registration Failed :", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, angka, dan simbol.");
-            $this->flash_service->set("error", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, angka, dan simbol.");
+        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
+            LogService::logError("Registration Failed :", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.");
+            $this->flash_service->set("error", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.");
             return false;
         }
+
         return true;
     }
 }

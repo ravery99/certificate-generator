@@ -17,24 +17,35 @@ class Participant
         $this->db = $db;
     }
 
-    public function getAllParticipants(): array
+    public function getAllParticipants(): array|bool
     {
         $this->db->query("SELECT * FROM participants ORDER BY created_at DESC");
         return $this->db->results();
     }
 
-	public function getParticipantById(string $id): array
+    public function getParticipantById(string $id): array|bool
     {
         $this->db->query("SELECT * FROM participants WHERE id=:id");
         $this->db->bind(':id', $id);
         return $this->db->result();
     }
 
-    public function getParticipantByEmail(string $email): array
+    public function getParticipantByEmail(string $email): array|bool
     {
         $this->db->query("SELECT * FROM participants WHERE email=:email");
         $this->db->bind(':email', $email);
         return $this->db->result();
+    }
+
+    public function searchParticipants(string $keyword): array|bool
+    {
+        $this->db->query("SELECT * FROM participants WHERE 
+                            id::TEXT ILIKE :keyword OR 
+                            p_name ILIKE :keyword OR 
+                            email ILIKE :keyword OR
+                            phone_number ILIKE :keyword");
+        $this->db->bind(':keyword', "%$keyword%");
+        return $this->db->results();
     }
 
     public function addParticipant(array $data): ?array
@@ -55,7 +66,7 @@ class Participant
         return $result ?? null;
     }
 
-    public function updateParticipant(array $data)
+    public function updateParticipant(array $data): bool
     {
         $this->db->query(
             "UPDATE participants SET email = :email, training_date = :training_date, p_name = :p_name, 

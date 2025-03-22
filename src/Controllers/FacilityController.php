@@ -56,6 +56,15 @@ class FacilityController extends Controller
         $this->redirect();
     }
 
+    public function search()
+    {
+        $input = $_POST['input'];
+        $facilities = $this->facility_service->search($input);
+        $this->renderView('facilities/table', 'layouts/base', [
+            "facilities" => $facilities
+        ]);
+    }
+
     protected function redirect()
     {
         header("Location: " . Config::BASE_URL . "/facilities", true, 303);

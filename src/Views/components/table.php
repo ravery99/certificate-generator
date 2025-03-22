@@ -5,36 +5,36 @@ function table(string $table_name, array $columns, array $data, callable|null $a
     $exclude_columns = array_merge($exclude_columns, ["created_at", "updated_at"]);
 
 ?>
-    <table class="w-full border border-gray-300 rounded-lg text-sm">
-        <thead>
-            <tr class="bg-pink-700 text-white">
-                <th class="border border-gray-300 px-4 py-2">No.</th>
-                <?php foreach ($columns as $column): ?>
 
-                    <th class="border border-gray-300 px-4 py-2">
-                        <?= $column ?>
-                    </th>
+    <?php if (empty($data)): ?>
+        <h3 colspan="<?= count($columns) + 1 + ($actions ? 1 : 0) ?>"
+            class="flex justify-center w-full text-gray-700 p-4 normal-case">
+            Tidak ada <?= $table_name ?> yang ditemukan.
+        </h3>
+    <?php else: ?>
 
-                <?php endforeach ?>
-                <?php if ($actions): ?>
-                    <th class="border border-gray-300 px-4 py-2">Aksi</th>
-                <?php endif; ?>
+        <table class="w-full border border-gray-300 rounded-lg text-sm">
+            <thead>
+                <tr class="bg-pink-700 text-white">
+                    <th class="border border-gray-300 px-4 py-2">No.</th>
+                    <?php foreach ($columns as $column): ?>
 
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (empty($data)): ?>
-                <tr>
-                    <td colspan="<?= count($columns) + ($actions ? 2 : 1) - count($exclude_columns) ?>"
-                        class="text-center text-gray-700 p-4 normal-case">
-                        Tidak ada <?= $table_name ?> yang ditemukan.
-                    </td>
+                        <th class="border border-gray-300 px-4 py-2">
+                            <?= $column ?>
+                        </th>
+
+                    <?php endforeach ?>
+                    <?php if ($actions): ?>
+                        <th class="border border-gray-300 px-4 py-2">Aksi</th>
+                    <?php endif; ?>
+
                 </tr>
-            <?php else: ?>
+            </thead>
+            <tbody>
+
                 <?php $no = 1; ?>
                 <?php foreach ($data as $rows): ?>
-                    <tr class='text-center text-gray-700 hover:bg-gray-200 transition'>
-
+                    <tr class='text-center text-gray-700 hover:bg-gray-200'>
 
                         <td class='border border-gray-300 px-4 py-2'><?= $no++ ?>.</td>
 
@@ -51,9 +51,10 @@ function table(string $table_name, array $columns, array $data, callable|null $a
                         <?php endif; ?>
                     </tr>
                 <?php endforeach ?>
-            <?php endif ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    <?php endif ?>
+
 <?php
 }
 ?>

@@ -6,7 +6,7 @@ use PDO;
 use PDOException;
 use Exception;
 
-class DatabaseConfig 
+class DatabaseConfig
 {
     private $host;
     private $user;
@@ -55,19 +55,19 @@ class DatabaseConfig
     {
         return $this->stmt->execute();
     }
-    
+
     public function results()
     {
         $this->execute();
         return $this->stmt->fetchAll();
     }
-    
+
     public function result()
     {
         $this->execute();
         return $this->stmt->fetch();
     }
-    
+
     public function rowCount()
     {
         $this->execute();
@@ -79,7 +79,7 @@ class DatabaseConfig
         $this->execute();
         return $this->stmt->fetchColumn();
     }
-    
+
     public function bind($param, $value, $type = null)
     {
         if (is_null($type)) {

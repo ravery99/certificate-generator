@@ -61,6 +61,15 @@ class CertificateController extends Controller
         $this->redirect();
     }
 
+    public function search()
+    {
+        $input = $_POST['input'];
+        $certificates = $this->certificate_service->searchCertificates($input);
+        $this->renderView('certificates/table', 'layouts/base', [
+            "certificates" => $certificates
+        ]);
+    }
+
     protected function redirect()
     {
         header("Location: " . Config::BASE_URL . "/certificates", true, 303);

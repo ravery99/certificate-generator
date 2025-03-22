@@ -57,6 +57,15 @@ class DivisionController extends Controller
         $this->redirect();
     }
 
+    public function search()
+    {
+        $input = $_POST['input'];
+        $divisions = $this->division_service->search($input);
+        $this->renderView('divisions/table', 'layouts/base', [
+            "divisions" => $divisions
+        ]);
+    }
+
     protected function redirect()
     {
         header("Location: " . Config::BASE_URL . "/divisions", true, 303);

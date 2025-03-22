@@ -16,5 +16,6 @@ class FacilityRoutes extends Routes
         $this->router->get(Config::BASE_URL . "/facilities/{id}/edit", $this->resolve(FacilityController::class, 'edit'));
         $this->router->patch(Config::BASE_URL . "/facilities/{id}", $this->resolve(FacilityController::class, 'update'));
         $this->router->delete(Config::BASE_URL . "/facilities/{id}", $this->resolve(FacilityController::class, 'destroy'));
+        $this->router->post(Config::BASE_URL . "/facilities/search", $this->resolve(FacilityController::class, 'search'));
     }
 }

@@ -19,7 +19,7 @@ class Certificate
         return $this->db->results();
     }
 
-    public function getCertificateById(string $participant_id): array
+    public function getCertificateById(string $participant_id)
     {
         $this->db->query("SELECT * FROM certificates WHERE participant_id=:participant_id");
         $this->db->bind(':participant_id', $participant_id);
@@ -43,5 +43,12 @@ class Certificate
         $this->db->query("DELETE FROM certificates WHERE participant_id = :participant_id");
         $this->db->bind(':participant_id', $participant_id);
         return $this->db->rowCount() > 0;
+    }
+
+    public function searchCertificates(string $keyword): array|bool
+    {
+        $this->db->query("SELECT * FROM certificates WHERE certificate_filename ILIKE :keyword");
+        $this->db->bind(':keyword', "%$keyword%");
+        return $this->db->results();
     }
 }

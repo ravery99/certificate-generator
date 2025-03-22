@@ -73,6 +73,15 @@ class ParticipantController extends Controller
         $this->renderView('participants/submission_result', isset($_SESSION['user']) ? 'layouts/main' : 'layouts/base', $data);
     }
 
+    public function search()
+    {
+        $input = $_POST['input'];
+        $participants = $this->participant_service->searchParticipants($input);
+        $this->renderView('participants/table', 'layouts/base', [
+            "participants" => $participants
+        ]);
+    }
+
     protected function redirect(string|null $user_role = null, bool|null $success = null)
     {
         $routes = [

@@ -10,8 +10,9 @@ use App\Config\Config; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $page_title ?></title>
     <link href="<?= Config::BASE_URL ?>/../output.css" rel="stylesheet">
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD@400,0,0">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="overscroll-none bg-gradient-to-b from-[#071952] to-[#0B666A]" x-data="{ sidebarOpen: false }">
@@ -28,7 +29,7 @@ use App\Config\Config; ?>
         </div>
 
         <!-- Konten utama -->
-        <div class="lg:ml-[25%] flex flex-col min-h-screen w-full">
+        <div class="lg:ml-[25%] flex flex-col min-h-screen w-full overflow-hidden">
 
             <!-- Navbar -->
             <div class="sticky top-0">

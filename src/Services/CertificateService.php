@@ -59,9 +59,21 @@ class CertificateService extends Service
         exit;
     }
 
+    public function getCertificate(string $id)
+    {
+        $certificate = $this->certificate_model->getCertificateById($id);
+        return $certificate;
+    }
+
     public function getCertificates()
     {
         $certificates = $this->certificate_model->getAllCertificates();
+        return $certificates;
+    }
+
+    public function searchCertificates(string $keyword)
+    {
+        $certificates = $this->certificate_model->searchCertificates($keyword);
         return $certificates;
     }
 
