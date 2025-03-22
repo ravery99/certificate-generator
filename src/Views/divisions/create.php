@@ -7,4 +7,6 @@ $placeholder = "Masukkan nama divisi";
 $name_label = "Nama Divisi";
 $button_text = "Simpan Divisi";
 
-include(__DIR__ . '/../partials/dropdown_form.php');
+include(__DIR__ . '/../partials/division_facility_form.php');
+?>
+

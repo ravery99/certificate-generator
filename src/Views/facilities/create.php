@@ -7,5 +7,5 @@ $placeholder = "Masukkan nama fasilitas";
 $name_label = "Nama Fasilitas";
 $button_text = "Simpan Fasilitas";
 
-include(__DIR__ . '/../partials/dropdown_form.php');
+include(__DIR__ . '/../partials/division_facility_form.php');
 ?>
