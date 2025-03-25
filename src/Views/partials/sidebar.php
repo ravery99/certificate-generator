@@ -16,7 +16,6 @@ require_once __DIR__ . "/../components/sidebarItem.php";
         <div class="hidden">
             bg-green-400 hover:bg-green-400
             bg-red-500 hover:bg-red-500
-
             text-black hover:text-black
             text-white hover:text-white
         </div>

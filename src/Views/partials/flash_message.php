@@ -9,7 +9,7 @@
             <div class="flex-1 p-2 w-full">
                 <h1 class="md:text-xl font-semibold 
                     <?= $_SESSION['flash']['type'] === 'success' ? 'text-green-600' : 'text-red-600' ?>">
-                    <?= $_SESSION['flash']['type'] === 'success' ? 'Success!' : 'Error!' ?>
+                    <?= $_SESSION['flash']['type'] === 'success' ? 'Sukses!' : 'Gagal!' ?>
                 </h1>
                 <p class="text-gray-500 text-sm md:text-base font-medium">
                     <?= htmlspecialchars($_SESSION['flash']['message']) ?>
@@ -17,7 +17,7 @@
             </div>
             <div class="cursor-pointer border-l border-gray-200 bg-gray-100 hover:bg-gray-200 px-5 flex items-center transition-all duration-300 ease-in-out "
                 onclick="this.parentElement.parentElement.remove();">
-                <p class="text-gray-500 text-xs font-bold tracking-wide uppercase">Close</p>
+                <p class="text-gray-500 text-xs font-bold tracking-wide uppercase">Tutup</p>
             </div>
         </div>
     </div>

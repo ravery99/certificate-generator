@@ -8,3 +8,9 @@ function pageTitleCard(string $page_title)
         </h1>
     </div>
 <?php } ?>
+
+
+
+
+
+
