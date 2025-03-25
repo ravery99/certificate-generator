@@ -19,7 +19,7 @@ use App\Config\Config; ?>
 
     <div class="flex flex-row">
 
-        <div x-show=" sidebarOpen" class="fixed inset-0 bg-opacity-50 z-40 xl:hidden" @click="sidebarOpen = false">
+        <div x-show=" sidebarOpen" class="fixed inset-0 bg-opacity-50 z-10 xl:hidden" @click="sidebarOpen = false">
         </div>
 
         <!-- Sidebar -->
@@ -43,6 +43,8 @@ use App\Config\Config; ?>
 
         </div>
     </div>
+
+    <?php require_once __DIR__ . '/../partials/modal.php'; ?>
 
 </body>
 

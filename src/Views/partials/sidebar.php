@@ -36,17 +36,10 @@ require_once __DIR__ . "/../components/sidebarItem.php";
 
         </nav>
 
-
-        <nav class="mt-auto p-4" id="logout-btn">
+        <nav class="mt-auto p-4">
             <?php
             sidebarItem('Keluar', '/logout', 'logout', 'bg-red-500', 'text-white');
             ?>
         </nav>
-
-
-
     </div>
-
-
-
 </div>

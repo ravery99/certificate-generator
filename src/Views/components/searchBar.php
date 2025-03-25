@@ -4,7 +4,7 @@ use App\Config\Config;
 
 function searchBar(string $link, string $placeholder)
 {
-    ?>
+?>
     <div class="flex w-full flex-col space-y-6">
         <input type="text" id="live_search" placeholder="<?= $placeholder ?>" autocomplete="off"
             class="w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:text-ellipsis">
@@ -17,8 +17,8 @@ function searchBar(string $link, string $placeholder)
 
 
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#live_search").keyup(function () {
+        $(document).ready(function() {
+            $("#live_search").keyup(function() {
 
                 var input = $(this).val().trim();
 
@@ -32,7 +32,7 @@ function searchBar(string $link, string $placeholder)
                             input: input
                         },
 
-                        success: function (data) {
+                        success: function(data) {
                             $("#table").html(data);
                             // $("#loading").hide();
                         }

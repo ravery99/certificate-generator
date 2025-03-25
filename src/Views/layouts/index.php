@@ -1,10 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../components/pageTitleCard.php";
-require_once __DIR__ . "/../components/createButton.php";
-// require_once __DIR__ . "/../components/deleteButton.php";
 require_once __DIR__ . "/../components/actionButton.php";
-// require_once __DIR__ . "/../components/table.php";
 require_once __DIR__ . "/../components/searchBar.php";
 
 ?>
@@ -21,10 +18,10 @@ require_once __DIR__ . "/../components/searchBar.php";
             text-green-600
             text-red-600
         </div>
-        
+
         <?php require_once __DIR__ . "/../partials/flash_message.php"; ?>
     </div>
-    
+
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6">
 
         <div class="flex flex-row items-center space-x-6">
@@ -32,7 +29,7 @@ require_once __DIR__ . "/../components/searchBar.php";
                 <?php searchBar($search_link, $search_bar_placeholder);
                 ?>
             </div>
-            
+
             <?php if (isset($create_link)): ?>
                 <div class="flex h-full">
                     <?php

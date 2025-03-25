@@ -1,7 +1,7 @@
 <?php
-require __DIR__ . "/../components/table.php";
-require __DIR__ . "/../components/deleteButton.php";
-// require __DIR__ . "/../components/actionButton.php";
+require_once __DIR__ . "/../components/table.php";
+require_once __DIR__ . "/../components/deleteButton.php";
+require_once __DIR__ . "/../components/actionButton.php";
 
 table(
     'sertifikat',
@@ -14,4 +14,3 @@ table(
     },
     ['participant_id', 'certificate_link'],
 );
-?>
