@@ -6,7 +6,7 @@ require_once __DIR__ . "/../components/submitButton.php";
 ?>
 
 <!-- Konten utama -->
-<div class="flex h-full items-center justify-center px-12">
+<div class="flex h-full items-center justify-center sm:p-6">
     <div class="bg-white p-10 rounded-2xl shadow-lg w-full max-w-lg border-l-8 border-green-800 space-y-8">
         <h2 class="text-3xl font-bold text-gray-800 text-center">
             <?= $page_title ?>

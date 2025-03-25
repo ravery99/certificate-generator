@@ -17,13 +17,13 @@ use App\Config\Config;
                 Unduh sertifikat Anda sebelum kedaluwarsa! Anda hanya memiliki waktu 10 hari untuk menyimpannya.
             </p>
             <a href="<?= Config::BASE_URL . "/certificates/$id/download" ?>" download="Sertifikat Trustmedis"
-                class="inline-block px-2 sm:px-8 md:px-12 py-2 sm:py-5 md:py-6 w-full sm:w-auto bg-blue-950 text-white text-sm sm:text-lg md:text-xl font-bold rounded-xl sm:rounded-2xl transition hover:bg-green-600 justify-center items-center">
+                class="inline-block whitespace-nowrap px-2 sm:px-8 md:px-12 py-2 sm:py-5 md:py-6 w-full lg:w-fit bg-blue-950 text-white text-sm sm:text-lg md:text-xl font-bold rounded-xl sm:rounded-2xl transition hover:bg-green-600 justify-center items-center">
                 UNDUH SEKARANG
             </a>
         </div>
 
         <!-- Bagian Gambar -->
-        <div class="flex-1 flex justify-center items-center bg-gradient-to-r from-blue-950 to-green-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
+        <div class="flex-1 flex justify-center items-center bg-gradient-to-r from-blue-950 to-green-600 rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10">
             <img src="<?= Config::BASE_URL . "/certificates/$id/download" ?>" alt="Gambar Sertifikat"
                 class="max-w-full sm:rounded-xl shadow-2xl">
         </div>

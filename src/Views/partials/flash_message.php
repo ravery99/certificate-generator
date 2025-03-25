@@ -1,4 +1,3 @@
-<!-- flash message atur disini -->
 <?php if (isset($_SESSION['flash'])): ?>
     <div class="p-2 flex flex-col gap-5 items-center w-full">
         <div

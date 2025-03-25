@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\User;
 use App\Core\Service;
+use App\Validators\UserValidator;
 use Exception;
 
 class UserService extends Service
@@ -35,7 +36,8 @@ class UserService extends Service
             $this->flash_service->set("error", "Username tidak dapat ditemukan!");
             return false;
         } else {
-            $this->flash_service->set("error", "User $username sudah ada.");
+            LogService::logError("Registration Failed :", "User $username sudah ada.");
+            $this->flash_service->set("error", "User $username sudah ada. Gunakan nama pengguna yang lain.");
             http_response_code(409);
             return $user;
         }
@@ -51,15 +53,16 @@ class UserService extends Service
     {
         try {
             $input = $this->getInput();
-            $is_username_valid = $this->validateUsername($input['username']);
-            $is_password_valid = $this->validatePassword($input['password']);
-            $is_password_confirmed = $this->isPasswordConfirmed($input['password'], $input['password_confirmation']);
-
-            if (!$is_username_valid || !$is_password_valid || !$is_password_confirmed) {
+            if ($this->getUserByUsername($input['username'])) {
                 return false;
             }
 
+            $is_input_valid = $this->validateInput($input);
+            if (!$is_input_valid) {
+                return false;
+            }
             $success = $this->createUser($input);
+            $this->flash_service->set("success", "Admin baru berhasil ditambahkan!");
         } catch (Exception $e) {
             $this->exception_handler->handle($e, 'tambah', 'user');
         }
@@ -113,15 +116,10 @@ class UserService extends Service
         return $input;
     }
 
-    private function isPasswordConfirmed(string $password, string $password_confirmation)
+    private function validateInput(array $input)
     {
-        if ($password !== $password_confirmation) {
-            LogService::logError("Registration Error :", "Konfirmasi kata sandi tidak cocok!");
-            $this->flash_service->set("error", "Konfirmasi kata sandi tidak cocok!");
-            http_response_code(400);
-            return false;
-        }
-        return true;
+        $validator = new UserValidator($this->flash_service);
+        return $validator->validate($input);
     }
 
     private function updateUser(string $id, string $username)
@@ -148,29 +146,5 @@ class UserService extends Service
 
         http_response_code($success ? 201 : 500);
         return $success;
-    }
-
-    private function validateUsername(string $username): bool
-    {
-        if (!preg_match('/^[a-zA-Z0-9._]{3,30}$/', $username)) {
-            LogService::logError("Registration Failed :", "Username hanya boleh berisi huruf, angka, titik, atau garis bawah dan harus antara 3-30 karakter.");
-            $this->flash_service->set("error", "Username hanya boleh berisi huruf, angka, titik, atau garis bawah dan harus antara 3-30 karakter.");
-            return false;
-        }
-        if ($this->getUserByUsername($username)) {
-            return false;
-        }
-        return true;
-    }
-
-    private function validatePassword(string $password): bool
-    {
-        if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/', $password)) {
-            LogService::logError("Registration Failed :", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.");
-            $this->flash_service->set("error", "Password harus minimal 8 karakter, mengandung huruf besar, huruf kecil, dan angka.");
-            return false;
-        }
-
-        return true;
     }
 }
