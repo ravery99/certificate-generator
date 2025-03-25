@@ -41,7 +41,7 @@ require_once __DIR__ . "/../components/actionButton.php";
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6 h-full">
         <div class="flex flex-row items-center space-x-6">
             <div class="flex w-full">
-                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...',);
+                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...', );
                 ?>
             </div>
 

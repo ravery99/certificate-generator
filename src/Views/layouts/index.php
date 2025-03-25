@@ -3,39 +3,28 @@
 require_once __DIR__ . "/../components/pageTitleCard.php";
 require_once __DIR__ . "/../components/createButton.php";
 // require_once __DIR__ . "/../components/deleteButton.php";
-// require_once __DIR__ . "/../components/actionButton.php";
+require_once __DIR__ . "/../components/actionButton.php";
 // require_once __DIR__ . "/../components/table.php";
 require_once __DIR__ . "/../components/searchBar.php";
 
 ?>
 
-<div class="flex flex-col h-full space-y-6">
-    <!-- <h1 class="text-3xl font-bold text-gray-700">
-        <?=
-        $page_title
-        ?>
-    </h1> -->
-
-    <!-- testing, mending yg atas atau bawah? -->
+<div class="flex flex-col h-full space-y-4">
     <?php
     pageTitleCard($page_title);
     ?>
 
-    <?php if (isset($create_link)): ?>
-        <div class="w-full sm:w-fit">
-            <?php createButton($table_name, $create_link) ?>
-        </div>
-    <?php endif ?>
-
     <div>
         <div class="hidden">
-            bg-red-100
-            bg-green-100
+            bg-gradient-to-b from-green-500 to-emerald-400
+            bg-gradient-to-b from-red-500 to-rose-400
+            text-green-600
+            text-red-600
         </div>
-        <?php
-        include __DIR__ . "/../partials/flash_message.php";
-        ?>
+        
+        <?php require_once __DIR__ . "/../partials/flash_message.php"; ?>
     </div>
+    
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6">
 
         <div class="flex flex-row items-center space-x-6">
@@ -43,9 +32,14 @@ require_once __DIR__ . "/../components/searchBar.php";
                 <?php searchBar($search_link, $search_bar_placeholder);
                 ?>
             </div>
-
-            <!-- barangkali ada tombol di sebelah kanan search bar -->
-            <!-- buat div baru disini -->
+            
+            <?php if (isset($create_link)): ?>
+                <div class="flex h-full">
+                    <?php
+                    actionButton('add', $create_link, 'green', $button_text);
+                    ?>
+                </div>
+            <?php endif ?>
         </div>
 
         <div class="flex h-full overflow-x-auto" id="table">
