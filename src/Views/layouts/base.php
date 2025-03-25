@@ -10,6 +10,8 @@ use App\Config\Config; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> <?= $page_title ?? '' ?> </title>
     <link href="<?= Config::BASE_URL ?>/../output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL,GRAD@400,0,0">
+
 </head>
 
 <body class="flex justify-center items-center h-screen md:p-6 overscroll-none bg-gray-100 ">

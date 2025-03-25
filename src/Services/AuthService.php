@@ -58,11 +58,6 @@ class AuthService extends Service
     {
         try {
             $success = $this->user_service->store();
-            $this->flash_service->set(
-                $success ? "success" : "error",
-                $success ? "Registrasi berhasil! Silakan login." : "Registrasi gagal! Username mungkin sudah terpakai."
-            );
-            // LogService::logError("Registration Succeed :", "this is register() function in AuthService class. Value of success is $success.");
         } catch (Exception $e) {
             LogService::logError("Registration Error :", $e->getMessage());
             $this->flash_service->set("error", "Terjadi kesalahan sistem. Silakan coba lagi nanti.");
