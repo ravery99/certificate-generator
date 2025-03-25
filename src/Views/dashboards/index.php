@@ -41,7 +41,7 @@ require_once __DIR__ . "/../components/actionButton.php";
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6 h-full">
         <div class="flex flex-row items-center space-x-6">
             <div class="flex w-full">
-                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...',);
+                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...', );
                 ?>
             </div>
 
@@ -59,6 +59,10 @@ require_once __DIR__ . "/../components/actionButton.php";
                 <!-- Load warna komponen button lihat sertifikat yang di table -->
                 bg-blue-300 hover:bg-blue-500
                 text-blue-700
+
+                <!-- Load warna komponen button edit di table -->
+                bg-orange-300 hover:bg-orange-500
+                text-orange-700
             </div>
             <div class="flex h-full">
                 <?php

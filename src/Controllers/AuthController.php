@@ -26,8 +26,10 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $this->auth_service->logout();
-        $this->redirect('login');
+        $this->renderView('partials/logout_modal', 'layouts/base', []);
+
+        // $this->auth_service->logout();
+        // $this->redirect('login');
     }
 
     public function register()
@@ -43,7 +45,8 @@ class AuthController extends Controller
     {
         if (isset($_SESSION['user'])) {
             $this->redirect('dashboard');
-        };
+        }
+        ;
 
         $this->renderView("auth/login", "layouts/base", [
             "page_title" => "Form Masuk Admin",
@@ -54,7 +57,8 @@ class AuthController extends Controller
     {
         if (isset($_SESSION['user'])) {
             $this->redirect('dashboard');
-        };
+        }
+        ;
 
         $this->renderView("auth/register", "layouts/base", [
             "page_title" => "Form Pendaftaran Admin",
