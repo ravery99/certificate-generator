@@ -12,7 +12,7 @@ class FlashMessageService
     public function get(): ?array
     {
         $messages = $_SESSION['flash'] ?? null;
-        unset($_SESSION['flash']); 
+        unset($_SESSION['flash']);
         return $messages;
     }
 }

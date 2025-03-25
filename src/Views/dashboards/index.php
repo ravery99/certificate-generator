@@ -59,6 +59,10 @@ require_once __DIR__ . "/../components/actionButton.php";
                 <!-- Load warna komponen button lihat sertifikat yang di table -->
                 bg-blue-300 hover:bg-blue-500
                 text-blue-700
+
+                <!-- Load warna komponen button edit di table admin, divisi, fasilitas -->
+                bg-orange-300 hover:bg-orange-500
+                text-orange-700
             </div>
             <div class="flex h-full">
                 <?php

@@ -19,17 +19,17 @@ use App\Config\Config; ?>
 
     <div class="flex flex-row">
 
-        <div x-show=" sidebarOpen" class="fixed inset-0 bg-opacity-50 z-40 lg:hidden" @click="sidebarOpen = false">
+        <div x-show=" sidebarOpen" class="fixed inset-0 bg-opacity-50 z-40 xl:hidden" @click="sidebarOpen = false">
         </div>
 
         <!-- Sidebar -->
-        <div class="fixed lg:w-1/4 lg:flex h-screen shadow-md transition-transform duration-300 ease-out lg:translate-x-0 z-50 "
-            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'">
+        <div class="fixed xl:w-1/4 xl:flex h-screen shadow-md transition-transform duration-300 ease-out xl:translate-x-0 z-50 "
+            :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full xl:translate-x-0'">
             <?php require_once __DIR__ . '../../partials/sidebar.php'; ?>
         </div>
 
         <!-- Konten utama -->
-        <div class="lg:ml-[25%] flex flex-col min-h-screen w-full overflow-hidden">
+        <div class="xl:ml-[25%] flex flex-col min-h-screen w-full overflow-hidden">
 
             <!-- Navbar -->
             <div class="sticky top-0">
@@ -37,7 +37,7 @@ use App\Config\Config; ?>
             </div>
 
             <!-- View -->
-            <div class="h-full p-12 bg-gray-100">
+            <div class="h-full p-6 sm:p-12 bg-gray-100">
                 <?php require_once "../src/Views/$view_path.php"; ?>
             </div>
 

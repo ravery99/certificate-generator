@@ -8,7 +8,7 @@ function table(string $table_name, array $columns, array $data, callable|null $a
 
     <?php if (empty($data)): ?>
         <h3 colspan="<?= count($columns) + 1 + ($actions ? 1 : 0) ?>"
-            class="flex justify-center w-full text-gray-700 p-4 normal-case">
+            class="flex justify-center items-center w-full text-gray-700 p-4 normal-case">
             Tidak ada <?= $table_name ?> yang ditemukan.
         </h3>
     <?php else: ?>

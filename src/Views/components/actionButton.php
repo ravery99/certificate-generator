@@ -18,7 +18,7 @@ function actionButton(string $icon, string $link, string $color, string|null $te
         </span>
 
         <?php if (isset($text)): ?>
-            <p class="<?= $text_color ?> font-bold text-sm group-hover:text-white whitespace-nowrap">
+            <p class="<?= $text_color ?> font-bold text-sm group-hover:text-white whitespace-nowrap hidden sm:block">
                 <?= $text ?>
             </p>
         <?php endif ?>

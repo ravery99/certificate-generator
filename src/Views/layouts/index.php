@@ -22,11 +22,20 @@ require_once __DIR__ . "/../components/searchBar.php";
     ?>
 
     <?php if (isset($create_link)): ?>
-        <div class="w-fit">
+        <div class="w-full sm:w-fit">
             <?php createButton($table_name, $create_link) ?>
         </div>
     <?php endif ?>
 
+    <div>
+        <div class="hidden">
+            bg-red-100
+            bg-green-100
+        </div>
+        <?php
+        include __DIR__ . "/../partials/flash_message.php";
+        ?>
+    </div>
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6">
 
         <div class="flex flex-row items-center space-x-6">
