@@ -16,7 +16,7 @@ require_once __DIR__ . "/../components/actionButton.php";
     <!-- Card Welcome -->
     <div class="bg-gradient-to-r from-green-400 to-green-600 p-6 rounded-lg shadow-md mt-6 text-white">
         <h2 class="text-2xl font-bold">Selamat datang, <?= $_SESSION['user']['username'] ?>! 🎉</h2>
-        <p class="mt-2">Kelola data user, partisipan, dan sertifikat dengan mudah di dashboard ini.</p>
+        <p class="mt-2">Kelola data user, peserta, dan sertifikat dengan mudah di beranda ini.</p>
     </div>
 
     <!-- Card Statistik -->
@@ -41,7 +41,7 @@ require_once __DIR__ . "/../components/actionButton.php";
     <div class="flex flex-col overflow-hidden rounded-lg shadow-lg bg-white p-6 mt-10 space-y-6 h-full">
         <div class="flex flex-row items-center space-x-6">
             <div class="flex w-full">
-                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...', );
+                <?php searchBar('/dashboard/search', 'Cari peserta berdasarkan ID, nama, email, atau nomor HP...',);
                 ?>
             </div>
 

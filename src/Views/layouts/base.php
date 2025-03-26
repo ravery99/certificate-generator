@@ -14,7 +14,7 @@ use App\Config\Config; ?>
 
 </head>
 
-<body class="flex justify-center items-center h-screen md:p-6 overscroll-none bg-gray-100 ">
+<body class="flex justify-center items-center min-h-screen md:p-6 overscroll-none bg-gray-100 ">
 
     <?php require_once "../src/Views/$view_path.php"; ?>
 

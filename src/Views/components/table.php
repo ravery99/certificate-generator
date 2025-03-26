@@ -8,16 +8,16 @@ function table(string $table_name, array $columns, array $data, callable|null $a
     $totalPages = ceil($totalData / $perPage);
     $start = ($page - 1) * $perPage;
     $pagedData = array_slice($data, $start, $perPage);
-    ?>
+?>
 
-    <div class="w-full p-4">
+    <div class="w-full rounded-lg overflow-hidden">
         <?php if (empty($data)): ?>
-            <h3 class="flex justify-center w-full text-gray-600 p-4">
+            <h3 class="flex text-center justify-center items-center w-full text-gray-600 p-4">
                 Tidak ada <?= $table_name ?> yang ditemukan.
             </h3>
         <?php else: ?>
             <div class="overflow-x-auto">
-                <table class="w-full bg-white shadow-md rounded-lg overflow-hidden text-sm">
+                <table class="w-full bg-white shadow-md overflow-hidden text-sm">
                     <thead>
                         <tr class=" bg-green-400  text-white font-medium text-left">
                             <th class="px-4 py-3 text-center">No.</th>
@@ -29,7 +29,6 @@ function table(string $table_name, array $columns, array $data, callable|null $a
                             <?php endif; ?>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
                     <tbody class="divide-y divide-gray-100">
                         <?php $no = $start + 1; ?>
                         <?php foreach ($pagedData as $rows): ?>
@@ -74,5 +73,5 @@ function table(string $table_name, array $columns, array $data, callable|null $a
 
         <?php endif ?>
     </div>
-    <?php
+<?php
 }

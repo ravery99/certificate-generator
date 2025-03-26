@@ -1,5 +1,5 @@
 <?php if (isset($_SESSION['flash'])): ?>
-    <div class="p-2 flex flex-col gap-5 items-center w-full">
+    <div class="flex flex-col gap-5 items-center w-full">
         <div
             class="flex bg-white flex-row shadow-lg border border-gray-200 rounded-xl overflow-hidden  w-full transition-transform transform scale-100 hover:scale-105">
             <div
