@@ -4,9 +4,18 @@ use App\Config\Config;
 
 require_once __DIR__ . '/../partials/modal.php';
 
-?>
+if (isset($_SESSION['user'])) {
+    $height = 'h-full';
+} else {
+    $height = 'h-screen md:h-fit';
+}
 
-<div class="flex flex-col h-full md:flex-row max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+?>
+<div class="hidden">
+    md:h-fit
+</div>
+
+<div class="flex flex-col <?= $height ?> md:flex-row max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
     <div class="w-full md:w-1/2 bg-cover bg-center h-full md:h-auto hidden md:block"
         style="background-image: url('/certificate-generator/src/Views/participants/gambar3.jpg');background-size: cover;">
     </div>
